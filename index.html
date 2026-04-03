@@ -538,6 +538,55 @@
       line-height: 1.6;
     }
 
+    /* Quality & Service */
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .quality-card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .quality-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .quality-card--cert {
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+    }
+    .quality-card--cert .cert-desc { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-top: 1rem; line-height: 1.7; }
+    .quality-cert-badge {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .cert-icon { font-size: 3rem; }
+    .cert-text .cert-title { font-size: 1.2rem; font-weight: 700; }
+    .cert-text .cert-sub { font-size: 0.8rem; opacity: 0.8; margin-top: 0.25rem; }
+    .quality-card-img { aspect-ratio: 16/9; overflow: hidden; }
+    .quality-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .quality-card:hover .quality-card-img img { transform: scale(1.05); }
+    .quality-card-body { padding: 1.5rem; }
+    .quality-card-body h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .lab-equipment { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .eq-item { font-size: 0.8rem; color: var(--text-gray); padding: 0.25rem 0; }
+    .quality-card-icon { font-size: 2.5rem; padding: 1.5rem 1.5rem 0.5rem; }
+    .quality-card-body h3 { padding: 0 1.5rem; }
+    .promise-list { list-style: none; padding: 0.5rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .promise-list li { font-size: 0.85rem; color: var(--text-gray); line-height: 1.5; }
+    .mgmt-tags { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 0 0.25rem; }
+    .mgmt-tag { font-size: 0.78rem; font-weight: 600; color: var(--primary); background: rgba(26,58,92,0.08); padding: 4px 10px; border-radius: 100px; }
+    .mgmt-desc { font-size: 0.82rem; color: var(--text-gray); padding: 0.75rem 1.5rem 1.5rem; line-height: 1.7; }
+
     /* Locations */
     .locations-grid {
       display: grid;
@@ -900,6 +949,7 @@
       <li><a href="#home" data-lang="zh">首页</a><a href="#home" data-lang="en">Home</a></li>
       <li><a href="#about" data-lang="zh">关于我们</a><a href="#about" data-lang="en">About</a></li>
       <li><a href="#products" data-lang="zh">产品中心</a><a href="#products" data-lang="en">Products</a></li>
+      <li><a href="#quality" data-lang="zh">品控与服务</a><a href="#quality" data-lang="en">Quality</a></li>
       <li><a href="#locations" data-lang="zh">全球布局</a><a href="#locations" data-lang="en">Global Presence</a></li>
       <li><a href="#contact" data-lang="zh">联系我们</a><a href="#contact" data-lang="en">Contact</a></li>
       <li>
@@ -919,6 +969,7 @@
   <a href="#home" onclick="toggleMobileNav()" data-lang="zh">首页</a><a href="#home" onclick="toggleMobileNav()" data-lang="en">Home</a>
   <a href="#about" onclick="toggleMobileNav()" data-lang="zh">关于我们</a><a href="#about" onclick="toggleMobileNav()" data-lang="en">About</a>
   <a href="#products" onclick="toggleMobileNav()" data-lang="zh">产品中心</a><a href="#products" onclick="toggleMobileNav()" data-lang="en">Products</a>
+  <a href="#quality" onclick="toggleMobileNav()" data-lang="zh">品控与服务</a><a href="#quality" onclick="toggleMobileNav()" data-lang="en">Quality</a>
   <a href="#locations" onclick="toggleMobileNav()" data-lang="zh">全球布局</a><a href="#locations" onclick="toggleMobileNav()" data-lang="en">Global Presence</a>
   <a href="#contact" onclick="toggleMobileNav()" data-lang="zh">联系我们</a><a href="#contact" onclick="toggleMobileNav()" data-lang="en">Contact</a>
 </div>
@@ -1164,6 +1215,87 @@
   </div>
 </section>
 
+<!-- Quality & Service -->
+<section class="section section-light" id="quality">
+  <div class="section-inner">
+    <div class="section-label" data-lang="zh">品控与服务</div>
+    <div class="section-label" data-lang="en">Quality & Service</div>
+    <h2 class="section-title">
+      <span data-lang="zh">品质 <span>先行</span></span>
+      <span data-lang="en">Quality <span>First</span></span>
+    </h2>
+    <p class="section-desc" data-lang="zh">公司已通过 ISO9001:2015 质量体系认证，以严谨的管理和先进的检测设备，确保每一件产品都达到国际标准。</p>
+    <p class="section-desc" data-lang="en">Certified with ISO9001:2015, we ensure every product meets international standards through rigorous management and advanced testing equipment.</p>
+
+    <div class="quality-grid">
+      <div class="quality-card quality-card--cert">
+        <div class="quality-cert-badge">
+          <div class="cert-icon">🏅</div>
+          <div class="cert-text">
+            <div class="cert-title">ISO 9001:2015</div>
+            <div class="cert-sub" data-lang="zh">质量管理体系认证</div>
+            <div class="cert-sub" data-lang="en">Quality Management System</div>
+          </div>
+        </div>
+        <div class="cert-desc" data-lang="zh">科学有效地进行质量管理，持续提升产品品质，满足客户需求。</div>
+        <div class="cert-desc" data-lang="en">Scientific and effective quality management to continuously improve product quality and meet customer needs.</div>
+      </div>
+
+      <div class="quality-card quality-card--lab">
+        <div class="quality-card-img">
+          <img src="images/quality_control.jpg" alt="Quality Lab" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="quality-card-body">
+          <h3 data-lang="zh">精密检测实验室</h3>
+          <h3 data-lang="en">Precision Testing Laboratory</h3>
+          <div class="lab-equipment">
+            <div class="eq-item">📏 三次元坐标测量仪</div>
+            <div class="eq-item">🔬 NIKON金相显微镜</div>
+            <div class="eq-item">⚗️ 手持式VCA光谱仪</div>
+            <div class="eq-item">💎 电子/维氏硬度计</div>
+            <div class="eq-item">📽️ 投影仪</div>
+            <div class="eq-item">📏 涂镀层测厚仪</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quality-card quality-card--promise">
+        <div class="quality-card-icon">🛡️</div>
+        <h3 data-lang="zh">品质承诺</h3>
+        <h3 data-lang="en">Quality Commitment</h3>
+        <ul class="promise-list">
+          <li data-lang="zh">✅ 每一件产品均经过严格检测</li>
+          <li data-lang="en">✅ Every product undergoes strict inspection</li>
+          <li data-lang="zh">✅ 热处理工艺全部自行完成，质量可控</li>
+          <li data-lang="en">✅ All heat treatment done in-house for quality control</li>
+          <li data-lang="zh">✅ 规格、材质按需定制，批量生产品质如一</li>
+          <li data-lang="en">✅ Custom specs and materials, consistent batch quality</li>
+          <li data-lang="zh">✅ 24小时售后服务响应</li>
+          <li data-lang="en">✅ 24-hour after-sales service response</li>
+        </ul>
+      </div>
+
+      <div class="quality-card quality-card--mgmt">
+        <div class="quality-card-icon">📋</div>
+        <h3 data-lang="zh">管理体系</h3>
+        <h3 data-lang="en">Management System</h3>
+        <div class="mgmt-tags">
+          <span class="mgmt-tag">TCM</span>
+          <span class="mgmt-tag" data-lang="zh">全面成本管理</span>
+          <span class="mgmt-tag" data-lang="en">Total Cost Management</span>
+        </div>
+        <div class="mgmt-tags">
+          <span class="mgmt-tag">TPM</span>
+          <span class="mgmt-tag" data-lang="zh">全面生产管理</span>
+          <span class="mgmt-tag" data-lang="en">Total Production Management</span>
+        </div>
+        <div class="mgmt-desc" data-lang="zh">通过专项管理进行总成本控制，保证价格优势与利润空间，持续为客户提供高性价比产品。</div>
+        <div class="mgmt-desc" data-lang="en">Through specialized management for total cost control, ensuring competitive pricing and continuous high value products for customers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Locations -->
 <section class="section section-white" id="locations">
   <div class="section-inner">
@@ -1347,6 +1479,7 @@
           <li><a href="#home" data-lang="zh">首页</a><a href="#home" data-lang="en">Home</a></li>
           <li><a href="#about" data-lang="zh">关于我们</a><a href="#about" data-lang="en">About</a></li>
           <li><a href="#products" data-lang="zh">产品中心</a><a href="#products" data-lang="en">Products</a></li>
+          <li><a href="#quality" data-lang="zh">品控与服务</a><a href="#quality" data-lang="en">Quality</a></li>
           <li><a href="#contact" data-lang="zh">联系我们</a><a href="#contact" data-lang="en">Contact</a></li>
         </ul>
       </div>
@@ -1354,10 +1487,10 @@
         <h4 data-lang="zh">产品中心</h4>
         <h4 data-lang="en">Products</h4>
         <ul>
-          <li><a href="#products" data-lang="zh">精密切削刀具</a><a href="#products" data-lang="en">Cutting Tools</a></li>
-          <li><a href="#products" data-lang="zh">非标定制刀具</a><a href="#products" data-lang="en">Custom Tools</a></li>
-          <li><a href="#products" data-lang="zh">热处理加工</a><a href="#products" data-lang="en">Heat Treatment</a></li>
-          <li><a href="#products" data-lang="zh">涂层技术</a><a href="#products" data-lang="en">Coating Tech</a></li>
+          <li><a href="#products" data-lang="zh">木工业用刀</a><a href="#products" data-lang="en">Woodworking</a></li>
+          <li><a href="#products" data-lang="zh">食品业用刀</a><a href="#products" data-lang="en">Food Processing</a></li>
+          <li><a href="#products" data-lang="zh">服装业用刀</a><a href="#products" data-lang="en">Apparel Industry</a></li>
+          <li><a href="#products" data-lang="zh">其他产业用刀</a><a href="#products" data-lang="en">Other Industries</a></li>
         </ul>
       </div>
       <div class="footer-col">

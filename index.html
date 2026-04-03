@@ -728,9 +728,9 @@
       transform: translateY(0);
     }
 
-    /* Bilingual */
-    [data-lang="en"] { display: block; }
-    [data-lang="zh"] { display: none; }
+    /* Bilingual - default to Chinese */
+    [data-lang="en"] { display: none; }
+    [data-lang="zh"] { display: block; }
     body.lang-en [data-lang="en"] { display: block; }
     body.lang-en [data-lang="zh"] { display: none; }
     body.lang-en .section-desc { margin-left: 0; }

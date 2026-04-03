@@ -1,75 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teamstar Manufacturing | Precision Industrial Cutting Tools</title>
-  <meta name="description" content="Teamstar Manufacturing - Precision industrial cutting tools manufacturer. Part of Wei Qun Group with 40+ years of experience. CNC tools, custom tools, heat treatment and coating services.">
+  <meta name="description" content="Teamstar Manufacturing - Professional industrial cutting tools manufacturer. Part of Wei Qun Group with 40+ years of experience. Precision CNC cutting tools, custom tools, heat treatment and coating services.">
   
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #fafafa;
-      --bg-dark: #0c0c0c;
-      --text: #1a1a1a;
-      --text-muted: #6b7280;
-      --text-light: #9ca3af;
-      --accent: #c9a96e;
-      --accent-dark: #8b7340;
-      --accent-light: #e8d5b0;
-      --surface: #ffffff;
-      --border: #e5e7eb;
-      --border-dark: #2a2a2a;
+      --primary: #1a3a5c;
+      --primary-dark: #0f2340;
+      --accent: #c8a45a;
+      --accent-light: #e0c989;
+      --bg-light: #f8f9fa;
+      --bg-white: #ffffff;
+      --text-dark: #1a1a2e;
+      --text-gray: #5a6474;
+      --border: #e2e8f0;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', 'Noto Sans SC', sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      color: var(--text-dark);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      background: var(--bg-white);
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    /* Navigation */
-    .nav {
+    /* Navbar */
+    .navbar {
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
       z-index: 1000;
-      padding: 0 3rem;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav.scrolled {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 var(--border);
+      transition: all 0.3s ease;
     }
 
     .nav-inner {
       max-width: 1280px;
-      width: 100%;
       margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 72px;
     }
 
     .logo {
@@ -80,23 +64,23 @@
     }
 
     .logo-mark {
-      width: 40px;
-      height: 40px;
-      background: var(--bg-dark);
-      border-radius: 8px;
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
+      color: white;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       letter-spacing: -0.5px;
     }
 
     .logo-text {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
       line-height: 1.2;
     }
 
@@ -104,8 +88,8 @@
       display: block;
       font-size: 0.7rem;
       font-weight: 400;
-      color: var(--text-muted);
-      font-family: 'Inter', sans-serif;
+      color: var(--text-gray);
+      letter-spacing: 0.5px;
     }
 
     .nav-links {
@@ -117,10 +101,9 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--text);
-      font-size: 0.88rem;
+      color: var(--text-dark);
+      font-size: 0.9rem;
       font-weight: 500;
-      letter-spacing: 0.01em;
       transition: color 0.2s;
       position: relative;
     }
@@ -131,144 +114,144 @@
       bottom: -4px;
       left: 0;
       width: 0;
-      height: 1px;
+      height: 2px;
       background: var(--accent);
       transition: width 0.3s ease;
     }
 
-    .nav-links a:hover { color: var(--accent-dark); }
+    .nav-links a:hover { color: var(--primary); }
     .nav-links a:hover::after { width: 100%; }
 
     .lang-toggle {
       display: flex;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 3px;
+      gap: 0.5rem;
+      background: var(--bg-light);
+      padding: 4px;
       border-radius: 8px;
     }
 
     .lang-btn {
-      padding: 5px 14px;
+      padding: 6px 14px;
       border: none;
       background: transparent;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      color: var(--text-muted);
+      color: var(--text-gray);
       transition: all 0.2s;
     }
 
     .lang-btn.active {
-      background: var(--bg-dark);
+      background: var(--primary);
       color: white;
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .mobile-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--primary-dark);
+      border-radius: 2px;
+      transition: all 0.3s;
     }
 
     /* Hero */
     .hero {
       min-height: 100vh;
-      background: var(--bg-dark);
+      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, #2a5a8a 100%);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
+      padding-top: 72px;
     }
 
-    .hero-bg {
+    .hero-bg-img {
       position: absolute;
-      inset: 0;
-      opacity: 0.4;
-    }
-
-    .hero-bg img {
-      width: 100%;
+      top: 0; right: 0;
+      width: 55%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(100%);
+      opacity: 0.15;
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
     }
 
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(12,12,12,0.95) 0%,
-        rgba(12,12,12,0.7) 50%,
-        rgba(12,12,12,0.4) 100%
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
+    .hero-inner {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 8rem 3rem 5rem;
-      width: 100%;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-eyebrow {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--accent);
+      background: rgba(200,164,90,0.15);
+      border: 1px solid rgba(200,164,90,0.3);
+      color: var(--accent-light);
+      padding: 6px 16px;
+      border-radius: 100px;
       font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.8s ease forwards;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
     }
 
-    .hero-eyebrow::before {
+    .hero-badge::before {
       content: '';
-      width: 40px;
-      height: 1px;
+      width: 6px;
+      height: 6px;
       background: var(--accent);
+      border-radius: 50%;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-size: 3.5rem;
+      font-weight: 700;
       color: white;
-      max-width: 700px;
+      line-height: 1.15;
       margin-bottom: 1.5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.8s ease 0.2s forwards;
+      letter-spacing: -1px;
     }
 
     .hero h1 em {
-      font-style: italic;
+      font-style: normal;
       color: var(--accent);
     }
 
     .hero-desc {
       font-size: 1.1rem;
-      color: rgba(255,255,255,0.65);
-      max-width: 520px;
-      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
       margin-bottom: 2.5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.8s ease 0.4s forwards;
+      max-width: 500px;
+      line-height: 1.8;
     }
 
     .hero-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.8s ease 0.6s forwards;
     }
 
     .btn {
       padding: 14px 32px;
-      border-radius: 6px;
-      font-size: 0.88rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -277,24 +260,23 @@
       align-items: center;
       gap: 0.5rem;
       border: none;
-      font-family: 'Inter', sans-serif;
     }
 
     .btn-primary {
       background: var(--accent);
-      color: var(--bg-dark);
+      color: var(--primary-dark);
     }
 
     .btn-primary:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(201,169,110,0.3);
+      box-shadow: 0 8px 24px rgba(200,164,90,0.3);
     }
 
     .btn-outline {
       background: transparent;
       color: white;
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1.5px solid rgba(255,255,255,0.3);
     }
 
     .btn-outline:hover {
@@ -302,122 +284,157 @@
       background: rgba(255,255,255,0.1);
     }
 
-    /* Stats bar */
-    .stats {
-      background: var(--accent);
-      padding: 3rem 3rem;
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .stats-inner {
-      max-width: 1280px;
-      margin: 0 auto;
+    .hero-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 3rem;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .hero-card-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--accent), #e8d5a3);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .hero-stat-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
 
-    .stat {
-      text-align: center;
+    .hero-stat {
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
+    .hero-stat-num {
+      font-size: 2rem;
       font-weight: 700;
-      color: var(--bg-dark);
+      color: var(--accent);
       line-height: 1;
       margin-bottom: 0.5rem;
     }
 
-    .stat-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: rgba(12,12,12,0.6);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .hero-stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
     }
 
     /* Sections */
     .section {
-      padding: 6rem 3rem;
+      padding: 6rem 2rem;
     }
 
-    .section-sm { padding: 4rem 3rem; }
-    .section-dark { background: var(--bg-dark); color: white; }
-    .section-light { background: var(--bg); }
-    .section-white { background: var(--surface); }
+    .section-light { background: var(--bg-light); }
+    .section-white { background: var(--bg-white); }
 
-    .section-inner { max-width: 1280px; margin: 0 auto; }
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
 
     .section-label {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
       margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
     }
-
-    .section-title span { color: var(--accent); }
 
     .section-desc {
-      font-size: 1rem;
-      color: var(--text-muted);
+      font-size: 1.05rem;
+      color: var(--text-gray);
       max-width: 600px;
+      margin-bottom: 3rem;
       line-height: 1.8;
     }
-
-    .section-desc.centered { margin: 0 auto; text-align: center; }
 
     /* About */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 4rem;
       align-items: center;
-      margin-top: 3rem;
     }
 
     .about-img {
-      border-radius: 16px;
-      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 24px;
       aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      overflow: hidden;
     }
 
-    .about-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
+    .about-img-placeholder {
+      text-align: center;
+      color: rgba(255,255,255,0.7);
     }
 
-    .about-img:hover img { transform: scale(1.05); }
+    .about-img-placeholder .icon { font-size: 4rem; margin-bottom: 1rem; display: block; }
+    .about-img-placeholder .txt { font-size: 0.9rem; }
+
+    .about-img-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(200,164,90,0.2));
+      padding: 2rem;
+    }
 
     .about-badge {
-      position: absolute;
-      bottom: 1.5rem;
-      right: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: var(--accent);
-      color: var(--bg-dark);
-      padding: 0.75rem 1.25rem;
-      border-radius: 8px;
-      font-size: 0.82rem;
-      font-weight: 700;
+      color: var(--primary-dark);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
 
     .about-text h3 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
+      font-weight: 600;
       margin-bottom: 1.25rem;
+      color: var(--primary-dark);
     }
 
     .about-text p {
-      color: var(--text-muted);
+      color: var(--text-gray);
       margin-bottom: 1rem;
       line-height: 1.8;
     }
@@ -434,26 +451,26 @@
       align-items: center;
       gap: 0.75rem;
       padding: 1rem;
-      background: var(--bg);
-      border-radius: 10px;
-      border: 1px solid var(--border);
+      background: var(--bg-light);
+      border-radius: 12px;
     }
 
     .about-feature-icon {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      background: rgba(200,164,90,0.15);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .about-feature span {
       font-size: 0.85rem;
       font-weight: 500;
+      color: var(--text-dark);
     }
 
     /* Products */
@@ -461,60 +478,63 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 3rem;
     }
 
     .product-card {
-      background: var(--surface);
-      border-radius: 16px;
+      background: white;
+      border-radius: 20px;
       overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
       border: 1px solid var(--border);
-      transition: all 0.4s ease;
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-      border-color: transparent;
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
 
     .product-img {
-      aspect-ratio: 16/10;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e8edf2, #d5dfe8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       overflow: hidden;
-      background: var(--bg);
     }
 
-    .product-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
+    .product-img .placeholder {
+      text-align: center;
+      color: #9ba8b8;
     }
 
-    .product-card:hover .product-img img { transform: scale(1.08); }
+    .product-img .placeholder .icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+    .product-img .placeholder .txt { font-size: 0.8rem; }
 
     .product-body {
       padding: 1.5rem;
     }
 
     .product-tag {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
 
     .product-name {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 600;
+      color: var(--primary-dark);
       margin-bottom: 0.75rem;
     }
 
     .product-desc {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-gray);
       line-height: 1.6;
     }
 
@@ -523,56 +543,59 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 3rem;
     }
 
     .location-card {
+      background: white;
+      border-radius: 20px;
       padding: 2rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
       transition: all 0.3s ease;
     }
 
     .location-card:hover {
-      background: rgba(255,255,255,0.1);
       border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
     }
 
     .location-flag {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
     .location-name {
       font-size: 1rem;
       font-weight: 600;
-      color: white;
-      margin-bottom: 0.25rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
     }
 
     .location-en {
-      font-size: 0.78rem;
-      color: var(--accent);
+      font-size: 0.8rem;
+      color: var(--text-gray);
       margin-bottom: 0.75rem;
-      font-weight: 500;
     }
 
     .location-desc {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-gray);
       line-height: 1.6;
     }
 
     /* Contact */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 4rem;
-      margin-top: 3rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
     }
 
-    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
 
     .contact-item {
       display: flex;
@@ -583,48 +606,46 @@
     .contact-icon {
       width: 48px;
       height: 48px;
-      background: var(--accent);
-      border-radius: 12px;
+      background: rgba(200,164,90,0.12);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       flex-shrink: 0;
     }
 
     .contact-label {
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-gray);
       margin-bottom: 0.25rem;
     }
 
     .contact-value {
       font-size: 0.95rem;
       font-weight: 500;
+      color: var(--text-dark);
     }
 
     .contact-form {
-      background: var(--surface);
-      border-radius: 20px;
+      background: var(--bg-light);
+      border-radius: 24px;
       padding: 2.5rem;
       border: 1px solid var(--border);
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .form-group {
+      margin-bottom: 1.25rem;
     }
-
-    .form-group { margin-bottom: 1.25rem; }
 
     .form-label {
       display: block;
       font-size: 0.82rem;
       font-weight: 600;
+      color: var(--text-dark);
       margin-bottom: 0.5rem;
     }
 
@@ -635,18 +656,30 @@
       border-radius: 10px;
       font-size: 0.9rem;
       font-family: inherit;
-      background: var(--bg);
+      background: white;
       transition: border-color 0.2s;
       outline: none;
     }
 
-    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
-    .form-textarea { height: 120px; resize: vertical; }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
 
     .form-btn {
       width: 100%;
       padding: 14px;
-      background: var(--bg-dark);
+      background: var(--primary);
       color: white;
       border: none;
       border-radius: 10px;
@@ -657,16 +690,22 @@
       font-family: inherit;
     }
 
-    .form-btn:hover { background: var(--accent); color: var(--bg-dark); }
+    .form-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
 
     /* Footer */
     .footer {
-      background: var(--bg-dark);
+      background: var(--primary-dark);
       color: white;
-      padding: 4rem 3rem 2rem;
+      padding: 4rem 2rem 2rem;
     }
 
-    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
 
     .footer-top {
       display: grid;
@@ -679,24 +718,29 @@
 
     .footer-brand p {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.6);
       margin-top: 1rem;
       line-height: 1.7;
     }
 
     .footer-col h4 {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1.25rem;
     }
 
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
 
     .footer-col a {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.65);
       text-decoration: none;
       font-size: 0.85rem;
       transition: color 0.2s;
@@ -708,42 +752,25 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: rgba(255,255,255,0.4);
     }
 
-    /* Animations */
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Bilingual - default to Chinese */
+    /* Bilingual */
     [data-lang="en"] { display: none; }
     [data-lang="zh"] { display: block; }
+
     body.lang-en [data-lang="en"] { display: block; }
     body.lang-en [data-lang="zh"] { display: none; }
-    body.lang-en .section-desc { margin-left: 0; }
 
-    /* Mobile nav */
-    .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .mobile-toggle span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    body.lang-en .section-desc { margin-left: 0; }
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .hero-content { padding: 7rem 2rem 4rem; }
-      .section { padding: 4rem 2rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-visual { order: -1; }
+      .hero h1 { font-size: 2.8rem; }
+      .about-grid { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: repeat(2, 1fr); }
       .locations-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: 1fr; }
@@ -753,37 +780,108 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-toggle { display: flex; }
-      .hero h1 { font-size: 2.5rem; }
-      .stats { padding: 2rem 1.5rem; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .section { padding: 3rem 1.5rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-card { padding: 2rem; }
+      .section { padding: 4rem 1.5rem; }
+      .section-title { font-size: 2rem; }
       .products-grid { grid-template-columns: 1fr; }
       .locations-grid { grid-template-columns: 1fr; }
       .about-features { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem;
+      z-index: 999;
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-nav.active { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 0.75rem 0;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--primary-dark);
+      padding: 3rem 2rem;
+    }
+
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="nav" id="nav">
+<!-- Navbar -->
+<nav class="navbar">
   <div class="nav-inner">
     <a href="#" class="logo">
-      <img src="images/company_sign.jpg" alt="Teamstar" style="width:40px;height:40px;border-radius:8px;object-fit:cover;">
+      <img src="images/company_sign.jpg" alt="Teamstar" style="width:48px;height:48px;border-radius:10px;object-fit:cover;flex-shrink:0;">
       <div class="logo-text">
-        Teamstar
+        Teamstar Mfg
         <span data-lang="zh">漳州群新工业</span>
-        <span data-lang="en">Precision Tools</span>
+        <span data-lang="en">Industrial Tools</span>
       </div>
     </a>
     <ul class="nav-links">
       <li><a href="#home" data-lang="zh">首页</a><a href="#home" data-lang="en">Home</a></li>
       <li><a href="#about" data-lang="zh">关于我们</a><a href="#about" data-lang="en">About</a></li>
       <li><a href="#products" data-lang="zh">产品中心</a><a href="#products" data-lang="en">Products</a></li>
-      <li><a href="#locations" data-lang="zh">全球布局</a><a href="#locations" data-lang="en">Global</a></li>
+      <li><a href="#locations" data-lang="zh">全球布局</a><a href="#locations" data-lang="en">Global Presence</a></li>
       <li><a href="#contact" data-lang="zh">联系我们</a><a href="#contact" data-lang="en">Contact</a></li>
       <li>
         <div class="lang-toggle">
@@ -792,58 +890,91 @@
         </div>
       </li>
     </ul>
-    <div class="mobile-toggle">
+    <div class="mobile-toggle" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
 
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home" onclick="toggleMobileNav()" data-lang="zh">首页</a><a href="#home" onclick="toggleMobileNav()" data-lang="en">Home</a>
+  <a href="#about" onclick="toggleMobileNav()" data-lang="zh">关于我们</a><a href="#about" onclick="toggleMobileNav()" data-lang="en">About</a>
+  <a href="#products" onclick="toggleMobileNav()" data-lang="zh">产品中心</a><a href="#products" onclick="toggleMobileNav()" data-lang="en">Products</a>
+  <a href="#locations" onclick="toggleMobileNav()" data-lang="zh">全球布局</a><a href="#locations" onclick="toggleMobileNav()" data-lang="en">Global Presence</a>
+  <a href="#contact" onclick="toggleMobileNav()" data-lang="zh">联系我们</a><a href="#contact" onclick="toggleMobileNav()" data-lang="en">Contact</a>
+</div>
+
 <!-- Hero -->
 <section class="hero" id="home">
-  <div class="hero-bg">
-    <img src="images/factory.jpg" alt="">
-  </div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span data-lang="zh">40+ 年精密制造经验</span>
-      <span data-lang="en">40+ Years of Precision Manufacturing</span>
+  <img src="images/factory.jpg" alt="" class="hero-bg-img" style="object-fit:cover;width:55%;height:100%;position:absolute;top:0;right:0;opacity:0.2;mask-image:linear-gradient(to left, rgba(0,0,0,0.7), transparent);-webkit-mask-image:linear-gradient(to left, rgba(0,0,0,0.7), transparent);">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge" data-lang="zh">40+ 年行业经验 · 工业刀具专家</div>
+      <div class="hero-badge" data-lang="en">40+ Years of Industry Excellence</div>
+
+      <h1 data-lang="zh">精密工业刀具<br><em>解决方案专家</em></h1>
+      <h1 data-lang="en">Precision Industrial<br>Cutting Tool <em>Solutions</em></h1>
+
+      <p class="hero-desc" data-lang="zh">伟群制刀工业旗下成员，专业从事产业工业刀具制造，集研发、设计、制造于一体，持续提升品质，满足客户需求。</p>
+      <p class="hero-desc" data-lang="en">Part of the Wei Qun Group, specializing in precision industrial cutting tools with integrated R&D, design, and manufacturing — committed to continuous quality improvement and customer satisfaction.</p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary" data-lang="zh">立即咨询 →</a>
+        <a href="#contact" class="btn btn-primary" data-lang="en">Get a Quote →</a>
+        <a href="#products" class="btn btn-outline" data-lang="zh">了解产品</a>
+        <a href="#products" class="btn btn-outline" data-lang="en">View Products</a>
+      </div>
     </div>
-    <h1>
-      <span data-lang="zh">精密工业刀具<br><em>解决方案专家</em></span>
-      <span data-lang="en">Precision Industrial<br>Cutting Tools <em>Expert</em></span>
-    </h1>
-    <p class="hero-desc">
-      <span data-lang="zh">伟群制刀工业旗下成员，专业从事产业工业刀具制造，集研发、设计、制造于一体，持续提升品质，满足客户需求。</span>
-      <span data-lang="en">Part of Wei Qun Group, specializing in precision industrial cutting tools with integrated R&D, design and manufacturing — committed to continuous quality improvement.</span>
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary" data-lang="zh">立即咨询 →</a>
-      <a href="#contact" class="btn btn-primary" data-lang="en">Get a Quote →</a>
-      <a href="#products" class="btn btn-outline" data-lang="zh">了解产品</a>
-      <a href="#products" class="btn btn-outline" data-lang="en">View Products</a>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon">🔪</div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <div class="hero-stat-num">40+</div>
+            <div class="hero-stat-label" data-lang="zh">年行业经验</div>
+            <div class="hero-stat-label" data-lang="en">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">6</div>
+            <div class="hero-stat-label" data-lang="zh">全球据点</div>
+            <div class="hero-stat-label" data-lang="en">Global Locations</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">30+</div>
+            <div class="hero-stat-label" data-lang="zh">年中国经验</div>
+            <div class="hero-stat-label" data-lang="en">Years in China</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label" data-lang="zh">品质承诺</div>
+            <div class="hero-stat-label" data-lang="en">Quality Assured</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Stats -->
-<div class="stats">
+<div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat">
+    <div class="stat-item">
       <div class="stat-num">40+</div>
-      <div class="stat-label" data-lang="zh">年台湾经验</div>
+      <div class="stat-label" data-lang="zh">年台湾行业经验</div>
       <div class="stat-label" data-lang="en">Years in Taiwan</div>
     </div>
-    <div class="stat">
+    <div class="stat-item">
       <div class="stat-num">1990</div>
-      <div class="stat-label" data-lang="zh">深圳创立</div>
+      <div class="stat-label" data-lang="zh">深圳公司成立</div>
       <div class="stat-label" data-lang="en">Shenzhen Founded</div>
     </div>
-    <div class="stat">
+    <div class="stat-item">
       <div class="stat-num">6</div>
-      <div class="stat-label" data-lang="zh">全球基地</div>
-      <div class="stat-label" data-lang="en">Global Bases</div>
+      <div class="stat-label" data-lang="zh">全球生产基地</div>
+      <div class="stat-label" data-lang="en">Production Bases</div>
     </div>
-    <div class="stat">
+    <div class="stat-item">
       <div class="stat-num">24/7</div>
       <div class="stat-label" data-lang="zh">技术支持</div>
       <div class="stat-label" data-lang="en">Tech Support</div>
@@ -854,29 +985,29 @@
 <!-- About -->
 <section class="section section-white" id="about">
   <div class="section-inner">
-    <div class="section-label" data-lang="zh">关于我们</div>
-    <div class="section-label" data-lang="en">About Us</div>
     <div class="about-grid">
       <div class="about-img">
-        <img src="images/building_exterior.jpg" alt="Teamstar Factory">
-        <div class="about-badge">⭐ <span data-lang="zh">持续提升品质</span><span data-lang="en">Quality First</span></div>
+        <img src="images/factory.jpg" alt="Teamstar Factory" style="width:100%;height:100%;object-fit:cover;border-radius:24px;">
+        <div class="about-img-overlay">
+          <div class="about-badge">⭐ <span data-lang="zh">持续提升品质，满足客户需求</span><span data-lang="en">Continuous Quality Improvement</span></div>
+        </div>
       </div>
+
       <div class="about-text">
-        <h2 class="section-title">
-          <span data-lang="zh">伟群制刀工业</span>
-          <span data-lang="en">Wei Qun Group</span>
-        </h2>
-        <h3 data-lang="zh">40多年历史沉淀，匠心制造</h3>
-        <h3 data-lang="en">40+ Years of Craftsmanship Heritage</h3>
-        <p data-lang="zh">伟群制刀工业股份有限公司在台湾已有40多年的历史，是专业从事生产各项产业之工业刀具的公司。1990年在深圳创立伟群精密机械制品有限公司，在中国也有30多年的生产经验。</p>
-        <p data-lang="en">Wei Qun Cutting Tools has over 40 years of history in Taiwan as a professional manufacturer of industrial cutting tools. Established Shenzhen Wei Qun in 1990 with over 30 years of production experience in China.</p>
-        <p data-lang="zh">公司集研发、自主设计、制造于一体，致力于成为国内外客户最信赖的工业刀具伙伴。</p>
-        <p data-lang="en">Integrating R&D, design, and manufacturing to be the most trusted industrial cutting tool partner for customers worldwide.</p>
+        <div class="section-label" data-lang="zh">关于我们</div>
+        <div class="section-label" data-lang="en">About Us</div>
+        <h2 class="section-title" data-lang="zh">伟群制刀工业</h2>
+        <h2 class="section-title" data-lang="en">Wei Qun Cutting Tools Group</h2>
+        <p data-lang="zh">伟群制刀工业股份有限公司在台湾已有40多年的历史，是专业从事生产各项产业之工业刀具的公司。1990年在深圳创立伟群精密机械制品有限公司，在中国也有30多年的生产经验。公司集研发、自主设计、制造于一体，能够满足新产品的设计、试做及产品验证。</p>
+        <p data-lang="en">Wei Qun Cutting Tools Industrial Co., Ltd. has over 40 years of history in Taiwan as a professional manufacturer of industrial cutting tools. Established Shenzhen Wei Qun Precision Machinery in 1990, with over 30 years of production experience in China. Integrating R&D, design, and manufacturing to meet new product development, prototyping, and validation needs.</p>
+
+        <p data-lang="zh">公司一直秉持着"持续提升品质，满足客户需求"的理念来永续经营，致力于成为国内外客户最信赖的工业刀具伙伴。</p>
+        <p data-lang="en">The company upholds the philosophy of "continuous quality improvement and meeting customer needs" for sustainable operations, committed to being the most trusted industrial cutting tool partner for customers worldwide.</p>
 
         <div class="about-features">
           <div class="about-feature">
             <div class="about-feature-icon">🎯</div>
-            <span data-lang="zh">精准加工</span><span data-lang="en">Precision</span>
+            <span data-lang="zh">精准加工</span><span data-lang="en">Precision Machining</span>
           </div>
           <div class="about-feature">
             <div class="about-feature-icon">🔬</div>
@@ -901,77 +1032,91 @@
   <div class="section-inner">
     <div class="section-label" data-lang="zh">产品中心</div>
     <div class="section-label" data-lang="en">Products</div>
-    <h2 class="section-title">
-      <span data-lang="zh">专业工业刀具 <span>解决方案</span></span>
-      <span data-lang="en">Professional Cutting <span>Solutions</span></span>
-    </h2>
+    <h2 class="section-title" data-lang="zh">专业工业刀具产品</h2>
+    <h2 class="section-title" data-lang="en">Professional Industrial Cutting Tools</h2>
     <p class="section-desc" data-lang="zh">广泛应用于机械加工、电子、汽车、航天等产业，满足各类精密加工需求。</p>
-    <p class="section-desc" data-lang="en">Widely used in machining, electronics, automotive, aerospace and other industries.</p>
+    <p class="section-desc" data-lang="en">Widely used in machining, electronics, automotive, aerospace and other industries, meeting diverse precision processing requirements.</p>
 
     <div class="products-grid">
-      <div class="product-card reveal">
-        <div class="product-img"><img src="images/page24_Image543.png" alt="Cutting Tools"></div>
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/page24_Image543.png" alt="Cutting Tools" style="width:100%;height:100%;object-fit:cover;">
+        </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">工业刀具</div>
           <div class="product-tag" data-lang="en">Cutting Tools</div>
           <h3 class="product-name">精密切削刀具</h3>
-          <p class="product-desc" data-lang="zh">高精度、高耐磨性，适用于各类金属材料的切削加工。</p>
-          <p class="product-desc" data-lang="en">High precision and wear resistance for cutting various metal materials.</p>
+          <p class="product-desc" data-lang="zh">高精度、高耐磨性，适用于各类金属材料的切削加工，满足精密制造需求。</p>
+          <p class="product-desc" data-lang="en">High precision and wear resistance for cutting various metal materials, meeting precision manufacturing needs.</p>
         </div>
       </div>
 
-      <div class="product-card reveal">
-        <div class="product-img"><img src="images/page24_Image548.png" alt="Custom Tools"></div>
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/page24_Image548.png" alt="Custom Tools" style="width:100%;height:100%;object-fit:cover;">
+        </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">定制刀具</div>
           <div class="product-tag" data-lang="en">Custom Tools</div>
           <h3 class="product-name">非标定制刀具</h3>
-          <p class="product-desc" data-lang="zh">根据客户图纸或要求定制，专为特殊加工需求设计。</p>
-          <p class="product-desc" data-lang="en">Custom designed per customer drawings for special processing needs.</p>
+          <p class="product-desc" data-lang="zh">根据客户图纸或要求定制，专为特殊加工需求设计，涵盖非标刀具、成型刀具等。</p>
+          <p class="product-desc" data-lang="en">Custom designed per customer drawings, covering special processing needs including non-standard and forming tools.</p>
         </div>
       </div>
 
-      <div class="product-card reveal">
-        <div class="product-img"><img src="images/laser_cutting.jpg" alt="Laser Cutting"></div>
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/laser_cutting.jpg" alt="Laser Cutting" style="width:100%;height:100%;object-fit:cover;">
+        </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">激光切割</div>
           <div class="product-tag" data-lang="en">Laser Cutting</div>
           <h3 class="product-name">激光切割加工</h3>
-          <p class="product-desc" data-lang="zh">高精度激光切割设备，适用于金属板材的精密切割。</p>
-          <p class="product-desc" data-lang="en">High-precision laser cutting for metal sheet processing.</p>
+          <p class="product-desc" data-lang="zh">高精度激光切割设备，适用于金属板材的精密切割，满足各类定制化加工需求。</p>
+          <p class="product-desc" data-lang="en">High-precision laser cutting equipment for metal sheet processing, meeting diverse custom manufacturing needs.</p>
         </div>
       </div>
 
-      <div class="product-card reveal">
-        <div class="product-img"><img src="images/cnc_machines.jpg" alt="CNC Tools"></div>
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/page29_Image565.png" alt="Coating Technology" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <div class="product-tag" data-lang="zh">涂层技术</div>
+          <div class="product-tag" data-lang="en">Coating Tech</div>
+          <h3 class="product-name">PVD/CVD 涂层</h3>
+          <p class="product-desc" data-lang="zh">先进的表面涂层技术，显著提升刀具的耐磨性、抗腐蚀性和使用寿命。</p>
+          <p class="product-desc" data-lang="en">Advanced surface coating technology significantly improves wear resistance, corrosion resistance and tool life.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/page23_Image527.png" alt="CNC Tools" style="width:100%;height:100%;object-fit:cover;">
+        </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">数控刀具</div>
           <div class="product-tag" data-lang="en">CNC Tools</div>
           <h3 class="product-name">CNC 数控刀具</h3>
-          <p class="product-desc" data-lang="zh">适用于数控机床，高速切削，精度高，寿命长。</p>
-          <p class="product-desc" data-lang="en">Suitable for CNC machines with high-speed cutting and long service life.</p>
+          <p class="product-desc" data-lang="zh">适用于数控机床，高速切削，稳定性好，精度高，寿命长。</p>
+          <p class="product-desc" data-lang="en">Suitable for CNC machines with high-speed cutting, excellent stability, high precision and long service life.</p>
         </div>
       </div>
 
-      <div class="product-card reveal">
-        <div class="product-img"><img src="images/page29_Image565.png" alt="Coating"></div>
-        <div class="product-body">
-          <div class="product-tag" data-lang="zh">涂层技术</div>
-          <div class="product-tag" data-lang="en">Coating</div>
-          <h3 class="product-name">PVD/CVD 涂层</h3>
-          <p class="product-desc" data-lang="zh">先进的表面涂层技术，提升耐磨性和使用寿命。</p>
-          <p class="product-desc" data-lang="en">Advanced coating technology improves wear resistance and tool life.</p>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="placeholder">
+            <span class="icon">🧪</span>
+            <span class="txt" data-lang="zh">产品图片</span>
+            <span class="txt" data-lang="en">Product Image</span>
+          </div>
         </div>
-      </div>
-
-      <div class="product-card reveal">
-        <div class="product-img"><img src="images/quality_control.jpg" alt="Heat Treatment"></div>
         <div class="product-body">
-          <div class="product-tag" data-lang="zh">热处理</div>
-          <div class="product-tag" data-lang="en">Heat Treatment</div>
-          <h3 class="product-name">热处理加工</h3>
-          <p class="product-desc" data-lang="zh">专业热处理工艺，提升刀具硬度与耐用度。</p>
-          <p class="product-desc" data-lang="en">Professional heat treatment enhances hardness and durability.</p>
+          <div class="product-tag" data-lang="zh">技术支持</div>
+          <div class="product-tag" data-lang="en">Tech Support</div>
+          <h3 class="product-name">工艺咨询 & 选型</h3>
+          <p class="product-desc" data-lang="zh">专业工程师团队提供刀具选型咨询、加工工艺优化，助您降本增效。</p>
+          <p class="product-desc" data-lang="en">Professional engineering team provides tool selection consultation and process optimization to reduce costs and improve efficiency.</p>
         </div>
       </div>
     </div>
@@ -979,84 +1124,82 @@
 </section>
 
 <!-- Locations -->
-<section class="section section-dark" id="locations">
+<section class="section section-white" id="locations">
   <div class="section-inner">
     <div class="section-label" data-lang="zh">全球布局</div>
     <div class="section-label" data-lang="en">Global Presence</div>
-    <h2 class="section-title">
-      <span data-lang="zh">六大生产 <span>基地</span></span>
-      <span data-lang="en">Six Production <span>Bases</span></span>
-    </h2>
+    <h2 class="section-title" data-lang="zh">六大生产基地</h2>
+    <h2 class="section-title" data-lang="en">Six Production Bases Worldwide</h2>
     <p class="section-desc" data-lang="zh">从台湾出发，布局全球，为客户提供本地化的高品质产品与服务。</p>
-    <p class="section-desc" data-lang="en">Starting from Taiwan with a global layout to provide localized high-quality products and services.</p>
+    <p class="section-desc" data-lang="en">Starting from Taiwan, with a global layout to provide localized high-quality products and services to customers worldwide.</p>
 
     <div class="locations-grid">
-      <div class="location-card reveal">
+      <div class="location-card">
         <div class="location-flag">🇹🇼</div>
         <div class="location-name" data-lang="zh">台北伟群</div>
         <div class="location-name" data-lang="en">Taipei Wei Qun</div>
         <div class="location-en">Taiwan · Headquarters</div>
         <p class="location-desc" data-lang="zh">伟群制刀工业股份有限公司 — 台湾总部，负责集团战略与研发。</p>
-        <p class="location-desc" data-lang="en">Group headquarters overseeing strategy and R&D.</p>
+        <p class="location-desc" data-lang="en">Group headquarters overseeing strategy and R&D operations.</p>
       </div>
 
-      <div class="location-card reveal">
+      <div class="location-card">
         <div class="location-flag">🇨🇳</div>
         <div class="location-name" data-lang="zh">深圳伟群</div>
         <div class="location-name" data-lang="en">Shenzhen Wei Qun</div>
-        <div class="location-en">China · Est. 1990</div>
-        <p class="location-desc" data-lang="zh">深圳伟群精密机械制品有限公司 — 中国区主要生产基地。</p>
-        <p class="location-desc" data-lang="en">Primary China production base with 30+ years experience.</p>
+        <div class="location-en">China · Established 1990</div>
+        <p class="location-desc" data-lang="zh">深圳伟群精密机械制品有限公司 — 中国区主要生产基地，30多年行业经验。</p>
+        <p class="location-desc" data-lang="en">Primary China production base with 30+ years of industry experience.</p>
       </div>
 
-      <div class="location-card reveal">
+      <div class="location-card">
         <div class="location-flag">🇨🇳</div>
         <div class="location-name" data-lang="zh">漳州群新</div>
         <div class="location-name" data-lang="en">Zhangzhou Qunxin</div>
         <div class="location-en">China · Fujian</div>
-        <p class="location-desc" data-lang="zh">漳州群新工业有限公司 — 集团在大陆的重要制造基地。</p>
-        <p class="location-desc" data-lang="en">Key manufacturing base in mainland China.</p>
+        <p class="location-desc" data-lang="zh">漳州群新工业有限公司 — 集团在大陆的重要制造基地，专注工业刀具生产。</p>
+        <p class="location-desc" data-lang="en">Key manufacturing base in mainland China, specializing in industrial cutting tools.</p>
       </div>
 
-      <div class="location-card reveal">
+      <div class="location-card">
         <div class="location-flag">🇨🇳</div>
         <div class="location-name" data-lang="zh">昆山伟群</div>
         <div class="location-name" data-lang="en">Kunshan Wei Qun</div>
         <div class="location-en">China · Jiangsu</div>
-        <p class="location-desc" data-lang="zh">长三角地区重要据点，服务华东市场客户。</p>
+        <p class="location-desc" data-lang="zh">昆山伟群 — 长三角地区重要据点，服务华东市场客户。</p>
         <p class="location-desc" data-lang="en">Key hub in Yangtze River Delta serving East China markets.</p>
       </div>
 
-      <div class="location-card reveal">
+      <div class="location-card">
         <div class="location-flag">🇻🇳</div>
         <div class="location-name" data-lang="zh">越南群峰</div>
         <div class="location-name" data-lang="en">Vietnam Qunfeng</div>
         <div class="location-en">Vietnam</div>
-        <p class="location-desc" data-lang="zh">东南亚制造基地，辐射区域市场。</p>
+        <p class="location-desc" data-lang="zh">群峰责任有限公司 — 东南亚制造基地，辐射区域市场。</p>
         <p class="location-desc" data-lang="en">Southeast Asia manufacturing base serving regional markets.</p>
       </div>
 
-      <div class="location-card reveal">
+      <div class="location-card">
         <div class="location-flag">🇨🇳</div>
         <div class="location-name" data-lang="zh">深圳鑫景</div>
         <div class="location-name" data-lang="en">Shenzhen Xinjing</div>
         <div class="location-en">China · Shenzhen</div>
-        <p class="location-desc" data-lang="zh">精密加工配套，完善的产品线与服务体系。</p>
-        <p class="location-desc" data-lang="en">Precision machining support with comprehensive service system.</p>
+        <p class="location-desc" data-lang="zh">深圳鑫景 — 精密加工配套，完善的产品线与服务体系。</p>
+        <p class="location-desc" data-lang="en">Precision machining support with comprehensive product line and service system.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Contact -->
-<section class="section section-white" id="contact">
+<section class="section section-light" id="contact">
   <div class="section-inner">
     <div class="section-label" data-lang="zh">联系我们</div>
     <div class="section-label" data-lang="en">Contact Us</div>
-    <h2 class="section-title">
-      <span data-lang="zh">期待与您 <span>合作</span></span>
-      <span data-lang="en">Let's Work <span>Together</span></span>
-    </h2>
+    <h2 class="section-title" data-lang="zh">期待与您合作</h2>
+    <h2 class="section-title" data-lang="en">Let's Work Together</h2>
+    <p class="section-desc" data-lang="zh">无论您是寻求刀具解决方案，还是想了解产品详情，欢迎随时联系我们。</p>
+    <p class="section-desc" data-lang="en">Whether you're looking for cutting tool solutions or product details, feel free to contact us anytime.</p>
 
     <div class="contact-grid">
       <div class="contact-info">
@@ -1072,6 +1215,14 @@
           <div>
             <div class="contact-label">Email</div>
             <div class="contact-value">info@teamstarmfg.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label" data-lang="zh">手机</div>
+            <div class="contact-label" data-lang="en">Mobile</div>
+            <div class="contact-value">+86 181-5070-7007</div>
           </div>
         </div>
         <div class="contact-item">
@@ -1108,8 +1259,8 @@
           </div>
           <div class="form-group">
             <label class="form-label" data-lang="zh">公司名称</label>
-            <label class="form-label" data-lang="en">Company</label>
-            <input type="text" class="form-input" placeholder="Company name">
+            <label class="form-label" data-lang="en">Company Name</label>
+            <input type="text" class="form-input" placeholder="Company">
           </div>
           <div class="form-group">
             <label class="form-label" data-lang="zh">您的需求</label>
@@ -1129,9 +1280,9 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="images/company_sign.jpg" alt="Teamstar" style="width:48px;height:48px;border-radius:10px;object-fit:cover;margin-bottom:1rem;">
+        <img src="images/company_sign.jpg" alt="Teamstar" style="width:56px;height:56px;border-radius:12px;object-fit:cover;margin-bottom:1rem;">
         <p data-lang="zh">伟群制刀工业旗下成员，专业从事工业刀具制造40余年，为全球客户提供高品质精密刀具解决方案。</p>
-        <p data-lang="en">Part of Wei Qun Group, professional industrial cutting tool manufacturer for 40+ years.</p>
+        <p data-lang="en">Part of Wei Qun Group, professional industrial cutting tool manufacturer for 40+ years, providing high-quality precision tool solutions to global customers.</p>
       </div>
       <div class="footer-col">
         <h4 data-lang="zh">快速链接</h4>
@@ -1149,8 +1300,8 @@
         <ul>
           <li><a href="#products" data-lang="zh">精密切削刀具</a><a href="#products" data-lang="en">Cutting Tools</a></li>
           <li><a href="#products" data-lang="zh">非标定制刀具</a><a href="#products" data-lang="en">Custom Tools</a></li>
-          <li><a href="#products" data-lang="zh">CNC 数控刀具</a><a href="#products" data-lang="en">CNC Tools</a></li>
-          <li><a href="#products" data-lang="zh">涂层技术</a><a href="#products" data-lang="en">Coating</a></li>
+          <li><a href="#products" data-lang="zh">热处理加工</a><a href="#products" data-lang="en">Heat Treatment</a></li>
+          <li><a href="#products" data-lang="zh">涂层技术</a><a href="#products" data-lang="en">Coating Tech</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1184,28 +1335,36 @@
   // Default to Chinese
   setLang('zh');
 
-  // Nav scroll effect
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('nav');
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  // Mobile nav
+  function toggleMobileNav() {
+    document.getElementById('mobileNav').classList.toggle('active');
+  }
 
-  // Reveal on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  });
 
   // Form
   function handleSubmit(e) {
     e.preventDefault();
     alert('Thank you! Your inquiry has been received. We will contact you soon. / 谢谢！您的咨询已收到，我们会尽快与您联系。');
   }
+
+  // Intersection Observer for fade-up
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 
 </body>

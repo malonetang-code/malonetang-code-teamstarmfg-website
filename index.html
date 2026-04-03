@@ -1181,8 +1181,8 @@
     localStorage.setItem('teamstar-lang', lang);
   }
 
-  const savedLang = localStorage.getItem('teamstar-lang');
-  if (savedLang) setLang(savedLang);
+  // Default to Chinese
+  setLang('zh');
 
   // Nav scroll effect
   window.addEventListener('scroll', () => {

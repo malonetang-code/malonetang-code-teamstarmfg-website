@@ -1228,26 +1228,30 @@
     <p class="section-desc" data-lang="en">Certified with ISO9001:2015, we ensure every product meets international standards through rigorous management and advanced testing equipment.</p>
 
     <div class="quality-grid">
-      <div class="quality-card quality-card--cert">
-        <div class="quality-cert-badge">
-          <div class="cert-icon">🏅</div>
-          <div class="cert-text">
-            <div class="cert-title">ISO 9001:2015</div>
-            <div class="cert-sub" data-lang="zh">质量管理体系认证</div>
-            <div class="cert-sub" data-lang="en">Quality Management System</div>
+      <!-- ISO Cert - spans 2 columns -->
+      <div class="quality-card quality-card--cert" style="grid-column: 1 / -1;">
+        <div class="quality-card-body" style="padding:2rem;">
+          <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1rem;">
+            <div style="font-size:3rem;">🏅</div>
+            <div>
+              <div style="font-size:1.3rem;font-weight:700;">ISO 9001:2015</div>
+              <div style="font-size:0.85rem;opacity:0.8;" data-lang="zh">质量管理体系认证</div>
+              <div style="font-size:0.85rem;opacity:0.8;" data-lang="en">Quality Management System Certification</div>
+            </div>
           </div>
+          <p style="font-size:0.9rem;line-height:1.7;opacity:0.85;" data-lang="zh">科学有效地进行质量管理，持续提升产品品质，满足客户需求。</p>
+          <p style="font-size:0.9rem;line-height:1.7;opacity:0.85;" data-lang="en">Scientific and effective quality management to continuously improve product quality and meet customer needs.</p>
         </div>
-        <div class="cert-desc" data-lang="zh">科学有效地进行质量管理，持续提升产品品质，满足客户需求。</div>
-        <div class="cert-desc" data-lang="en">Scientific and effective quality management to continuously improve product quality and meet customer needs.</div>
       </div>
 
-      <div class="quality-card quality-card--lab">
-        <div class="quality-card-img">
+      <!-- Lab card -->
+      <div class="quality-card">
+        <div class="quality-card-img" style="aspect-ratio:16/9;overflow:hidden;border-radius:12px 12px 0 0;">
           <img src="images/quality_control.jpg" alt="Quality Lab" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="quality-card-body">
-          <h3 data-lang="zh">精密检测实验室</h3>
-          <h3 data-lang="en">Precision Testing Laboratory</h3>
+          <h3 data-lang="zh">🔬 精密检测实验室</h3>
+          <h3 data-lang="en">🔬 Precision Testing Laboratory</h3>
           <div class="lab-equipment">
             <div class="eq-item">📏 三次元坐标测量仪</div>
             <div class="eq-item">🔬 NIKON金相显微镜</div>
@@ -1259,38 +1263,51 @@
         </div>
       </div>
 
-      <div class="quality-card quality-card--promise">
-        <div class="quality-card-icon">🛡️</div>
-        <h3 data-lang="zh">品质承诺</h3>
-        <h3 data-lang="en">Quality Commitment</h3>
-        <ul class="promise-list">
-          <li data-lang="zh">✅ 每一件产品均经过严格检测</li>
-          <li data-lang="en">✅ Every product undergoes strict inspection</li>
-          <li data-lang="zh">✅ 热处理工艺全部自行完成，质量可控</li>
-          <li data-lang="en">✅ All heat treatment done in-house for quality control</li>
-          <li data-lang="zh">✅ 规格、材质按需定制，批量生产品质如一</li>
-          <li data-lang="en">✅ Custom specs and materials, consistent batch quality</li>
-          <li data-lang="zh">✅ 24小时售后服务响应</li>
-          <li data-lang="en">✅ 24-hour after-sales service response</li>
-        </ul>
+      <!-- Quality commitment -->
+      <div class="quality-card">
+        <div class="quality-card-body">
+          <h3 data-lang="zh">🛡️ 品质承诺</h3>
+          <h3 data-lang="en">🛡️ Quality Commitment</h3>
+          <ul class="promise-list">
+            <li data-lang="zh">✅ 每一件产品均经过严格检测</li>
+            <li data-lang="en">✅ Every product undergoes strict inspection</li>
+            <li data-lang="zh">✅ 热处理工艺全部自行完成，质量可控</li>
+            <li data-lang="en">✅ All heat treatment in-house for quality control</li>
+            <li data-lang="zh">✅ 规格、材质按需定制，批量品质如一</li>
+            <li data-lang="en">✅ Custom specs, consistent batch quality</li>
+            <li data-lang="zh">✅ 24小时售后服务响应</li>
+            <li data-lang="en">✅ 24-hour after-sales response</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="quality-card quality-card--mgmt">
-        <div class="quality-card-icon">📋</div>
-        <h3 data-lang="zh">管理体系</h3>
-        <h3 data-lang="en">Management System</h3>
-        <div class="mgmt-tags">
-          <span class="mgmt-tag">TCM</span>
-          <span class="mgmt-tag" data-lang="zh">全面成本管理</span>
-          <span class="mgmt-tag" data-lang="en">Total Cost Management</span>
+      <!-- Management system -->
+      <div class="quality-card" style="grid-column: 1 / -1;">
+        <div class="quality-card-body">
+          <h3 data-lang="zh">📋 管理体系 — 成本领先 · 品质如一</h3>
+          <h3 data-lang="en">📋 Management System — Cost Leadership · Consistent Quality</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:1rem;">
+            <div style="background:var(--bg-light);border-radius:12px;padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">📊</div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">TCM 全面成本管理</div>
+              <div style="font-size:0.78rem;color:var(--text-gray);line-height:1.6;" data-lang="zh">对生产运营全流程进行成本管控，优化资源配置，降低综合成本，确保产品价格在市场上具有竞争优势。</div>
+              <div style="font-size:0.78rem;color:var(--text-gray);line-height:1.6;" data-lang="en">Controls costs across all production processes, optimizes resource allocation, and ensures competitive pricing.</div>
+            </div>
+            <div style="background:var(--bg-light);border-radius:12px;padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🏭</div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">TPM 全面生产管理</div>
+              <div style="font-size:0.78rem;color:var(--text-gray);line-height:1.6;" data-lang="zh">涵盖设备维护、生产流程、员工管理的全方面管理体系，减少浪费，提升效率，保证每一批次产品品质稳定如一。</div>
+              <div style="font-size:0.78rem;color:var(--text-gray);line-height:1.6;" data-lang="en">Comprehensive production management covering equipment, processes and personnel to ensure stable, consistent quality.</div>
+            </div>
+            <div style="background:var(--bg-light);border-radius:12px;padding:1.25rem;">
+              <div style="font-size:1.5rem;margin-bottom:0.5rem;">🤝</div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;" data-lang="zh">诚信为本</div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;" data-lang="en">Integrity First</div>
+              <div style="font-size:0.78rem;color:var(--text-gray);line-height:1.6;" data-lang="zh">严谨细致的工作作风，完善的管理流程，以诚信和品质赢得客户信任，打造长期合作伙伴关系。</div>
+              <div style="font-size:0.78rem;color:var(--text-gray);line-height:1.6;" data-lang="en">Rigorous work style and integrity-based philosophy to build lasting partnerships through quality and trust.</div>
+            </div>
+          </div>
         </div>
-        <div class="mgmt-tags">
-          <span class="mgmt-tag">TPM</span>
-          <span class="mgmt-tag" data-lang="zh">全面生产管理</span>
-          <span class="mgmt-tag" data-lang="en">Total Production Management</span>
-        </div>
-        <div class="mgmt-desc" data-lang="zh">通过专项管理进行总成本控制，保证价格优势与利润空间，持续为客户提供高性价比产品。</div>
-        <div class="mgmt-desc" data-lang="en">Through specialized management for total cost control, ensuring competitive pricing and continuous high value products for customers.</div>
       </div>
     </div>
   </div>

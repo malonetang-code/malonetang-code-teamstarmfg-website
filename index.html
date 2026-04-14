@@ -5,6 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teamstar Manufacturing | Precision Industrial Cutting Tools</title>
   <meta name="description" content="Teamstar Manufacturing - Professional industrial cutting tools manufacturer. Part of Wei Qun Group with 40+ years of experience. Precision CNC cutting tools, custom tools, heat treatment and coating services.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.teamstarmfg.com/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Teamstar Manufacturing | Precision Industrial Cutting Tools">
+  <meta property="og:description" content="Part of Wei Qun Group with 40+ years of experience. Professional industrial cutting tools manufacturer for woodworking, food processing, plastic, apparel and more.">
+  <meta property="og:image" content="images/company_sign.jpg">
+  <meta property="og:url" content="https://www.teamstarmfg.com/">
+  <meta property="og:site_name" content="Teamstar Manufacturing">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Teamstar Manufacturing | Precision Industrial Cutting Tools">
+  <meta name="twitter:description" content="Part of Wei Qun Group with 40+ years of experience. Precision industrial cutting tools manufacturer.">
+  <meta name="twitter:image" content="images/company_sign.jpg">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Teamstar Manufacturing",
+    "alternateName": "Wei Qun Cutting Tools Group",
+    "url": "https://www.teamstarmfg.com/",
+    "logo": "images/company_sign.jpg",
+    "description": "Professional industrial cutting tools manufacturer with 40+ years of experience. Part of Wei Qun Group.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No.6 Shunxing Road, Gutong Farm, Changtai District",
+      "addressLocality": "Zhangzhou",
+      "addressRegion": "Fujian",
+      "addressCountry": "CN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+86-181-5070-7007",
+      "contactType": "sales"
+    },
+    "sameAs": []
+  }
+  </script>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,6 +129,14 @@
       font-weight: 400;
       color: var(--text-gray);
       letter-spacing: 0.5px;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
     }
 
     .nav-links {
@@ -184,6 +231,8 @@
       mask-image: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
       -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
     }
+
+    .hero > picture { opacity: 0.2; }
 
     .hero-inner {
       max-width: 1280px;
@@ -397,6 +446,13 @@
       overflow: hidden;
     }
 
+    .about-img-el {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
     .about-img-placeholder {
       text-align: center;
       color: rgba(255,255,255,0.7);
@@ -557,11 +613,15 @@
       transform: translateY(-4px);
     }
     .quality-card--cert {
+      grid-column: 1 / -1;
       padding: 2rem;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
       border: none;
     }
+
+    .quality-card--cert .quality-card-body { padding: 2rem; }
+    .quality-card--full { grid-column: 1 / -1; }
     .quality-card--cert .cert-desc { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-top: 1rem; line-height: 1.7; }
     .quality-cert-badge {
       display: flex;
@@ -572,7 +632,7 @@
     .cert-icon { font-size: 3rem; }
     .cert-text .cert-title { font-size: 1.2rem; font-weight: 700; }
     .cert-text .cert-sub { font-size: 0.8rem; opacity: 0.8; margin-top: 0.25rem; }
-    .quality-card-img { aspect-ratio: 16/9; overflow: hidden; }
+    .quality-card-img { aspect-ratio: 16/9; overflow: hidden; border-radius: 12px 12px 0 0; }
     .quality-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .quality-card:hover .quality-card-img img { transform: scale(1.05); }
     .quality-card-body { padding: 1.5rem; }
@@ -784,6 +844,14 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
+    .footer-brand-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
     .footer-brand p {
       font-size: 0.85rem;
       color: rgba(255,255,255,0.6);
@@ -938,7 +1006,7 @@
 <nav class="navbar">
   <div class="nav-inner">
     <a href="#" class="logo">
-      <img src="images/company_sign.jpg" alt="Teamstar" style="width:48px;height:48px;border-radius:10px;object-fit:cover;flex-shrink:0;">
+      <img src="images/company_sign.jpg" alt="Teamstar" class="logo-img">
       <div class="logo-text">
         Teamstar Mfg
         <span data-lang="zh">漳州群新工业</span>
@@ -975,8 +1043,11 @@
 </div>
 
 <!-- Hero -->
-<section class="hero" id="home">
-  <img src="images/factory.jpg" alt="" class="hero-bg-img" style="object-fit:cover;width:55%;height:100%;position:absolute;top:0;right:0;opacity:0.2;mask-image:linear-gradient(to left, rgba(0,0,0,0.7), transparent);-webkit-mask-image:linear-gradient(to left, rgba(0,0,0,0.7), transparent);">
+<section class="hero" id="home" aria-label="Hero">
+  <picture>
+    <source srcset="images/factory.webp" type="image/webp">
+    <img src="images/factory.jpg" alt="" class="hero-bg-img" loading="eager" decoding="async">
+  </picture>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-badge" data-lang="zh">40+ 年行业经验 · 工业刀具专家</div>
@@ -1057,7 +1128,7 @@
   <div class="section-inner">
     <div class="about-grid">
       <div class="about-img">
-        <img src="images/factory.jpg" alt="Teamstar Factory" style="width:100%;height:100%;object-fit:cover;border-radius:24px;">
+        <img src="images/factory.jpg" alt="Teamstar Factory" class="about-img-el">
         <div class="about-img-overlay">
           <div class="about-badge">⭐ <span data-lang="zh">持续提升品质，满足客户需求</span><span data-lang="en">Continuous Quality Improvement</span></div>
         </div>
@@ -1110,7 +1181,7 @@
     <div class="products-grid">
       <div class="product-card">
         <div class="product-img">
-          <img src="images/product_01.png" alt="Woodworking Knives" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/product_01.png" alt="Woodworking Knives" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">木工业用刀</div>
@@ -1123,7 +1194,7 @@
 
       <div class="product-card">
         <div class="product-img">
-          <img src="images/product_04.png" alt="Food Industry Knives" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/product_04.png" alt="Food Industry Knives" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">食品业用刀</div>
@@ -1136,7 +1207,7 @@
 
       <div class="product-card">
         <div class="product-img">
-          <img src="images/product_06.png" alt="Paper Industry Knives" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/product_06.png" alt="Paper Industry Knives" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">纸品业用刀</div>
@@ -1149,7 +1220,7 @@
 
       <div class="product-card">
         <div class="product-img">
-          <img src="images/product_05.png" alt="Plastic Industry Knives" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/product_05.png" alt="Plastic Industry Knives" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">塑胶业用刀</div>
@@ -1162,7 +1233,7 @@
 
       <div class="product-card">
         <div class="product-img">
-          <img src="images/product_07.png" alt="Hand Tools" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/product_07.png" alt="Hand Tools" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">手动工具</div>
@@ -1175,7 +1246,7 @@
 
       <div class="product-card">
         <div class="product-img">
-          <img src="images/product_02.png" alt="Apparel Industry" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/product_02.png" alt="Apparel Industry" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">服装业用刀</div>
@@ -1188,7 +1259,7 @@
 
       <div class="product-card">
         <div class="product-img">
-          <img src="images/product_03.png" alt="Stationery Industry" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/product_03.png" alt="Stationery Industry" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">文具业用刀</div>
@@ -1201,7 +1272,7 @@
 
       <div class="product-card">
         <div class="product-img">
-          <img src="images/page24_Image543.png" alt="Other Industries" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/page24_Image543.png" alt="Other Industries" loading="lazy" width="400" height="300">
         </div>
         <div class="product-body">
           <div class="product-tag" data-lang="zh">其他产业用刀</div>
@@ -1229,8 +1300,8 @@
 
     <div class="quality-grid">
       <!-- ISO Cert - spans 2 columns -->
-      <div class="quality-card quality-card--cert" style="grid-column: 1 / -1;">
-        <div class="quality-card-body" style="padding:2rem;">
+      <div class="quality-card quality-card--cert">
+        <div class="quality-card-body">
           <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1rem;">
             <div style="font-size:3rem;">🏅</div>
             <div>
@@ -1246,8 +1317,8 @@
 
       <!-- Lab card -->
       <div class="quality-card">
-        <div class="quality-card-img" style="aspect-ratio:16/9;overflow:hidden;border-radius:12px 12px 0 0;">
-          <img src="images/quality_control.jpg" alt="Quality Lab" style="width:100%;height:100%;object-fit:cover;">
+        <div class="quality-card-img">
+          <img src="images/quality_control.jpg" alt="Quality Lab" loading="lazy" width="640" height="360">
         </div>
         <div class="quality-card-body">
           <h3 data-lang="zh">🔬 精密检测实验室</h3>
@@ -1282,7 +1353,7 @@
       </div>
 
       <!-- Management system -->
-      <div class="quality-card" style="grid-column: 1 / -1;">
+      <div class="quality-card quality-card--full">
         <div class="quality-card-body">
           <h3 data-lang="zh">📋 管理体系 — 成本领先 · 品质如一</h3>
           <h3 data-lang="en">📋 Management System — Cost Leadership · Consistent Quality</h3>
@@ -1490,7 +1561,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="images/company_sign.jpg" alt="Teamstar" style="width:56px;height:56px;border-radius:12px;object-fit:cover;margin-bottom:1rem;">
+        <img src="images/company_sign.jpg" alt="Teamstar" class="footer-brand-img">
         <p data-lang="zh">群新工业旗下成员，专业从事工业刀具制造40余年，为全球客户提供高品质精密刀具解决方案。</p>
         <p data-lang="en">Part of Wei Qun Group, professional industrial cutting tool manufacturer for 40+ years, providing high-quality precision tool solutions to global customers.</p>
       </div>

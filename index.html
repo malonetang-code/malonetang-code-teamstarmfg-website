@@ -1755,21 +1755,6 @@
             <label class="form-label" data-lang="en">Your Inquiry</label>
             <textarea name="message" class="form-textarea" placeholder="Tell us about your needs..."></textarea>
           </div>
-          <div class="form-group">
-            <label class="form-label" data-lang="zh">上传图纸（选填）</label>
-            <label class="form-label" data-lang="en">Upload Drawings (Optional)</label>
-            <label class="file-upload">
-              <input type="file" name="attachments" id="fileInput" accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png" multiple style="display:none;" onchange="handleFileSelect(this)">
-              <div class="file-upload-box" id="fileUploadBox">
-                <span class="file-upload-icon">📎</span>
-                <span class="file-upload-text" data-lang="zh">点击上传图纸（PDF/DWG/DXF/JPG/PNG）</span>
-                <span class="file-upload-text" data-lang="en">Click to upload drawings (PDF/DWG/DXF/JPG/PNG)</span>
-                <span class="file-upload-hint" data-lang="zh">支持多文件</span>
-                <span class="file-upload-hint" data-lang="en">Multiple files supported</span>
-              </div>
-            </label>
-            <div class="file-list" id="fileList" style="margin-top:0.5rem;"></div>
-          </div>
           <div id="formStatus" style="display:none;" class="form-status"></div>
           <button type="submit" class="form-btn" data-lang="zh">发送咨询 →</button>
           <button type="submit" class="form-btn" data-lang="en">Send Inquiry →</button>
@@ -1869,13 +1854,10 @@
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        const files = document.getElementById('fileInput').files;
-        const fileNames = files.length > 0 ? '\n已收到附件：' + Array.from(files).map(f => f.name).join(', ') : '';
-        status.textContent = '✓ 谢谢！您的咨询已收到，我们会在24小时内与您联系。' + fileNames;
+        status.textContent = '✓ 谢谢！您的咨询已收到，我们会在24小时内与您联系。';
         status.style.color = '#22c55e';
         status.style.display = 'block';
         form.reset();
-        document.getElementById('fileList').innerHTML = '';
       } else {
         status.textContent = '提交失败，请稍后重试或发送邮件至 info@teamstarmfg.com';
         status.style.color = '#ef4444';
@@ -1893,21 +1875,6 @@
   }
 
   // File upload
-  function handleFileSelect(input) {
-    const list = document.getElementById('fileList');
-    list.innerHTML = '';
-    Array.from(input.files).forEach((file, i) => {
-      const div = document.createElement('div');
-      div.className = 'file-item';
-      div.innerHTML = '<span>📄 ' + file.name + '</span><span class="file-remove" onclick="removeFile(this)">✕</span>';
-      list.appendChild(div);
-    });
-  }
-
-  function removeFile(el) {
-    el.parentElement.remove();
-  }
-
   // Intersection Observer for fade-up
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {

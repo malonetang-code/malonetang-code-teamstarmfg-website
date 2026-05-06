@@ -528,6 +528,191 @@
       color: var(--text-dark);
     }
 
+    /* Timeline */
+    .timeline-section {
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-heading {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 3rem;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, 
+        rgba(200,164,90,0.2), 
+        rgba(200,164,90,0.6), 
+        rgba(200,164,90,0.2)
+      );
+      border-radius: 2px;
+    }
+
+    .timeline-phase {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .phase-label {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(200,164,90,0.3);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .timeline-item:nth-child(2) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(7) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(8) { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .timeline-left {
+      flex-direction: row;
+    }
+
+    .timeline-left .timeline-content {
+      margin-right: auto;
+      margin-left: 0;
+      text-align: right;
+      padding-right: 3rem;
+    }
+
+    .timeline-right {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-right .timeline-content {
+      margin-left: auto;
+      margin-right: 0;
+      text-align: left;
+      padding-left: 3rem;
+    }
+
+    .timeline-content {
+      width: calc(50% - 20px);
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .timeline-left .timeline-content::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid white;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .timeline-right .timeline-content::after {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-right: 10px solid white;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .timeline-year {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: white;
+      border: 4px solid var(--accent);
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 0 0 6px rgba(200,164,90,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      transform: translateX(-50%) scale(1.3);
+      box-shadow: 0 0 0 10px rgba(200,164,90,0.25);
+    }
+
     /* Products */
     .products-grid {
       display: grid;
@@ -1042,6 +1227,29 @@
       .about-features { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      
+      /* Timeline mobile */
+      .timeline-heading { font-size: 1.5rem; }
+      .timeline-line { left: 30px; }
+      .timeline-item { flex-direction: column !important; align-items: flex-start; padding-left: 60px; }
+      .timeline-left .timeline-content,
+      .timeline-right .timeline-content {
+        width: 100%;
+        text-align: left;
+        padding: 1.5rem;
+        margin: 0;
+      }
+      .timeline-left .timeline-content::after,
+      .timeline-right .timeline-content::after {
+        left: -10px;
+        right: auto;
+        border-right: 10px solid white;
+        border-left: none;
+      }
+      .timeline-dot { left: 30px; }
+      .timeline-year { font-size: 1.5rem; }
+      .timeline-title { font-size: 1.1rem; }
+      .timeline-desc { font-size: 0.9rem; }
     }
 
     /* Mobile nav */
@@ -1345,6 +1553,94 @@
           <div class="about-feature">
             <div class="about-feature-icon">🌏</div>
             <span data-lang="zh">全球服务</span><span data-lang="en">Global Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-section">
+      <h3 class="timeline-heading" data-lang="zh">发展历程</h3>
+      <h3 class="timeline-heading" data-lang="en">Our Journey</h3>
+      
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <!-- 历史回顾 -->
+        <div class="timeline-phase">
+          <div class="phase-label" data-lang="zh">🏛️ 历史回顾</div>
+          <div class="phase-label" data-lang="en">🏛️ Our History</div>
+        </div>
+
+        <div class="timeline-item timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">1978</span>
+            <div class="timeline-title" data-lang="zh">伟群刀业成立</div>
+            <div class="timeline-title" data-lang="en">Wei Qun Founded</div>
+            <div class="timeline-desc" data-lang="zh">伟群刀业在台湾创立，开启工业刀具制造之路</div>
+            <div class="timeline-desc" data-lang="en">Wei Qun established in Taiwan, beginning industrial cutting tool manufacturing</div>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">1990</span>
+            <div class="timeline-title" data-lang="zh">深圳工厂成立</div>
+            <div class="timeline-title" data-lang="en">Shenzhen Factory</div>
+            <div class="timeline-desc" data-lang="zh">进军中国大陆市场，在深圳建立生产基地</div>
+            <div class="timeline-desc" data-lang="en">Entered mainland China market, established Shenzhen production base</div>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2002</span>
+            <div class="timeline-title" data-lang="zh">台北工厂成立</div>
+            <div class="timeline-title" data-lang="en">Taipei Factory</div>
+            <div class="timeline-desc" data-lang="zh">在台北设立新工厂，强化研发与高端制造能力</div>
+            <div class="timeline-desc" data-lang="en">Established Taipei factory, strengthening R&D and high-end manufacturing</div>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2011</span>
+            <div class="timeline-title" data-lang="zh">越南工厂成立</div>
+            <div class="timeline-title" data-lang="en">Vietnam Factory</div>
+            <div class="timeline-desc" data-lang="zh">布局东南亚市场，在越南建立生产基地</div>
+            <div class="timeline-desc" data-lang="en">Expanded to Southeast Asia, established Vietnam production base</div>
+          </div>
+        </div>
+
+        <!-- 展望未来 -->
+        <div class="timeline-phase">
+          <div class="phase-label" data-lang="zh">🚀 展望未来</div>
+          <div class="phase-label" data-lang="en">🚀 Looking Forward</div>
+        </div>
+
+        <div class="timeline-item timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2024</span>
+            <div class="timeline-title" data-lang="zh">漳州群新工业成立</div>
+            <div class="timeline-title" data-lang="en">Teamstar Zhangzhou</div>
+            <div class="timeline-desc" data-lang="zh">在福建漳州成立群新工业，打造智能化生产基地</div>
+            <div class="timeline-desc" data-lang="en">Founded Teamstar in Zhangzhou, Fujian, building smart manufacturing base</div>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2025</span>
+            <div class="timeline-title" data-lang="zh">工厂扩建完成</div>
+            <div class="timeline-title" data-lang="en">Factory Expansion</div>
+            <div class="timeline-desc" data-lang="zh">完成产能扩建项目，生产能力大幅提升</div>
+            <div class="timeline-desc" data-lang="en">Completed capacity expansion, significantly increased production capability</div>
           </div>
         </div>
       </div>

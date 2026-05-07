@@ -916,6 +916,17 @@
     .eq-item { font-size: 0.8rem; color: var(--text-gray); padding: 0.25rem 0; }
     .quality-card-icon { font-size: 2.5rem; padding: 1.5rem 1.5rem 0.5rem; }
     .quality-card-body h3 { padding: 0 1.5rem; }
+    .cert-thumbs { display: flex; gap: 1rem; margin-top: 1.25rem; }
+    .cert-thumb { cursor: pointer; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; max-width: 160px; }
+    .cert-thumb:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .cert-thumb img { width: 100%; height: auto; display: block; }
+    .cert-thumb-label { display: block; text-align: center; font-size: 0.75rem; padding: 0.4rem 0; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .cert-viewer { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.88); justify-content: center; align-items: center; cursor: zoom-out; backdrop-filter: blur(4px); }
+    .cert-viewer.active { display: flex; }
+    .cert-viewer img { max-width: 90vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 16px 48px rgba(0,0,0,0.5); object-fit: contain; }
+    .cert-viewer-close { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.15); border: none; color: #fff; font-size: 2rem; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10000; }
+    .cert-viewer-close:hover { background: rgba(255,255,255,0.3); }
+    @media (max-width: 768px) { .cert-thumbs { gap: 0.75rem; } .cert-thumb { max-width: 120px; } }
     .promise-list { list-style: none; padding: 0.5rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
     .promise-list li { font-size: 0.85rem; color: var(--text-gray); line-height: 1.5; }
     .mgmt-tags { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 0 0.25rem; }
@@ -1908,7 +1919,23 @@
           </div>
           <p style="font-size:0.9rem;line-height:1.7;opacity:0.85;" data-lang="zh">科学有效地进行质量管理,持续提升产品品质,满足客户需求。</p>
           <p style="font-size:0.9rem;line-height:1.7;opacity:0.85;" data-lang="en">Scientific and effective quality management to continuously improve product quality and meet customer needs.</p>
+          <div class="cert-thumbs">
+            <div class="cert-thumb" onclick="openCertViewer('images/certs/iso9001-en.jpg')">
+              <img src="images/certs/iso9001-en-thumb.jpg" alt="ISO 9001:2015 Certificate (English)" loading="lazy" width="400" height="566">
+              <span class="cert-thumb-label">English</span>
+            </div>
+            <div class="cert-thumb" onclick="openCertViewer('images/certs/iso9001-cn.jpg')">
+              <img src="images/certs/iso9001-cn-thumb.jpg" alt="ISO 9001:2015 证书 (中文)" loading="lazy" width="400" height="566">
+              <span class="cert-thumb-label">中文</span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Certificate Lightbox Viewer -->
+      <div id="certViewer" class="cert-viewer" onclick="closeCertViewer(event)">
+        <button class="cert-viewer-close" onclick="closeCertViewer(event)" aria-label="Close">&times;</button>
+        <img id="certViewerImg" src="" alt="Certificate full view">
       </div>
 
       <!-- Lab card -->
@@ -2321,6 +2348,25 @@
     } else {
       scrollTopBtn.classList.remove('visible');
     }
+  });
+</script>
+
+<script>
+  function openCertViewer(src) {
+    var viewer = document.getElementById('certViewer');
+    var img = document.getElementById('certViewerImg');
+    img.src = src;
+    viewer.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCertViewer(e) {
+    if (e && e.target.tagName === 'IMG') return;
+    var viewer = document.getElementById('certViewer');
+    viewer.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCertViewer();
   });
 </script>
 

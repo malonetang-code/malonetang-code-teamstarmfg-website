@@ -6,7 +6,7 @@ This is the standalone Codex project for maintaining the Teamstar Manufacturing 
 
 - Website: https://www.teamstarmfg.com
 - Local path: `/Users/malone/Documents/Codex/2026-05-26/codex-codex/qunxin-company/01_projects/02_official_website_ops/teamstarmfg`
-- GitHub repo: https://github.com/malonetang-code/teamstarmfg-website.git
+- GitHub repo: https://github.com/malonetang-code/malonetang-code-teamstarmfg-website.git
 - Production: Aliyun Hangzhou Lightweight Application Server at `116.62.121.239`
 - Web root: `/www/wwwroot/wordpress`, served by Nginx
 - GitHub remains the source repository; a push to `main` is not a production deployment.

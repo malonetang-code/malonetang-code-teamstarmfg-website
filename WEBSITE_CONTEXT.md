@@ -26,7 +26,7 @@
 ### 托管 & 部署
 - **生产托管：** 阿里云杭州轻量应用服务器（公网 IP `116.62.121.239`）
 - **生产 Web 服务：** Nginx，静态目录 `/www/wwwroot/wordpress`
-- **GitHub 仓库：** https://github.com/malonetang-code/teamstarmfg-website.git
+- **GitHub 仓库：** https://github.com/malonetang-code/malonetang-code-teamstarmfg-website.git
 - **GitHub 账号：** malonetang-code
 - **分支：** `main`（唯一分支）
 - **生产域名：** `teamstarmfg.com` 与 `www.teamstarmfg.com`，A 记录均指向 `116.62.121.239`
@@ -212,7 +212,7 @@ c3d3bad Initial website - bilingual (zh/en)
 | 项目 | 值 |
 |------|-----|
 | 网站地址 | https://www.teamstarmfg.com |
-| GitHub 仓库 | https://github.com/malonetang-code/teamstarmfg-website.git |
+| GitHub 仓库 | https://github.com/malonetang-code/malonetang-code-teamstarmfg-website.git |
 | 本地路径 | `/Users/malone/Documents/Codex/2026-05-26/codex-codex/qunxin-company/01_projects/02_official_website_ops/teamstarmfg/` |
 | 生产托管 | 阿里云杭州轻量应用服务器，`116.62.121.239` |
 | 部署方式 | 本地验证 → 服务器备份 → 上传静态产物 → 校验与回读 |

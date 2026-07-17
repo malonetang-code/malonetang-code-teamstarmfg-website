@@ -19,7 +19,7 @@
 ## 🛠 技术栈
 - **生产托管：** 阿里云杭州轻量应用服务器，公网 IP `116.62.121.239`
 - **生产目录：** `/www/wwwroot/wordpress`，由 Nginx 提供静态文件
-- **仓库：** https://github.com/malonetang-code/teamstarmfg-website.git
+- **仓库：** https://github.com/malonetang-code/malonetang-code-teamstarmfg-website.git
 - **本地路径：** /Users/malone/Documents/Codex/2026-05-26/codex-codex/qunxin-company/01_projects/02_official_website_ops/teamstarmfg/
 - **当前架构：** Eleventy 静态多页面站点，`src/` 源码构建到 `dist/`
 - **模板：** Nunjucks 共享布局和数据；详见 `../content_plan/website_architecture_evolution_2026-07-17.md`

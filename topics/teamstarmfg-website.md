@@ -49,7 +49,7 @@
 
 ## 技术架构
 - **托管：** GitHub Pages（自动部署）
-- **仓库：** https://github.com/malonetang-code/teamstarmfg-website.git
+- **仓库：** https://github.com/malonetang-code/malonetang-code-teamstarmfg-website.git
 - **账号：** malonetang-code
 - **分支：** main（唯一分支）
 - **本地路径：** /Users/malone/Documents/Codex/2026-05-26/codex-codex/qunxin-company/01_projects/02_official_website_ops/teamstarmfg/

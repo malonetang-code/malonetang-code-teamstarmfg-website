@@ -225,8 +225,7 @@ ul { margin: 0; padding: 0; }
 
 .logo-wall { display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .logo-item { min-height: 110px; display: grid; place-items: center; padding: 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
-.logo-item img { max-width: 82%; max-height: 48px; object-fit: contain; filter: grayscale(1); opacity: .82; }
-.logo-item:hover img { filter: grayscale(0); opacity: 1; }
+.logo-item img { max-width: 82%; max-height: 48px; object-fit: contain; filter: none; opacity: 1; }
 .proof-note { margin-top: 18px; color: var(--muted); font-size: 12px; }
 
 .page-hero {

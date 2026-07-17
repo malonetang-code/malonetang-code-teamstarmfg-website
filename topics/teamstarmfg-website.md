@@ -1,5 +1,9 @@
 # Teamstar Manufacturing 网站维护话题
 
+## 2026-07-17 Logo 墙与标题规范
+- Logo 墙已取消灰度和透明度处理，10 个品牌标识默认显示原色；CSS/JS 增加版本参数，避免回访浏览器继续使用旧样式。
+- sitemap 32 个页面的全部 H1/H2 已去除结尾句号；线上浏览器验证无断图、溢出和控制台错误，发布证据见 `../../deploy_packages/releases/20260717191323/DEPLOYMENT.md`。
+
 ## 2026-07-17 官网措辞与设备图纠正
 - 已移除官网中关于 AI 伪装、证据边界、素材批准和避免虚构等内部审核式措辞，改为直接面向客户的业务表达。
 - `factory-interior.jpg` 与 `cnc-machines.jpg` 不再被任何页面引用，也不再复制到 `dist/`；热修复上线后两个公开 URL 均为 404，发布证据见 `../../deploy_packages/releases/20260717185957/DEPLOYMENT.md`。

@@ -1,0 +1,39 @@
+{% set prefix = "/en" if lang == "en" else "" %}
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span>{% if lang == "en" %}Member of {{ site.groupEn }} · ISO 9001:2015{% else %}{{ site.companyZh }} · {{ site.groupZh }}成员 · ISO 9001:2015{% endif %}</span>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+</div>
+<header class="site-header" data-site-header>
+  <div class="container nav-shell">
+    <a class="brand" href="{{ prefix }}/" aria-label="Teamstar Manufacturing home">
+      <img src="/images/web/brand-sign.jpg" alt="" width="60" height="40">
+      <span><strong>TEAMSTAR MFG</strong><small>{% if lang == "en" %}Industrial Knife Manufacturing{% else %}漳州群新工业{% endif %}</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="{% if lang == 'en' %}Primary navigation{% else %}主要导航{% endif %}">
+      <a href="{{ prefix }}/products/">{% if lang == "en" %}Products{% else %}产品目录{% endif %}</a>
+      <a href="{{ prefix }}/capabilities/">{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</a>
+      <a href="{{ prefix }}/quality/">{% if lang == "en" %}Quality{% else %}质量体系{% endif %}</a>
+      <a href="{{ prefix }}/company/">{% if lang == "en" %}Company{% else %}公司与基地{% endif %}</a>
+      <a href="{{ prefix }}/customers/">{% if lang == "en" %}Customers{% else %}客户背书{% endif %}</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="language-link" href="{{ alternateUrl }}" hreflang="{% if lang == 'en' %}zh-CN{% else %}en{% endif %}">{% if lang == "en" %}中文{% else %}EN{% endif %}</a>
+      <a class="nav-rfq" href="{{ prefix }}/rfq/">{% if lang == "en" %}Start RFQ{% else %}开始询价{% endif %}</a>
+      <button class="menu-button" type="button" aria-label="{% if lang == 'en' %}Open menu{% else %}打开菜单{% endif %}" aria-expanded="false" aria-controls="mobile-menu" data-open-label="{% if lang == 'en' %}Open menu{% else %}打开菜单{% endif %}" data-close-label="{% if lang == 'en' %}Close menu{% else %}关闭菜单{% endif %}" data-menu-button>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="{% if lang == 'en' %}Mobile navigation{% else %}移动端导航{% endif %}" data-mobile-menu hidden>
+    <div class="container mobile-menu-inner">
+      <a href="{{ prefix }}/products/">{% if lang == "en" %}Products{% else %}产品目录{% endif %}</a>
+      <a href="{{ prefix }}/capabilities/">{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</a>
+      <a href="{{ prefix }}/quality/">{% if lang == "en" %}Quality{% else %}质量体系{% endif %}</a>
+      <a href="{{ prefix }}/company/">{% if lang == "en" %}Company{% else %}公司与基地{% endif %}</a>
+      <a href="{{ prefix }}/customers/">{% if lang == "en" %}Customers{% else %}客户背书{% endif %}</a>
+      <a href="{{ prefix }}/rfq/">{% if lang == "en" %}Start RFQ{% else %}开始询价{% endif %}</a>
+    </div>
+  </nav>
+</header>

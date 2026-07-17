@@ -1,0 +1,10 @@
+{% set prefix = "/en" if lang == "en" else "" %}
+<article class="capability-card">
+  <img src="{{ capability.image }}" alt="{{ capability.name[lang] }}" loading="lazy">
+  <div class="capability-card-body">
+    <span class="eyebrow">{{ capability.code }}</span>
+    <h3>{{ capability.name[lang] }}</h3>
+    <p>{{ capability.summary[lang] }}</p>
+    <a class="text-link" href="{{ prefix }}/capabilities/{{ capability.slug }}/">{% if lang == "en" %}Review capability{% else %}查看能力说明{% endif %}<span aria-hidden="true">→</span></a>
+  </div>
+</article>

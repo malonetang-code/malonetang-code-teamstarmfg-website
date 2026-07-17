@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+<main id="main-content">
+  <section class="page-hero page-hero-dark" style="--hero-image: url('/images/web/factory-building.jpg')">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Company{% else %}公司与基地{% endif %}</span></nav>
+      <span class="eyebrow">TEAMSTAR / QUNXIN INDUSTRIAL</span>
+      <h1>{% if lang == "en" %}Zhangzhou manufacturing backed by group experience.{% else %}以集团经验承接漳州制造。{% endif %}</h1>
+      <p>{% if lang == "en" %}Qunxin Industrial was established in Zhangzhou in 2024 under the Wei Qun industrial group, continuing its industrial knife and cutting-tool manufacturing background.{% else %}群新工业于 2024 年在福建漳州成立，承接伟群工业集团在工业刀具与切削工具领域的制造背景。{% endif %}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-block"><span class="eyebrow">COMPANY TIMELINE</span><h2>{% if lang == "en" %}A concise, verifiable company path.{% else %}简明、可核实的公司路径。{% endif %}</h2><div class="timeline">
+        <div class="timeline-row"><div class="timeline-year">40+</div><div><h3>{% if lang == "en" %}Group cutting-tool background{% else %}集团工业刀具背景{% endif %}</h3><p>{% if lang == "en" %}Industry experience originating from the Taiwan group business.{% else %}源自台湾集团业务的工业刀具行业经验。{% endif %}</p></div></div>
+        <div class="timeline-row"><div class="timeline-year">1990</div><div><h3>{% if lang == "en" %}Shenzhen production base established{% else %}深圳生产基地成立{% endif %}</h3><p>{% if lang == "en" %}Expanded the group manufacturing system in mainland China.{% else %}拓展集团在中国大陆的制造体系。{% endif %}</p></div></div>
+        <div class="timeline-row"><div class="timeline-year">2024</div><div><h3>{% if lang == "en" %}Qunxin Industrial established in Zhangzhou{% else %}漳州群新工业成立{% endif %}</h3><p>{% if lang == "en" %}Focused on industrial machine knives, manufacturing and sales support.{% else %}面向工业机械刀具制造与销售服务。{% endif %}</p></div></div>
+        <div class="timeline-row"><div class="timeline-year">ISO</div><div><h3>ISO 9001:2015</h3><p>{% if lang == "en" %}Quality management system certification.{% else %}质量管理体系认证。{% endif %}</p></div></div>
+      </div></div>
+      <aside><div class="notice">{% if lang == "en" %}Factory area, workforce, annual capacity, export share and customer counts will be published only after business confirmation.{% else %}工厂面积、员工人数、年产能、出口比例和客户数量仅在业务确认后发布。{% endif %}</div></aside>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">FACTORY VIEW</span><h2>{% if lang == "en" %}Real factory images, without staged AI substitution.{% else %}使用真实工厂图片，不用 AI 伪装现场。{% endif %}</h2></div><p>{% if lang == "en" %}Current video footage remains source material only until a new silent edit is approved.{% else %}现有视频在重新剪辑无声版本并确认前，只作为素材来源保留。{% endif %}</p></div>
+      <div class="company-photo-grid"><img src="/images/web/factory-interior.jpg" alt="{% if lang == 'en' %}Teamstar manufacturing floor{% else %}群新制造车间{% endif %}" loading="lazy"><img src="/images/web/cnc-machines.jpg" alt="{% if lang == 'en' %}CNC production equipment{% else %}数控生产设备{% endif %}" loading="lazy"></div>
+    </div>
+  </section>
+  {% include "partials/rfq-cta.njk" %}
+</main>

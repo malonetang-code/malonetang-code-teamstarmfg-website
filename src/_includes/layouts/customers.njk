@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+<main id="main-content">
+  <section class="page-hero" style="--hero-image: url('/images/web/product-parts.jpg')">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Customers{% else %}客户背书{% endif %}</span></nav>
+      <span class="eyebrow">CUSTOMER REFERENCES</span>
+      <h1>{% if lang == "en" %}Reference logos with a clear evidence boundary.{% else %}有证据边界的客户标识展示。{% endif %}</h1>
+      <p>{% if lang == "en" %}The logo wall uses assets supplied for the website. Cooperation scope, quotes and quantified results are not added without publishable material.{% else %}Logo 墙使用已提供的网站素材；没有可公开材料时，不补写合作范围、客户原话或量化成果。{% endif %}</p>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <div class="logo-wall">
+        {% for logo in ["kam", "eastman", "sata", "stanley", "baird-medical", "tti", "jwei", "lectra", "bullmer", "fiskars"] %}
+        <div class="logo-item"><img src="/images/logos/{{ logo }}.png" alt="{{ logo }} logo" loading="lazy"></div>
+        {% endfor %}
+      </div>
+      <p class="proof-note">{% if lang == "en" %}Displayed as supplied reference assets. No unverified performance claim is implied.{% else %}按已提供参考素材展示，不暗示任何未经确认的性能结论。{% endif %}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">CASE EVIDENCE</span><h2>{% if lang == "en" %}What a publishable case should contain.{% else %}可公开案例应包含什么。{% endif %}</h2></div><p>{% if lang == "en" %}The structure is ready, but it stays factual and empty of invented outcomes until approved source material is available.{% else %}案例结构已经准备好，但在获得确认材料前不填入虚构结果。{% endif %}</p></div>
+      <div class="customer-context">
+        <article class="context-item"><strong>{% if lang == "en" %}Application context{% else %}应用背景{% endif %}</strong><p>{% if lang == "en" %}Industry, machine type, material cut and the original problem.{% else %}行业、设备类型、被切材料和原始问题。{% endif %}</p></article>
+        <article class="context-item"><strong>{% if lang == "en" %}Blade and process{% else %}刀型与过程{% endif %}</strong><p>{% if lang == "en" %}Blade type, confirmed route, sample validation and delivery boundary.{% else %}刀具类型、确认路线、样品验证和交付边界。{% endif %}</p></article>
+        <article class="context-item"><strong>{% if lang == "en" %}Approved result{% else %}获准公开的结果{% endif %}</strong><p>{% if lang == "en" %}Only metrics, quotes and customer identity explicitly approved for publication.{% else %}仅发布明确获准公开的数据、原话和客户身份。{% endif %}</p></article>
+      </div>
+    </div>
+  </section>
+  {% include "partials/rfq-cta.njk" %}
+</main>

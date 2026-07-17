@@ -1,0 +1,11 @@
+{% set prefix = "/en" if lang == "en" else "" %}
+<section class="rfq-band">
+  <div class="container rfq-band-grid">
+    <div>
+      <span class="eyebrow">RFQ / DRAWING / SAMPLE</span>
+      <h2>{% if lang == "en" %}Turn your blade requirement into a reviewable RFQ.{% else %}把刀具需求整理成可评估的询价。{% endif %}</h2>
+    </div>
+    <p>{% if lang == "en" %}Send a drawing, old-blade photo, sample or machine application. We will identify the next information needed for manufacturing review.{% else %}可发送图纸、旧刀照片、样品或设备工况；我们会协助确认进入制造评估还需要哪些资料。{% endif %}</p>
+    <a class="button button-accent" href="{{ prefix }}/rfq/">{% if lang == "en" %}Open RFQ checklist{% else %}打开询价资料清单{% endif %}</a>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+<main id="main-content">
+  <section class="page-hero page-hero-dark" style="--hero-image: url('/images/web/factory-interior.jpg')">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</span></nav>
+      <span class="eyebrow">MANUFACTURING CAPABILITIES</span>
+      <h1>{% if lang == "en" %}Capabilities connected to control points.{% else %}把制造能力对应到控制点。{% endif %}</h1>
+      <p>{% if lang == "en" %}Equipment matters when it is connected to a manufacturing decision, sample validation or inspection evidence.{% else %}设备只有对应到制造决策、样品验证或检测证据时，才构成有效的能力说明。{% endif %}</p>
+    </div>
+  </section>
+  <section class="section section-system">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">ENGINEERING SYSTEM</span><h2>{% if lang == "en" %}Three capability routes for the current site.{% else %}当前官网的三条能力主线。{% endif %}</h2></div><p>{% if lang == "en" %}The detail pages state what is supported by supplied material and clearly separate pending parameters.{% else %}详情页只使用已有材料能支持的事实，并明确区分仍待确认的参数。{% endif %}</p></div>
+      <div class="capability-list">{% for capability in catalog.capabilities %}{% include "partials/capability-card.njk" %}{% endfor %}</div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container evidence-table">
+      <div class="evidence-row"><strong>INPUT / {% if lang == "en" %}REQUIREMENT{% else %}需求{% endif %}</strong><span>{% if lang == "en" %}Drawing, sample, machine, material cut and quantity{% else %}图纸、样品、设备、被切材料与数量{% endif %}</span></div>
+      <div class="evidence-row"><strong>PROCESS / {% if lang == "en" %}ROUTE{% else %}路线{% endif %}</strong><span>{% if lang == "en" %}Material review, shaping, heat treatment, machining and grinding{% else %}材料评估、成形、热处理、机加工与研磨{% endif %}</span></div>
+      <div class="evidence-row"><strong>CONTROL / {% if lang == "en" %}INSPECTION{% else %}检测{% endif %}</strong><span>{% if lang == "en" %}Material, dimension, hardness, edge and approved criteria{% else %}材料、尺寸、硬度、刃口与确认标准{% endif %}</span></div>
+      <div class="evidence-row"><strong>OUTPUT / {% if lang == "en" %}DELIVERY{% else %}交付{% endif %}</strong><span>{% if lang == "en" %}Validated sample, repeat production and batch records{% else %}验证样品、重复生产与批次记录{% endif %}</span></div>
+    </div>
+  </section>
+  {% include "partials/rfq-cta.njk" %}
+</main>

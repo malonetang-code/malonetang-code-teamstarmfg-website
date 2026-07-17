@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="{% if lang == 'en' %}en{% else %}zh-CN{% endif %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ site.url }}{{ canonicalUrl }}">
+  {% if lang == "zh" %}
+  <link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ canonicalUrl }}">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ alternateUrl }}">
+  {% else %}
+  <link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ alternateUrl }}">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ canonicalUrl }}">
+  {% endif %}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ zhUrl or '/' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ site.url }}{{ canonicalUrl }}">
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or '/images/web/product-parts.jpg' }}">
+  <meta property="og:site_name" content="Teamstar Manufacturing">
+  <meta property="og:locale" content="{% if lang == 'en' %}en_US{% else %}zh_CN{% endif %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#10181d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#organization",
+        "name": "Teamstar Manufacturing",
+        "alternateName": ["Qunxin Industrial", "群新工业", "Wei Qun Cutting Tools Group"],
+        "url": "{{ site.url }}/",
+        "logo": "{{ site.url }}/images/web/brand-sign.jpg",
+        "email": "{{ site.email }}",
+        "telephone": "{{ site.phoneHref }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "No. 6 Shunxing Road, Gutong Farm, Changtai District",
+          "addressLocality": "Zhangzhou",
+          "addressRegion": "Fujian",
+          "addressCountry": "CN"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "url": "{{ site.url }}/",
+        "name": "Teamstar Manufacturing",
+        "publisher": { "@id": "{{ site.url }}/#organization" },
+        "inLanguage": ["zh-CN", "en"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ canonicalUrl }}#webpage",
+        "url": "{{ site.url }}{{ canonicalUrl }}",
+        "name": "{{ title }}",
+        "description": "{{ description }}",
+        "isPartOf": { "@id": "{{ site.url }}/#website" },
+        "about": { "@id": "{{ site.url }}/#organization" },
+        "inLanguage": "{% if lang == 'en' %}en{% else %}zh-CN{% endif %}"
+      }
+    ]
+  }
+  </script>
+  {% if parentTitle %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "{% if lang == 'en' %}Home{% else %}首页{% endif %}", "item": "{{ site.url }}{% if lang == 'en' %}/en/{% else %}/{% endif %}" },
+      { "@type": "ListItem", "position": 2, "name": "{{ parentTitle }}", "item": "{{ site.url }}{{ parentUrl }}" },
+      { "@type": "ListItem", "position": 3, "name": "{{ pageTitle }}", "item": "{{ site.url }}{{ canonicalUrl }}" }
+    ]
+  }
+  </script>
+  {% endif %}
+</head>
+<body class="page-{{ pageType or 'standard' }}">
+  <a class="skip-link" href="#main-content">{% if lang == "en" %}Skip to content{% else %}跳到主要内容{% endif %}</a>
+  {% include "partials/header.njk" %}
+  {{ content | safe }}
+  {% include "partials/footer.njk" %}
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

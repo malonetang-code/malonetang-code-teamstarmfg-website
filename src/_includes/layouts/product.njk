@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+{% set product = catalog.products | findBySlug(productSlug) %}
+<main id="main-content">
+  <section class="page-hero" style="--hero-image: url('{{ product.image }}')">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><a href="{{ prefix }}/products/">{% if lang == "en" %}Products{% else %}产品目录{% endif %}</a><span>/</span><span>{{ product.name[lang] }}</span></nav>
+      <span class="eyebrow">{{ product.code }}</span>
+      <h1>{{ product.name[lang] }}</h1>
+      <p>{{ product.summary[lang] }}</p>
+      <div class="page-hero-actions"><a class="button button-dark" href="{{ prefix }}/rfq/">{% if lang == "en" %}Send requirement{% else %}提交需求{% endif %}</a></div>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container detail-proof">
+      <div class="detail-proof-item"><strong>{% if lang == "en" %}Typical equipment{% else %}典型设备{% endif %}</strong><span>{{ product.equipment[lang] }}</span></div>
+      <div class="detail-proof-item"><strong>{% if lang == "en" %}Manufacturing focus{% else %}制造关注{% endif %}</strong><span>{{ product.focus[lang] }}</span></div>
+      <div class="detail-proof-item"><strong>{% if lang == "en" %}RFQ entry{% else %}询价入口{% endif %}</strong><span>{% if lang == "en" %}Drawing, sample or application review{% else %}图纸、样品或工况评估{% endif %}</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container content-grid">
+      <div>
+        <div class="content-block"><span class="eyebrow">APPLICATIONS</span><h2>{% if lang == "en" %}Typical applications{% else %}典型应用{% endif %}</h2><ul class="plain-list">{% for item in product.applications[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
+        <div class="content-block" style="margin-top: 48px"><span class="eyebrow">MANUFACTURING PATH</span><h2>{% if lang == "en" %}From requirement review to repeat production{% else %}从需求确认到重复生产{% endif %}</h2><div class="process-list">
+          <div class="process-step"><div><h3>{% if lang == "en" %}Requirement check{% else %}需求核对{% endif %}</h3><p>{% if lang == "en" %}Confirm dimensions, mounting, machine, material cut and quantity.{% else %}核对尺寸、安装、设备、被切材料和数量。{% endif %}</p></div></div>
+          <div class="process-step"><div><h3>{% if lang == "en" %}Route review{% else %}路线评估{% endif %}</h3><p>{% if lang == "en" %}Connect material, shaping, heat treatment, grinding and inspection.{% else %}衔接材料、成形、热处理、研磨和检测。{% endif %}</p></div></div>
+          <div class="process-step"><div><h3>{% if lang == "en" %}Sample validation{% else %}样品验证{% endif %}</h3><p>{% if lang == "en" %}Review installation and cutting feedback before repeat production.{% else %}在重复生产前核对安装和切割反馈。{% endif %}</p></div></div>
+          <div class="process-step"><div><h3>{% if lang == "en" %}Batch control{% else %}批量控制{% endif %}</h3><p>{% if lang == "en" %}Produce against the approved drawing and inspection criteria.{% else %}按照确认版图纸和检验标准生产。{% endif %}</p></div></div>
+        </div></div>
+      </div>
+      <aside>
+        <div class="content-block"><span class="eyebrow">RFQ CHECKLIST</span><h2>{% if lang == "en" %}Information to send{% else %}建议提供的资料{% endif %}</h2><ul class="plain-list">{% for item in product.rfq[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
+        <div class="notice" style="margin-top: 24px">{% if lang == "en" %}Material, hardness, tolerance and lead time are confirmed only after the drawing and application are reviewed.{% else %}材料、硬度、公差和交期将在图纸与工况评估后确认。{% endif %}</div>
+        <div style="margin-top: 24px"><a class="button button-accent" href="{{ prefix }}/rfq/">{% if lang == "en" %}Open RFQ form{% else %}打开询价表单{% endif %}</a></div>
+      </aside>
+    </div>
+  </section>
+  {% include "partials/rfq-cta.njk" %}
+</main>

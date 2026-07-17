@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+{% set capability = catalog.capabilities | findBySlug(capabilitySlug) %}
+<main id="main-content">
+  <section class="page-hero page-hero-dark" style="--hero-image: url('{{ capability.image }}')">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><a href="{{ prefix }}/capabilities/">{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</a><span>/</span><span>{{ capability.name[lang] }}</span></nav>
+      <span class="eyebrow">{{ capability.code }}</span><h1>{{ capability.name[lang] }}</h1><p>{{ capability.summary[lang] }}</p>
+    </div>
+  </section>
+  <section class="section section-system">
+    <div class="container content-grid">
+      <div class="content-block"><span class="eyebrow">AVAILABLE EVIDENCE</span><h2>{% if lang == "en" %}What the current material supports{% else %}当前材料支持的说明{% endif %}</h2><ul class="plain-list">{% for item in capability.evidence[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
+      <aside><div class="notice">{% if lang == "en" %}Equipment photos support the existence of the process or inspection route. Precision, range and acceptance criteria are confirmed only for a specific drawing and application.{% else %}设备图片用于证明工艺或检测路径存在；精度、范围和验收标准只针对具体图纸与工况确认。{% endif %}</div></aside>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">CONTROL LOGIC</span><h2>{% if lang == "en" %}How this capability enters the manufacturing route.{% else %}该能力如何进入制造路线。{% endif %}</h2></div><p>{% if lang == "en" %}The sequence is adjusted to the blade family, material and validation requirement.{% else %}具体顺序根据刀具类别、材料和验证要求调整。{% endif %}</p></div>
+      <div class="quality-flow">
+        <div class="quality-flow-step"><b>01 / INPUT</b><h3>{% if lang == "en" %}Requirement{% else %}需求{% endif %}</h3><p>{% if lang == "en" %}Drawing, sample and application condition.{% else %}图纸、样品和使用工况。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>02 / REVIEW</b><h3>{% if lang == "en" %}Route{% else %}路线{% endif %}</h3><p>{% if lang == "en" %}Material, geometry and process sequence.{% else %}材料、几何与工艺顺序。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>03 / VERIFY</b><h3>{% if lang == "en" %}Control{% else %}控制{% endif %}</h3><p>{% if lang == "en" %}Inspection against drawing and criteria.{% else %}按图纸和标准执行检测。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>04 / RELEASE</b><h3>{% if lang == "en" %}Output{% else %}输出{% endif %}</h3><p>{% if lang == "en" %}Sample approval and repeat production.{% else %}样品确认与重复生产。{% endif %}</p></div>
+      </div>
+    </div>
+  </section>
+  {% include "partials/rfq-cta.njk" %}
+</main>

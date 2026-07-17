@@ -1,0 +1,14 @@
+{
+  "name": "teamstar-manufacturing-website",
+  "private": true,
+  "version": "3.0.0",
+  "description": "Bilingual static website for Teamstar Manufacturing",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve --port=8080",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

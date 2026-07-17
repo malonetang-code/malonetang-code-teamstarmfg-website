@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+<main id="main-content">
+  <section class="page-hero" style="--hero-image: url('/images/web/product-parts.jpg')">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>RFQ</span></nav>
+      <span class="eyebrow">DRAWING / SAMPLE / APPLICATION</span>
+      <h1>{% if lang == "en" %}Send the information available today.{% else %}先发送今天已有的资料。{% endif %}</h1>
+      <p>{% if lang == "en" %}A complete drawing is ideal, but an old blade, clear photos or the machine application can also start the review.{% else %}完整图纸最理想；旧刀、清晰照片或设备工况同样可以启动评估。{% endif %}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container rfq-layout">
+      <div>
+        <span class="eyebrow">RFQ CHECKLIST</span>
+        <h2>{% if lang == "en" %}Information that makes review faster{% else %}有助于加快评估的资料{% endif %}</h2>
+        <div class="rfq-checklist">
+          <div class="rfq-check" id="drawing"><b>01</b><div><strong>{% if lang == "en" %}Drawing and revision{% else %}图纸与版本{% endif %}</strong><span>{% if lang == "en" %}Dimensions, tolerance, thickness, holes and drawing revision.{% else %}尺寸、公差、厚度、孔位和图纸版本。{% endif %}</span></div></div>
+          <div class="rfq-check" id="sample"><b>02</b><div><strong>{% if lang == "en" %}Sample or old-blade photos{% else %}样品或旧刀照片{% endif %}</strong><span>{% if lang == "en" %}Full view, mounting area, edge and visible wear or failure.{% else %}整体、安装位置、刃口以及可见磨损或失效。{% endif %}</span></div></div>
+          <div class="rfq-check" id="application"><b>03</b><div><strong>{% if lang == "en" %}Machine and material cut{% else %}设备与被切材料{% endif %}</strong><span>{% if lang == "en" %}Machine brand/model, operating method and material being cut.{% else %}设备品牌型号、运行方式和被切材料。{% endif %}</span></div></div>
+          <div class="rfq-check"><b>04</b><div><strong>{% if lang == "en" %}Quantity and target{% else %}数量与目标{% endif %}</strong><span>{% if lang == "en" %}Prototype quantity, annual demand, current issue and service-life target.{% else %}试样数量、年度需求、当前问题和寿命目标。{% endif %}</span></div></div>
+        </div>
+        <div class="notice" style="margin-top: 24px">{% if lang == "en" %}Files are not uploaded through the current form. Send drawings and photos directly to {{ site.email }} and include your company name in the subject.{% else %}当前表单不上传附件，请把图纸和照片直接发送到 {{ site.email }}，并在主题中注明公司名称。{% endif %}</div>
+      </div>
+      <form class="rfq-form" action="{{ site.formEndpoint }}" method="POST" data-rfq-form>
+        <h2>{% if lang == "en" %}Submit inquiry{% else %}提交询盘{% endif %}</h2>
+        <div class="form-grid two">
+          <div class="field"><label for="rfq-name">{% if lang == "en" %}Name{% else %}姓名{% endif %}</label><input id="rfq-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="rfq-email">Email</label><input id="rfq-email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
+          <div class="field"><label for="rfq-company">{% if lang == "en" %}Company{% else %}公司{% endif %}</label><input id="rfq-company" name="company" type="text" autocomplete="organization"></div>
+          <div class="field"><label for="rfq-phone">{% if lang == "en" %}Phone{% else %}电话{% endif %}</label><input id="rfq-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"></div>
+        </div>
+        <div class="form-grid" style="margin-top: 16px">
+          <div class="field"><label for="rfq-product">{% if lang == "en" %}Product or machine{% else %}刀具或设备{% endif %}</label><input id="rfq-product" name="product" type="text" required></div>
+          <div class="field"><label for="rfq-message">{% if lang == "en" %}Requirement details{% else %}需求说明{% endif %}</label><textarea id="rfq-message" name="message" required placeholder="{% if lang == 'en' %}Dimensions, material cut, quantity, current issue...{% else %}尺寸、被切材料、数量、当前问题……{% endif %}"></textarea></div>
+        </div>
+        <input type="hidden" name="language" value="{{ lang }}">
+        <div class="form-actions"><button class="button button-accent" type="submit">{% if lang == "en" %}Send inquiry{% else %}发送询盘{% endif %}</button><a class="button button-outline" href="mailto:{{ site.email }}">{% if lang == "en" %}Email drawings{% else %}邮件发送图纸{% endif %}</a></div>
+        <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+      </form>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,21 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ site.url }}/</loc></url>
+  <url><loc>{{ site.url }}/en/</loc></url>
+  {% for path in ["products", "capabilities", "quality", "company", "customers", "rfq"] %}
+  <url><loc>{{ site.url }}/{{ path }}/</loc></url>
+  <url><loc>{{ site.url }}/en/{{ path }}/</loc></url>
+  {% endfor %}
+  {% for product in catalog.products %}
+  <url><loc>{{ site.url }}/products/{{ product.slug }}/</loc></url>
+  <url><loc>{{ site.url }}/en/products/{{ product.slug }}/</loc></url>
+  {% endfor %}
+  {% for capability in catalog.capabilities %}
+  <url><loc>{{ site.url }}/capabilities/{{ capability.slug }}/</loc></url>
+  <url><loc>{{ site.url }}/en/capabilities/{{ capability.slug }}/</loc></url>
+  {% endfor %}
+</urlset>

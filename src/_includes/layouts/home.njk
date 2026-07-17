@@ -70,7 +70,7 @@ layout: layouts/base.njk
           <div class="system-row"><strong>{{ capability.code }}</strong><p>{{ capability.summary[lang] }}</p><a href="{{ prefix }}/capabilities/{{ capability.slug }}/">{% if lang == "en" %}OPEN{% else %}查看{% endif %}</a></div>
           {% endfor %}
         </div>
-        <div class="system-media"><img src="/images/web/factory-interior.jpg" alt="{% if lang == 'en' %}Teamstar manufacturing floor{% else %}群新工业制造车间{% endif %}" loading="lazy" width="1800" height="1200"></div>
+        <div class="system-media"><img src="/images/web/product-parts.jpg" alt="{% if lang == 'en' %}Finished industrial blade components{% else %}工业刀具成品零件{% endif %}" loading="lazy" width="1920" height="1280"></div>
       </div>
     </div>
   </section>
@@ -78,8 +78,8 @@ layout: layouts/base.njk
   <section class="section section-dark">
     <div class="container">
       <div class="section-head">
-        <div><span class="eyebrow">QUALITY EVIDENCE</span><h2>{% if lang == "en" %}Inspection evidence belongs inside the manufacturing story.{% else %}把检测证据放进制造过程。{% endif %}</h2></div>
-        <p>{% if lang == "en" %}Real equipment images support material, dimensional and process checks without inventing unconfirmed accuracy claims.{% else %}使用真实设备图片说明材料、尺寸和过程检测，不从图片外推未经确认的精度参数。{% endif %}</p>
+        <div><span class="eyebrow">QUALITY CONTROL</span><h2>{% if lang == "en" %}Inspection throughout the manufacturing route.{% else %}检测贯穿制造过程。{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Spectrometry, coordinate measurement, image measurement and metallography support material, dimensional and process checks.{% else %}光谱、三坐标、影像测量与金相设备，为材料、尺寸和过程检查提供支持。{% endif %}</p>
       </div>
       <div class="quality-preview">
         <figure><img src="/images/quality/spectrolab-spectrometer.jpeg" alt="SPECTROLAB spectrometer" loading="lazy" width="1269" height="846"><figcaption>{% if lang == "en" %}SPECTROLAB spectrometer / material analysis{% else %}SPECTROLAB 光谱仪 / 材料分析{% endif %}</figcaption></figure>
@@ -114,15 +114,14 @@ layout: layouts/base.njk
   <section class="section section-soft">
     <div class="container">
       <div class="section-head">
-        <div><span class="eyebrow">CUSTOMER REFERENCES</span><h2>{% if lang == "en" %}Reference logos from supplied website materials.{% else %}来自已提供网站材料的客户标识。{% endif %}</h2></div>
-        <p>{% if lang == "en" %}Logos are shown as reference assets only. Detailed cooperation scope, testimonials and results will be added only with publishable material.{% else %}Logo 仅按已提供素材展示；具体合作范围、证言和成果只在有可公开材料时补充。{% endif %}</p>
+        <div><span class="eyebrow">CUSTOMER REFERENCES</span><h2>{% if lang == "en" %}Industrial brands and equipment applications served.{% else %}服务过的工业品牌与设备应用。{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Experience across different blade families supports collaboration with brands, equipment makers and industrial users.{% else %}覆盖多类刀具的制造经验，支持与品牌、设备商及工业用户开展项目协作。{% endif %}</p>
       </div>
       <div class="logo-wall">
         {% for logo in ["kam", "eastman", "sata", "stanley", "baird-medical", "tti", "jwei", "lectra", "bullmer", "fiskars"] %}
         <div class="logo-item"><img src="/images/logos/{{ logo }}.png" alt="{{ logo }} logo" loading="lazy"></div>
         {% endfor %}
       </div>
-      <p class="proof-note">{% if lang == "en" %}No unverified testimonial or performance result is implied by this logo display.{% else %}该 Logo 展示不代表任何未经确认的证言或案例结果。{% endif %}</p>
     </div>
   </section>
 

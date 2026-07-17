@@ -1,5 +1,9 @@
 # Teamstar Manufacturing 网站维护话题
 
+## 2026-07-17 官网措辞与设备图纠正
+- 已移除官网中关于 AI 伪装、证据边界、素材批准和避免虚构等内部审核式措辞，改为直接面向客户的业务表达。
+- `factory-interior.jpg` 与 `cnc-machines.jpg` 不再被任何页面引用，也不再复制到 `dist/`；热修复上线后两个公开 URL 均为 404，发布证据见 `../../deploy_packages/releases/20260717185957/DEPLOYMENT.md`。
+
 ## 2026-07-17 架构演进上线
 - 用户确认 A+B+C 视觉组合：Precision Catalog 为全站骨架，Modern Factory 用于公司/工厂，Engineering System 用于能力/质量；Eleventy 双语多页面源码位于 `src/`，构建产物为 `dist/`，旧单页说明已被本节及维护手册取代。
 - 2026-07-17 已部署阿里云 `/www/wwwroot/wordpress`：69/69 文件哈希通过，根域、`www`、中英文与关键页面 HTTPS 200，移动端/桌面端浏览器无控制台错误；发布证据见 `../../deploy_packages/releases/20260717183617/DEPLOYMENT.md`。

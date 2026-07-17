@@ -139,7 +139,7 @@ module.exports = {
     {
       slug: "precision-grinding",
       code: "02 / PRECISION GRINDING",
-      image: "/images/web/cnc-machines.jpg",
+      image: "/images/web/product-parts.jpg",
       name: { zh: "精密加工与研磨", en: "Precision Machining and Grinding" },
       summary: {
         zh: "覆盖直刃、圆刀、锯片和异型件的加工与研磨路线，重点控制安装接口、刃口与批次重复性。",

@@ -2,7 +2,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
   const imageFiles = [
-    "images/web",
+    "images/web/brand-sign.jpg",
+    "images/web/factory-building.jpg",
+    "images/web/laser-cutting.jpg",
+    "images/web/product-parts.jpg",
+    "images/web/quality-control.jpg",
     "images/product_01.png",
     "images/product_02.png",
     "images/product_04.png",

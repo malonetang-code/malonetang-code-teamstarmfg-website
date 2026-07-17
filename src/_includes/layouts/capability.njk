@@ -12,8 +12,8 @@ layout: layouts/base.njk
   </section>
   <section class="section section-system">
     <div class="container content-grid">
-      <div class="content-block"><span class="eyebrow">AVAILABLE EVIDENCE</span><h2>{% if lang == "en" %}What the current material supports{% else %}当前材料支持的说明{% endif %}</h2><ul class="plain-list">{% for item in capability.evidence[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
-      <aside><div class="notice">{% if lang == "en" %}Equipment photos support the existence of the process or inspection route. Precision, range and acceptance criteria are confirmed only for a specific drawing and application.{% else %}设备图片用于证明工艺或检测路径存在；精度、范围和验收标准只针对具体图纸与工况确认。{% endif %}</div></aside>
+      <div class="content-block"><span class="eyebrow">PROCESS SUPPORT</span><h2>{% if lang == "en" %}Process and inspection support{% else %}工艺与检测支持{% endif %}</h2><ul class="plain-list">{% for item in capability.evidence[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
+      <aside><div class="notice">{% if lang == "en" %}Precision, working range and acceptance criteria are confirmed against the specific drawing and application requirement.{% else %}具体精度、加工范围和验收标准根据图纸与应用要求确认。{% endif %}</div></aside>
     </div>
   </section>
   <section class="section">

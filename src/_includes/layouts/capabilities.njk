@@ -3,17 +3,17 @@ layout: layouts/base.njk
 ---
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
-  <section class="page-hero page-hero-dark" style="--hero-image: url('/images/web/factory-interior.jpg')">
+  <section class="page-hero page-hero-dark" style="--hero-image: url('/images/web/product-parts.jpg')">
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</span></nav>
       <span class="eyebrow">MANUFACTURING CAPABILITIES</span>
       <h1>{% if lang == "en" %}Capabilities connected to control points.{% else %}把制造能力对应到控制点。{% endif %}</h1>
-      <p>{% if lang == "en" %}Equipment matters when it is connected to a manufacturing decision, sample validation or inspection evidence.{% else %}设备只有对应到制造决策、样品验证或检测证据时，才构成有效的能力说明。{% endif %}</p>
+      <p>{% if lang == "en" %}Manufacturing equipment and process routes are combined around the drawing, sample, application and quality requirements.{% else %}制造设备与工艺路线围绕图纸、样品、工况和质量要求进行组合。{% endif %}</p>
     </div>
   </section>
   <section class="section section-system">
     <div class="container">
-      <div class="section-head"><div><span class="eyebrow">ENGINEERING SYSTEM</span><h2>{% if lang == "en" %}Three capability routes for the current site.{% else %}当前官网的三条能力主线。{% endif %}</h2></div><p>{% if lang == "en" %}The detail pages state what is supported by supplied material and clearly separate pending parameters.{% else %}详情页只使用已有材料能支持的事实，并明确区分仍待确认的参数。{% endif %}</p></div>
+      <div class="section-head"><div><span class="eyebrow">ENGINEERING SYSTEM</span><h2>{% if lang == "en" %}Three manufacturing and validation routes.{% else %}三条制造与验证主线。{% endif %}</h2></div><p>{% if lang == "en" %}Heat treatment, precision grinding and inspection support blade geometry, edge condition and batch requirements together.{% else %}热处理、精密研磨与检测能力，共同支持刀具结构、刃口与批次要求。{% endif %}</p></div>
       <div class="capability-list">{% for capability in catalog.capabilities %}{% include "partials/capability-card.njk" %}{% endfor %}</div>
     </div>
   </section>

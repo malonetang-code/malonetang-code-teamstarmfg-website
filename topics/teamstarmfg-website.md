@@ -1,5 +1,11 @@
 # Teamstar Manufacturing 网站维护话题
 
+## 2026-07-17 全站文案规范化上线
+- 参考 DIENES、TKM、Baucor、York Saw & Knife、Fernite、LUTZ BLADES 与 Winterhoff Picard 等工业刀具企业官网，重写首页、产品、制造能力、质量体系、公司概况、合作参考与技术询价页面的中英文文案。
+- 全站统一使用“工业机械刀具、按图制造、按样复刻、工况评估、技术要求确认、工艺路线制定、样品验证、批量制造与检验”等正式术语，移除“把……”“从你……开始”“先发送今天已有的资料”“客户背书”等口语或内部汇报式表达。
+- 页面标题及 H1-H6 全部禁止句末标点，并新增 `npm run check:content` 自动检查；文案规范见 `../content_plan/website-copy-style-guide.md`。
+- 32 个中英文页面已部署至阿里云生产站，全部 HTTPS 200；桌面、平板、390px 与 320px 布局、本地 966 个链接/资源引用、线上浏览器和 Logo 原色均通过验证，发布证据见 `../../deploy_packages/releases/20260717193146/DEPLOYMENT.md`。
+
 ## 2026-07-17 Logo 墙与标题规范
 - Logo 墙已取消灰度和透明度处理，10 个品牌标识默认显示原色；CSS/JS 增加版本参数，避免回访浏览器继续使用旧样式。
 - sitemap 32 个页面的全部 H1/H2 已去除结尾句号；线上浏览器验证无断图、溢出和控制台错误，发布证据见 `../../deploy_packages/releases/20260717191323/DEPLOYMENT.md`。

@@ -7,27 +7,27 @@ layout: layouts/base.njk
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Quality{% else %}质量体系{% endif %}</span></nav>
       <span class="eyebrow">QUALITY SYSTEM / ISO 9001:2015</span>
-      <h1>{% if lang == "en" %}Quality control inside the manufacturing route{% else %}把质量控制放进制造路线{% endif %}</h1>
-      <p>{% if lang == "en" %}Material, process, dimensional and final checks are connected to the approved drawing and the actual blade application.{% else %}材料、过程、尺寸和终检控制，对应确认版图纸和刀具实际应用。{% endif %}</p>
+      <h1>{% if lang == "en" %}Quality control throughout manufacturing{% else %}制造全过程质量控制{% endif %}</h1>
+      <p>{% if lang == "en" %}Material verification, in-process inspection, dimensional inspection and final inspection are performed against approved drawings and applicable product requirements.{% else %}材料确认、过程检验、尺寸检测与成品检验，依据确认版图纸及相应产品要求执行。{% endif %}</p>
     </div>
   </section>
   <section class="section section-system">
     <div class="container">
-      <div class="section-head"><div><span class="eyebrow">PROCESS CONTROL</span><h2>{% if lang == "en" %}A four-stage quality path{% else %}四阶段质量路径{% endif %}</h2></div><p>{% if lang == "en" %}Inspection plans are defined by the product, drawing and application, covering the corresponding dimensional, material and edge requirements.{% else %}检测方案根据产品、图纸与工况制定，覆盖相应的尺寸、材料和刃口要求。{% endif %}</p></div>
+      <div class="section-head"><div><span class="eyebrow">PROCESS CONTROL</span><h2>{% if lang == "en" %}Manufacturing quality control process{% else %}质量控制流程{% endif %}</h2></div><p>{% if lang == "en" %}Inspection plans are defined according to the product, drawing and operating requirements and cover applicable material, dimensional and edge criteria.{% else %}检验方案依据产品、图纸及工况要求制定，覆盖相应的材料、尺寸与刃口标准。{% endif %}</p></div>
       <div class="quality-flow">
-        <div class="quality-flow-step"><b>01 / INCOMING</b><h3>{% if lang == "en" %}Requirement and material{% else %}需求与材料{% endif %}</h3><p>{% if lang == "en" %}Confirm drawing revision, material route and identifiable requirements.{% else %}核对图纸版本、材料路线和可识别要求。{% endif %}</p></div>
-        <div class="quality-flow-step"><b>02 / IN-PROCESS</b><h3>{% if lang == "en" %}Process checks{% else %}过程检查{% endif %}</h3><p>{% if lang == "en" %}Connect shaping, heat treatment, machining and grinding controls.{% else %}衔接成形、热处理、机加工和研磨控制。{% endif %}</p></div>
-        <div class="quality-flow-step"><b>03 / FINAL</b><h3>{% if lang == "en" %}Final inspection{% else %}终检{% endif %}</h3><p>{% if lang == "en" %}Check the agreed dimensional, material and edge requirements.{% else %}检查已约定的尺寸、材料和刃口要求。{% endif %}</p></div>
-        <div class="quality-flow-step"><b>04 / RECORD</b><h3>{% if lang == "en" %}Batch release{% else %}批次放行{% endif %}</h3><p>{% if lang == "en" %}Release against approved criteria and retain key records where applicable.{% else %}按确认标准放行，并按需要保留关键记录。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>01 / REVIEW</b><h3>{% if lang == "en" %}Technical and material review{% else %}技术要求与材料确认{% endif %}</h3><p>{% if lang == "en" %}Confirm the drawing revision, material route and applicable inspection requirements.{% else %}确认图纸版本、材料路线及适用的检验要求。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>02 / IN-PROCESS</b><h3>{% if lang == "en" %}In-process inspection{% else %}过程检验{% endif %}</h3><p>{% if lang == "en" %}Apply controls during blade shaping, heat treatment, machining and grinding.{% else %}在刀坯成形、热处理、机加工及研磨过程中实施相应控制。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>03 / FINAL</b><h3>{% if lang == "en" %}Final inspection{% else %}成品检验{% endif %}</h3><p>{% if lang == "en" %}Verify the agreed material, dimensional and edge requirements.{% else %}检验已确认的材料、尺寸及刃口要求。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>04 / RELEASE</b><h3>{% if lang == "en" %}Batch release{% else %}批次放行{% endif %}</h3><p>{% if lang == "en" %}Release products against approved criteria and retain applicable records.{% else %}依据确认标准执行产品放行，并保留适用记录。{% endif %}</p></div>
       </div>
     </div>
   </section>
   <section class="section section-dark">
     <div class="container">
-      <div class="section-head"><div><span class="eyebrow">INSPECTION EQUIPMENT</span><h2>{% if lang == "en" %}Equipment connecting material and dimensional control{% else %}连接材料与尺寸控制的检测设备{% endif %}</h2></div><p>{% if lang == "en" %}Spectrometry, coordinate measurement, image measurement and metallography support the corresponding material analysis and dimensional checks.{% else %}光谱、三坐标、影像测量与金相设备，用于相应的材料分析和尺寸检查。{% endif %}</p></div>
+      <div class="section-head"><div><span class="eyebrow">INSPECTION EQUIPMENT</span><h2>{% if lang == "en" %}Material and dimensional inspection equipment{% else %}材料与尺寸检测设备{% endif %}</h2></div><p>{% if lang == "en" %}Spectrometry, coordinate measurement, image measurement and metallography support applicable material analysis, dimensional inspection and process verification.{% else %}光谱分析、三坐标测量、影像尺寸测量与金相检验，用于相应的材料分析、尺寸检测及过程验证。{% endif %}</p></div>
       <div class="quality-equipment-grid">
         <article class="equipment-item"><img src="/images/quality/spectrolab-spectrometer.jpeg" alt="SPECTROLAB spectrometer" loading="lazy"><div><strong>SPECTROLAB</strong><span>{% if lang == "en" %}Spectrometer / material analysis{% else %}光谱仪 / 材料分析{% endif %}</span></div></article>
-        <article class="equipment-item"><img src="/images/quality/cmm-beyond-apex707.jpeg" alt="Mitutoyo BEYOND APEX 707 CMM" loading="lazy"><div><strong>Mitutoyo BEYOND APEX 707</strong><span>{% if lang == "en" %}Coordinate measuring machine{% else %}三次元测定机{% endif %}</span></div></article>
+        <article class="equipment-item"><img src="/images/quality/cmm-beyond-apex707.jpeg" alt="Mitutoyo BEYOND APEX 707 CMM" loading="lazy"><div><strong>Mitutoyo BEYOND APEX 707</strong><span>{% if lang == "en" %}Coordinate measuring machine{% else %}三坐标测量机{% endif %}</span></div></article>
         <article class="equipment-item"><img src="/images/quality/keyence-im7000.jpeg" alt="KEYENCE IM-7000" loading="lazy"><div><strong>KEYENCE IM-7000</strong><span>{% if lang == "en" %}Image dimension measurement{% else %}影像尺寸测量{% endif %}</span></div></article>
         <article class="equipment-item"><img src="/images/quality/nikon-metallographic-microscope.jpeg" alt="NIKON metallographic microscope" loading="lazy"><div><strong>NIKON</strong><span>{% if lang == "en" %}Metallographic microscope{% else %}金相显微镜{% endif %}</span></div></article>
       </div>

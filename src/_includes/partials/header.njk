@@ -15,12 +15,12 @@
       <a href="{{ prefix }}/products/">{% if lang == "en" %}Products{% else %}产品目录{% endif %}</a>
       <a href="{{ prefix }}/capabilities/">{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</a>
       <a href="{{ prefix }}/quality/">{% if lang == "en" %}Quality{% else %}质量体系{% endif %}</a>
-      <a href="{{ prefix }}/company/">{% if lang == "en" %}Company{% else %}公司与基地{% endif %}</a>
-      <a href="{{ prefix }}/customers/">{% if lang == "en" %}Customers{% else %}客户背书{% endif %}</a>
+      <a href="{{ prefix }}/company/">{% if lang == "en" %}Company{% else %}公司概况{% endif %}</a>
+      <a href="{{ prefix }}/customers/">{% if lang == "en" %}References{% else %}合作参考{% endif %}</a>
     </nav>
     <div class="nav-actions">
       <a class="language-link" href="{{ alternateUrl }}" hreflang="{% if lang == 'en' %}zh-CN{% else %}en{% endif %}">{% if lang == "en" %}中文{% else %}EN{% endif %}</a>
-      <a class="nav-rfq" href="{{ prefix }}/rfq/">{% if lang == "en" %}Start RFQ{% else %}开始询价{% endif %}</a>
+      <a class="nav-rfq" href="{{ prefix }}/rfq/">{% if lang == "en" %}RFQ{% else %}技术询价{% endif %}</a>
       <button class="menu-button" type="button" aria-label="{% if lang == 'en' %}Open menu{% else %}打开菜单{% endif %}" aria-expanded="false" aria-controls="mobile-menu" data-open-label="{% if lang == 'en' %}Open menu{% else %}打开菜单{% endif %}" data-close-label="{% if lang == 'en' %}Close menu{% else %}关闭菜单{% endif %}" data-menu-button>
         <span></span><span></span><span></span>
       </button>
@@ -31,9 +31,9 @@
       <a href="{{ prefix }}/products/">{% if lang == "en" %}Products{% else %}产品目录{% endif %}</a>
       <a href="{{ prefix }}/capabilities/">{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</a>
       <a href="{{ prefix }}/quality/">{% if lang == "en" %}Quality{% else %}质量体系{% endif %}</a>
-      <a href="{{ prefix }}/company/">{% if lang == "en" %}Company{% else %}公司与基地{% endif %}</a>
-      <a href="{{ prefix }}/customers/">{% if lang == "en" %}Customers{% else %}客户背书{% endif %}</a>
-      <a href="{{ prefix }}/rfq/">{% if lang == "en" %}Start RFQ{% else %}开始询价{% endif %}</a>
+      <a href="{{ prefix }}/company/">{% if lang == "en" %}Company{% else %}公司概况{% endif %}</a>
+      <a href="{{ prefix }}/customers/">{% if lang == "en" %}References{% else %}合作参考{% endif %}</a>
+      <a href="{{ prefix }}/rfq/">{% if lang == "en" %}RFQ{% else %}技术询价{% endif %}</a>
     </div>
   </nav>
 </header>

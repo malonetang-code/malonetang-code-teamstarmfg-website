@@ -10,31 +10,31 @@ layout: layouts/base.njk
       <span class="eyebrow">{{ product.code }}</span>
       <h1>{{ product.name[lang] }}</h1>
       <p>{{ product.summary[lang] }}</p>
-      <div class="page-hero-actions"><a class="button button-dark" href="{{ prefix }}/rfq/">{% if lang == "en" %}Send requirement{% else %}提交需求{% endif %}</a></div>
+      <div class="page-hero-actions"><a class="button button-dark" href="{{ prefix }}/rfq/">{% if lang == "en" %}Submit an RFQ{% else %}提交技术询价{% endif %}</a></div>
     </div>
   </section>
   <section class="section section-soft">
     <div class="container detail-proof">
       <div class="detail-proof-item"><strong>{% if lang == "en" %}Typical equipment{% else %}典型设备{% endif %}</strong><span>{{ product.equipment[lang] }}</span></div>
-      <div class="detail-proof-item"><strong>{% if lang == "en" %}Manufacturing focus{% else %}制造关注{% endif %}</strong><span>{{ product.focus[lang] }}</span></div>
-      <div class="detail-proof-item"><strong>{% if lang == "en" %}RFQ entry{% else %}询价入口{% endif %}</strong><span>{% if lang == "en" %}Drawing, sample or application review{% else %}图纸、样品或工况评估{% endif %}</span></div>
+      <div class="detail-proof-item"><strong>{% if lang == "en" %}Technical considerations{% else %}制造要点{% endif %}</strong><span>{{ product.focus[lang] }}</span></div>
+      <div class="detail-proof-item"><strong>{% if lang == "en" %}Review inputs{% else %}评估资料{% endif %}</strong><span>{% if lang == "en" %}Drawing, physical sample or application information{% else %}图纸、实物样品或工况资料{% endif %}</span></div>
     </div>
   </section>
   <section class="section">
     <div class="container content-grid">
       <div>
         <div class="content-block"><span class="eyebrow">APPLICATIONS</span><h2>{% if lang == "en" %}Typical applications{% else %}典型应用{% endif %}</h2><ul class="plain-list">{% for item in product.applications[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
-        <div class="content-block" style="margin-top: 48px"><span class="eyebrow">MANUFACTURING PATH</span><h2>{% if lang == "en" %}From requirement review to repeat production{% else %}从需求确认到重复生产{% endif %}</h2><div class="process-list">
-          <div class="process-step"><div><h3>{% if lang == "en" %}Requirement check{% else %}需求核对{% endif %}</h3><p>{% if lang == "en" %}Confirm dimensions, mounting, machine, material cut and quantity.{% else %}核对尺寸、安装、设备、被切材料和数量。{% endif %}</p></div></div>
-          <div class="process-step"><div><h3>{% if lang == "en" %}Route review{% else %}路线评估{% endif %}</h3><p>{% if lang == "en" %}Connect material, shaping, heat treatment, grinding and inspection.{% else %}衔接材料、成形、热处理、研磨和检测。{% endif %}</p></div></div>
-          <div class="process-step"><div><h3>{% if lang == "en" %}Sample validation{% else %}样品验证{% endif %}</h3><p>{% if lang == "en" %}Review installation and cutting feedback before repeat production.{% else %}在重复生产前核对安装和切割反馈。{% endif %}</p></div></div>
-          <div class="process-step"><div><h3>{% if lang == "en" %}Batch control{% else %}批量控制{% endif %}</h3><p>{% if lang == "en" %}Produce against the approved drawing and inspection criteria.{% else %}按照确认版图纸和检验标准生产。{% endif %}</p></div></div>
+        <div class="content-block" style="margin-top: 48px"><span class="eyebrow">MANUFACTURING PROCESS</span><h2>{% if lang == "en" %}Technical review and series production process{% else %}技术评估与批量制造流程{% endif %}</h2><div class="process-list">
+          <div class="process-step"><div><h3>{% if lang == "en" %}Technical requirement review{% else %}技术要求确认{% endif %}</h3><p>{% if lang == "en" %}Confirm dimensions, mounting interfaces, machine information, processed material and quantity.{% else %}确认尺寸、安装接口、设备信息、被处理材料及需求数量。{% endif %}</p></div></div>
+          <div class="process-step"><div><h3>{% if lang == "en" %}Process planning{% else %}工艺路线制定{% endif %}</h3><p>{% if lang == "en" %}Define the applicable material, shaping, heat-treatment, machining, grinding and inspection processes.{% else %}制定相应的材料、成形、热处理、机加工、研磨及检验工艺。{% endif %}</p></div></div>
+          <div class="process-step"><div><h3>{% if lang == "en" %}Prototype validation{% else %}样品验证{% endif %}</h3><p>{% if lang == "en" %}Confirm installation and cutting-performance feedback before series production.{% else %}批量制造前确认安装情况及切削应用反馈。{% endif %}</p></div></div>
+          <div class="process-step"><div><h3>{% if lang == "en" %}Series production and inspection{% else %}批量制造与检验{% endif %}</h3><p>{% if lang == "en" %}Manufacture and inspect against the approved drawing and acceptance criteria.{% else %}依据确认版图纸与验收标准执行制造和检验。{% endif %}</p></div></div>
         </div></div>
       </div>
       <aside>
-        <div class="content-block"><span class="eyebrow">RFQ CHECKLIST</span><h2>{% if lang == "en" %}Information to send{% else %}建议提供的资料{% endif %}</h2><ul class="plain-list">{% for item in product.rfq[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
-        <div class="notice" style="margin-top: 24px">{% if lang == "en" %}Material, hardness, tolerance and lead time are confirmed only after the drawing and application are reviewed.{% else %}材料、硬度、公差和交期将在图纸与工况评估后确认。{% endif %}</div>
-        <div style="margin-top: 24px"><a class="button button-accent" href="{{ prefix }}/rfq/">{% if lang == "en" %}Open RFQ form{% else %}打开询价表单{% endif %}</a></div>
+        <div class="content-block"><span class="eyebrow">RFQ CHECKLIST</span><h2>{% if lang == "en" %}Technical RFQ information{% else %}技术询价资料{% endif %}</h2><ul class="plain-list">{% for item in product.rfq[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
+        <div class="notice" style="margin-top: 24px">{% if lang == "en" %}Material grade, hardness, tolerance and lead time are confirmed after drawing and application review.{% else %}材料牌号、硬度、公差及交期需经图纸与工况评估后确认。{% endif %}</div>
+        <div style="margin-top: 24px"><a class="button button-accent" href="{{ prefix }}/rfq/">{% if lang == "en" %}Submit a technical RFQ{% else %}提交技术询价{% endif %}</a></div>
       </aside>
     </div>
   </section>

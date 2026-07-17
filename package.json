@@ -6,7 +6,8 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve --port=8080",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "check:content": "node scripts/check-content.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"

@@ -18,12 +18,12 @@ layout: layouts/base.njk
   </section>
   <section class="section">
     <div class="container">
-      <div class="section-head"><div><span class="eyebrow">CONTROL LOGIC</span><h2>{% if lang == "en" %}How this capability enters the manufacturing route{% else %}该能力如何进入制造路线{% endif %}</h2></div><p>{% if lang == "en" %}The sequence is adjusted to the blade family, material and validation requirement.{% else %}具体顺序根据刀具类别、材料和验证要求调整。{% endif %}</p></div>
+      <div class="section-head"><div><span class="eyebrow">PROCESS CONTROL</span><h2>{% if lang == "en" %}Process route and control requirements{% else %}工艺路线与控制要求{% endif %}</h2></div><p>{% if lang == "en" %}The process sequence and inspection items are defined according to blade family, material and validation requirements.{% else %}具体工序与检验项目依据刀具类别、材料及验证要求确定。{% endif %}</p></div>
       <div class="quality-flow">
-        <div class="quality-flow-step"><b>01 / INPUT</b><h3>{% if lang == "en" %}Requirement{% else %}需求{% endif %}</h3><p>{% if lang == "en" %}Drawing, sample and application condition.{% else %}图纸、样品和使用工况。{% endif %}</p></div>
-        <div class="quality-flow-step"><b>02 / REVIEW</b><h3>{% if lang == "en" %}Route{% else %}路线{% endif %}</h3><p>{% if lang == "en" %}Material, geometry and process sequence.{% else %}材料、几何与工艺顺序。{% endif %}</p></div>
-        <div class="quality-flow-step"><b>03 / VERIFY</b><h3>{% if lang == "en" %}Control{% else %}控制{% endif %}</h3><p>{% if lang == "en" %}Inspection against drawing and criteria.{% else %}按图纸和标准执行检测。{% endif %}</p></div>
-        <div class="quality-flow-step"><b>04 / RELEASE</b><h3>{% if lang == "en" %}Output{% else %}输出{% endif %}</h3><p>{% if lang == "en" %}Sample approval and repeat production.{% else %}样品确认与重复生产。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>01 / INPUT</b><h3>{% if lang == "en" %}Technical input{% else %}技术资料{% endif %}</h3><p>{% if lang == "en" %}Drawings, physical samples and operating conditions.{% else %}图纸、实物样品及使用工况。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>02 / REVIEW</b><h3>{% if lang == "en" %}Process planning{% else %}工艺制定{% endif %}</h3><p>{% if lang == "en" %}Material, geometry and manufacturing sequence.{% else %}材料、刀具几何及制造顺序。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>03 / VERIFY</b><h3>{% if lang == "en" %}Inspection{% else %}检验{% endif %}</h3><p>{% if lang == "en" %}Inspection against drawings and acceptance criteria.{% else %}依据图纸与验收标准执行检验。{% endif %}</p></div>
+        <div class="quality-flow-step"><b>04 / RELEASE</b><h3>{% if lang == "en" %}Production release{% else %}生产放行{% endif %}</h3><p>{% if lang == "en" %}Prototype approval and release for series production.{% else %}样品确认及批量制造放行。{% endif %}</p></div>
       </div>
     </div>
   </section>

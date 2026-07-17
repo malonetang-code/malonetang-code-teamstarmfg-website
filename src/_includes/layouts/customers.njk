@@ -5,10 +5,10 @@ layout: layouts/base.njk
 <main id="main-content">
   <section class="page-hero" style="--hero-image: url('/images/web/product-parts.jpg')">
     <div class="container page-hero-inner">
-      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Customers{% else %}客户背书{% endif %}</span></nav>
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}References{% else %}合作参考{% endif %}</span></nav>
       <span class="eyebrow">CUSTOMER REFERENCES</span>
-      <h1>{% if lang == "en" %}Serving industrial brands and equipment applications{% else %}服务多类工业品牌与设备应用{% endif %}</h1>
-      <p>{% if lang == "en" %}Collaboration centers on blade matching, sample validation and repeatable batch delivery for specific machines and cutting requirements.{% else %}围绕具体设备与切削需求，协作覆盖刀型匹配、样品验证与稳定批量交付。{% endif %}</p>
+      <h1>{% if lang == "en" %}Brand and industrial application references{% else %}合作品牌与工业应用参考{% endif %}</h1>
+      <p>{% if lang == "en" %}Relevant projects address specific machines and cutting requirements through blade matching, prototype validation and series production.{% else %}相关项目围绕具体设备与切削要求，涵盖刀型匹配、样品验证及批量制造等环节。{% endif %}</p>
     </div>
   </section>
   <section class="section section-soft">
@@ -18,15 +18,16 @@ layout: layouts/base.njk
         <div class="logo-item"><img src="/images/logos/{{ logo }}.png" alt="{{ logo }} logo" loading="lazy"></div>
         {% endfor %}
       </div>
+      <p class="reference-note">{% if lang == "en" %}Trademarks shown belong to their respective owners and are presented only as references to relevant brands or equipment applications.{% else %}所示商标归其权利人所有，仅用于说明相关品牌或设备应用背景。{% endif %}</p>
     </div>
   </section>
   <section class="section">
     <div class="container">
-      <div class="section-head"><div><span class="eyebrow">PROJECT COLLABORATION</span><h2>{% if lang == "en" %}Three essentials from requirement to production{% else %}从需求到量产的三个关键环节{% endif %}</h2></div><p>{% if lang == "en" %}Define the application, confirm the blade and manufacturing route, then support delivery with sample and batch records.{% else %}明确应用，确认刀型与制造路线，并以样品和批次记录支撑后续交付。{% endif %}</p></div>
+      <div class="section-head"><div><span class="eyebrow">PROJECT COLLABORATION</span><h2>{% if lang == "en" %}Project review and delivery process{% else %}项目协作流程{% endif %}</h2></div><p>{% if lang == "en" %}The process covers application review, blade and process confirmation, prototype validation and series-production delivery.{% else %}项目流程涵盖应用信息确认、刀具与工艺确认、样品验证及批量交付。{% endif %}</p></div>
       <div class="customer-context">
-        <article class="context-item"><strong>{% if lang == "en" %}Application context{% else %}应用背景{% endif %}</strong><p>{% if lang == "en" %}Industry, machine type, material cut and the original problem.{% else %}行业、设备类型、被切材料和原始问题。{% endif %}</p></article>
-        <article class="context-item"><strong>{% if lang == "en" %}Blade and process{% else %}刀型与过程{% endif %}</strong><p>{% if lang == "en" %}Blade type, confirmed route, sample validation and delivery boundary.{% else %}刀具类型、确认路线、样品验证和交付边界。{% endif %}</p></article>
-        <article class="context-item"><strong>{% if lang == "en" %}Delivery and repeat production{% else %}交付与重复生产{% endif %}</strong><p>{% if lang == "en" %}Deliver against confirmed criteria and retain the information needed for repeat production.{% else %}按确认标准完成交付，并为后续重复生产保留必要信息。{% endif %}</p></article>
+        <article class="context-item"><strong>{% if lang == "en" %}Application information{% else %}应用信息确认{% endif %}</strong><p>{% if lang == "en" %}Confirm the industry, machine type, processed material and current operating issue.{% else %}确认所属行业、设备类型、被处理材料及当前使用问题。{% endif %}</p></article>
+        <article class="context-item"><strong>{% if lang == "en" %}Blade and process confirmation{% else %}刀具与工艺确认{% endif %}</strong><p>{% if lang == "en" %}Confirm the blade type, manufacturing process, inspection requirements and delivery scope.{% else %}确认刀具类型、制造工艺、检验要求及交付范围。{% endif %}</p></article>
+        <article class="context-item"><strong>{% if lang == "en" %}Prototype and series delivery{% else %}样品验证与批量交付{% endif %}</strong><p>{% if lang == "en" %}Validate the prototype and deliver series production against approved criteria.{% else %}完成样品验证，并依据确认标准实施批量制造与交付。{% endif %}</p></article>
       </div>
     </div>
   </section>

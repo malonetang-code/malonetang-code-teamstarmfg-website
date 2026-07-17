@@ -47,8 +47,8 @@
         form.reset();
         status.className = "form-status success";
         status.textContent = language === "en"
-          ? "Inquiry sent. We will review the information and reply by email."
-          : "询盘已发送，我们会核对资料并通过邮件回复。";
+          ? "RFQ submitted. The information will be reviewed and a reply sent by email."
+          : "询价已提交，相关资料经评估后将通过邮件回复。";
       } catch (error) {
         status.className = "form-status error";
         status.textContent = language === "en"

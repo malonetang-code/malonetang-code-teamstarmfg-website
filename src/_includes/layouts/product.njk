@@ -11,7 +11,7 @@ layout: layouts/base.njk
       <span class="eyebrow">{{ product.code }}</span>
       <h1>{{ product.name[lang] }}</h1>
       <p>{{ product.summary[lang] }}</p>
-      <div class="page-hero-actions"><a class="button button-dark" href="{{ prefix }}/rfq/">{% if lang == "en" %}Submit an RFQ{% else %}提交技术询价{% endif %}</a></div>
+      <div class="page-hero-actions"><a class="button button-dark" href="{{ prefix }}/rfq/?product={{ product.slug }}#rfq-form">{% if lang == "en" %}Submit an RFQ{% else %}提交技术询价{% endif %}</a></div>
     </div>
   </section>
   <section class="section section-soft">
@@ -35,7 +35,7 @@ layout: layouts/base.njk
       <aside>
         <div class="content-block"><span class="eyebrow">RFQ CHECKLIST</span><h2>{% if lang == "en" %}Technical RFQ information{% else %}技术询价资料{% endif %}</h2><ul class="plain-list">{% for item in product.rfq[lang] %}<li>{{ item }}</li>{% endfor %}</ul></div>
         <div class="notice" style="margin-top: 24px">{% if lang == "en" %}Material grade, hardness, tolerance and lead time are confirmed after drawing and application review.{% else %}材料牌号、硬度、公差及交期需经图纸与工况评估后确认。{% endif %}</div>
-        <div style="margin-top: 24px"><a class="button button-accent" href="{{ prefix }}/rfq/">{% if lang == "en" %}Submit a technical RFQ{% else %}提交技术询价{% endif %}</a></div>
+        <div style="margin-top: 24px"><a class="button button-accent" href="{{ prefix }}/rfq/?product={{ product.slug }}#rfq-form">{% if lang == "en" %}Submit a technical RFQ{% else %}提交技术询价{% endif %}</a></div>
       </aside>
     </div>
   </section>

@@ -11,14 +11,14 @@ layout: layouts/base.njk
         <h1>{% if lang == "en" %}Custom industrial machine knives{% else %}工业机械刀具<br>定制制造{% endif %}</h1>
         <p>{% if lang == "en" %}Custom machine knives for woodworking, food processing, plastics recycling, paper converting, textile and special-purpose equipment. Manufacturing routes are reviewed from drawings, samples and operating requirements and may include material selection, heat treatment, precision machining, grinding and inspection.{% else %}面向木工、食品加工、塑料回收、纸品加工、纺织服装及专用设备领域，依据图纸、样品或工况要求，提供材料评估、热处理、精密加工、研磨、检测及批量制造服务。{% endif %}</p>
         <div class="hero-actions">
-          <a class="button button-dark" href="{{ prefix }}/rfq/">{% if lang == "en" %}Submit an RFQ{% else %}提交技术询价{% endif %}</a>
+          <a class="button button-dark" href="{{ prefix }}/rfq/#rfq-form">{% if lang == "en" %}Submit an RFQ{% else %}提交技术询价{% endif %}</a>
           <a class="button button-outline" href="{{ prefix }}/products/">{% if lang == "en" %}View products{% else %}查看产品目录{% endif %}</a>
         </div>
       </div>
       <nav class="hero-index" aria-label="{% if lang == 'en' %}RFQ entry paths{% else %}询价入口{% endif %}">
-        <a href="{{ prefix }}/rfq/#drawing"><b>01</b><span>{% if lang == "en" %}Drawing-based manufacture{% else %}按图制造{% endif %}</span></a>
-        <a href="{{ prefix }}/rfq/#sample"><b>02</b><span>{% if lang == "en" %}Sample replication{% else %}按样复刻{% endif %}</span></a>
-        <a href="{{ prefix }}/rfq/#application"><b>03</b><span>{% if lang == "en" %}Application review{% else %}工况评估{% endif %}</span></a>
+        <a href="{{ prefix }}/rfq/?type=drawing#rfq-form"><b>01</b><span>{% if lang == "en" %}Drawing-based manufacture{% else %}按图制造{% endif %}</span></a>
+        <a href="{{ prefix }}/rfq/?type=sample#rfq-form"><b>02</b><span>{% if lang == "en" %}Sample replication{% else %}按样复刻{% endif %}</span></a>
+        <a href="{{ prefix }}/rfq/?type=application#rfq-form"><b>03</b><span>{% if lang == "en" %}Application review{% else %}工况评估{% endif %}</span></a>
         <a href="{{ prefix }}/quality/"><b>04</b><span>{% if lang == "en" %}Batch control{% else %}批次控制{% endif %}</span></a>
       </nav>
     </div>
@@ -52,9 +52,9 @@ layout: layouts/base.njk
         <p>{% if lang == "en" %}Manufacturing review can begin from a complete drawing, a physical sample, clear photographs or documented machine and operating conditions.{% else %}可依据完整图纸、实物样品、清晰照片或设备与工况资料启动制造评估。{% endif %}</p>
       </div>
       <div class="route-grid">
-        <article class="route-item"><span class="route-number">01 / DRAWING</span><h3>{% if lang == "en" %}Drawing-based manufacture{% else %}按图制造{% endif %}</h3><p>{% if lang == "en" %}Dimensions, tolerances, material, quantity and drawing revision form the basis of quotation and process review.{% else %}尺寸、公差、材料、数量及图纸版本构成报价和工艺评估的基础资料。{% endif %}</p></article>
-        <article class="route-item"><span class="route-number">02 / SAMPLE</span><h3>{% if lang == "en" %}Sample replication{% else %}按样复刻{% endif %}</h3><p>{% if lang == "en" %}Physical samples, old blades or clear photographs support review of mounting interfaces, edge geometry and failure conditions.{% else %}实物样品、旧刀或清晰照片可用于核对安装接口、刃口几何及失效情况。{% endif %}</p></article>
-        <article class="route-item"><span class="route-number">03 / APPLICATION</span><h3>{% if lang == "en" %}Application review{% else %}工况评估{% endif %}</h3><p>{% if lang == "en" %}The manufacturing route is reviewed against the machine, processed material, operating frequency and target service life.{% else %}制造工艺依据设备、被处理材料、使用频率及预期使用寿命进行评估。{% endif %}</p></article>
+        <a class="route-item" href="{{ prefix }}/rfq/?type=drawing#rfq-form"><span class="route-number">01 / DRAWING</span><h3>{% if lang == "en" %}Drawing-based manufacture{% else %}按图制造{% endif %}</h3><p>{% if lang == "en" %}Dimensions, tolerances, material, quantity and drawing revision form the basis of quotation and process review.{% else %}尺寸、公差、材料、数量及图纸版本构成报价和工艺评估的基础资料。{% endif %}</p></a>
+        <a class="route-item" href="{{ prefix }}/rfq/?type=sample#rfq-form"><span class="route-number">02 / SAMPLE</span><h3>{% if lang == "en" %}Sample replication{% else %}按样复刻{% endif %}</h3><p>{% if lang == "en" %}Physical samples, old blades or clear photographs support review of mounting interfaces, edge geometry and failure conditions.{% else %}实物样品、旧刀或清晰照片可用于核对安装接口、刃口几何及失效情况。{% endif %}</p></a>
+        <a class="route-item" href="{{ prefix }}/rfq/?type=application#rfq-form"><span class="route-number">03 / APPLICATION</span><h3>{% if lang == "en" %}Application review{% else %}工况评估{% endif %}</h3><p>{% if lang == "en" %}The manufacturing route is reviewed against the machine, processed material, operating frequency and target service life.{% else %}制造工艺依据设备、被处理材料、使用频率及预期使用寿命进行评估。{% endif %}</p></a>
       </div>
     </div>
   </section>

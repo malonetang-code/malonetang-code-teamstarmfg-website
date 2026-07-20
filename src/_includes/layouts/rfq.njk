@@ -3,42 +3,125 @@ layout: layouts/base.njk
 ---
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
-  <section class="page-hero">
+  <section class="page-hero rfq-hero">
     <img class="hero-media" src="/images/web/product-parts.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>RFQ</span></nav>
       <span class="eyebrow">DRAWING / SAMPLE / APPLICATION</span>
-      <h1>{% if lang == "en" %}Industrial knife RFQ{% else %}工业刀具技术询价{% endif %}</h1>
-      <p>{% if lang == "en" %}Manufacturing review can be based on a complete drawing, physical sample, old blade, clear photographs or documented machine and operating conditions.{% else %}可提交完整图纸，也可提供实物样品、旧刀、清晰照片或设备与工况资料，用于制造评估。{% endif %}</p>
+      <h1>{% if lang == "en" %}Technical RFQ for industrial machine knives{% else %}工业机械刀具技术询价{% endif %}</h1>
+      <p>{% if lang == "en" %}Start with the information available today. A drawing, physical sample or documented machine and operating condition can each begin a manufacturing review.{% else %}从现有资料开始即可。完整图纸、实物样品，或明确的设备与工况信息均可用于启动制造评估。{% endif %}</p>
     </div>
   </section>
-  <section class="section">
+
+  <section class="section rfq-section">
     <div class="container rfq-layout">
-      <div>
+      <aside class="rfq-guide" aria-labelledby="rfq-guide-title">
         <span class="eyebrow">RFQ CHECKLIST</span>
-        <h2>{% if lang == "en" %}Technical information for manufacturing review{% else %}技术评估所需资料{% endif %}</h2>
+        <h2 id="rfq-guide-title">{% if lang == "en" %}Information that supports review{% else %}有助于技术评估的资料{% endif %}</h2>
         <div class="rfq-checklist">
-          <div class="rfq-check" id="drawing"><b>01</b><div><strong>{% if lang == "en" %}Drawing and revision{% else %}图纸及版本{% endif %}</strong><span>{% if lang == "en" %}Dimensions, tolerances, thickness, hole pattern and drawing revision.{% else %}尺寸、公差、厚度、孔位及图纸版本。{% endif %}</span></div></div>
-          <div class="rfq-check" id="sample"><b>02</b><div><strong>{% if lang == "en" %}Physical sample or old-blade photos{% else %}实物样品或旧刀照片{% endif %}</strong><span>{% if lang == "en" %}Overall view, mounting interfaces, edge geometry and visible wear or failure conditions.{% else %}整体结构、安装接口、刃口几何及可见的磨损或失效情况。{% endif %}</span></div></div>
-          <div class="rfq-check" id="application"><b>03</b><div><strong>{% if lang == "en" %}Machine and processed material{% else %}设备及被处理材料{% endif %}</strong><span>{% if lang == "en" %}Machine make and model, operating method and material being processed.{% else %}设备品牌型号、运行方式及被处理材料。{% endif %}</span></div></div>
-          <div class="rfq-check"><b>04</b><div><strong>{% if lang == "en" %}Quantity and operating target{% else %}数量及使用目标{% endif %}</strong><span>{% if lang == "en" %}Prototype quantity, annual demand, current issue and target service life.{% else %}试样数量、年度需求、当前使用问题及预期使用寿命。{% endif %}</span></div></div>
+          <div class="rfq-check" id="drawing"><b>01</b><div><strong>{% if lang == "en" %}Drawing and revision{% else %}图纸及版本{% endif %}</strong><span>{% if lang == "en" %}Dimensions, tolerances, thickness, hole pattern and drawing revision{% else %}尺寸、公差、厚度、孔位及图纸版本{% endif %}</span></div></div>
+          <div class="rfq-check" id="sample"><b>02</b><div><strong>{% if lang == "en" %}Sample or old-blade photos{% else %}样品或旧刀照片{% endif %}</strong><span>{% if lang == "en" %}Overall shape, mounting interfaces, edge geometry and visible wear{% else %}整体结构、安装接口、刃口几何及可见磨损{% endif %}</span></div></div>
+          <div class="rfq-check" id="application"><b>03</b><div><strong>{% if lang == "en" %}Machine and processed material{% else %}设备及被处理材料{% endif %}</strong><span>{% if lang == "en" %}Machine make and model, operating method and material being processed{% else %}设备品牌型号、运行方式及被处理材料{% endif %}</span></div></div>
+          <div class="rfq-check"><b>04</b><div><strong>{% if lang == "en" %}Quantity and operating target{% else %}数量及使用目标{% endif %}</strong><span>{% if lang == "en" %}Prototype quantity, annual demand, current issue and target service life{% else %}试样数量、年度需求、当前问题及预期使用寿命{% endif %}</span></div></div>
         </div>
-        <div class="notice" style="margin-top: 24px">{% if lang == "en" %}The current form does not accept file attachments. Send drawings and photographs to {{ site.email }} with the company name included in the subject line.{% else %}本表单暂不支持附件上传。图纸与照片请发送至 {{ site.email }}，并在邮件主题中注明公司名称。{% endif %}</div>
-      </div>
-      <form class="rfq-form" action="{{ site.formEndpoint }}" method="POST" data-rfq-form>
-        <h2>{% if lang == "en" %}Submit an RFQ{% else %}提交询价{% endif %}</h2>
-        <div class="form-grid two">
-          <div class="field"><label for="rfq-name">{% if lang == "en" %}Name{% else %}姓名{% endif %}</label><input id="rfq-name" name="name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="rfq-email">Email</label><input id="rfq-email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
-          <div class="field"><label for="rfq-company">{% if lang == "en" %}Company{% else %}公司{% endif %}</label><input id="rfq-company" name="company" type="text" autocomplete="organization"></div>
-          <div class="field"><label for="rfq-phone">{% if lang == "en" %}Phone{% else %}电话{% endif %}</label><input id="rfq-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"></div>
+        <div class="rfq-guide-note">
+          <strong>{% if lang == "en" %}Drawings and photographs{% else %}图纸与照片{% endif %}</strong>
+          <p>{% if lang == "en" %}Files can be uploaded with the RFQ or sent to {{ site.email }} using the reference shown after submission. Uploading files is optional.{% else %}可随询价直接上传文件，也可在提交后使用询价编号发送至 {{ site.email }}。附件不是必填项。{% endif %}</p>
         </div>
-        <div class="form-grid" style="margin-top: 16px">
-          <div class="field"><label for="rfq-product">{% if lang == "en" %}Product or machine{% else %}刀具或设备{% endif %}</label><input id="rfq-product" name="product" type="text" required></div>
-          <div class="field"><label for="rfq-message">{% if lang == "en" %}Technical requirements{% else %}技术要求{% endif %}</label><textarea id="rfq-message" name="message" required placeholder="{% if lang == 'en' %}Dimensions, processed material, quantity and current issue{% else %}尺寸、被处理材料、数量及当前使用问题{% endif %}"></textarea></div>
+      </aside>
+
+      <form class="rfq-form" id="rfq-form" action="{{ site.formEndpoint }}" method="POST" enctype="multipart/form-data" data-rfq-form>
+        <div class="rfq-form-head">
+          <div>
+            <span class="eyebrow">TECHNICAL RFQ</span>
+            <h2>{% if lang == "en" %}Submit the available information{% else %}提交现有技术资料{% endif %}</h2>
+          </div>
+          <span class="rfq-reference" data-rfq-reference-label></span>
         </div>
+
+        <ol class="rfq-progress" aria-label="{% if lang == 'en' %}RFQ progress{% else %}询价填写进度{% endif %}" data-rfq-progress>
+          <li aria-current="step"><b>1</b><span>{% if lang == "en" %}Contact{% else %}联系信息{% endif %}</span></li>
+          <li><b>2</b><span>{% if lang == "en" %}Technical{% else %}技术资料{% endif %}</span></li>
+          <li><b>3</b><span>{% if lang == "en" %}Review{% else %}确认提交{% endif %}</span></li>
+        </ol>
+
+        <fieldset class="rfq-step" data-rfq-step="0">
+          <legend>{% if lang == "en" %}Contact information{% else %}联系信息{% endif %}</legend>
+          <p class="rfq-step-intro">{% if lang == "en" %}Required fields are limited to the information needed to identify and reply to the enquiry.{% else %}必填项仅保留用于识别询价与回复联系的必要信息。{% endif %}</p>
+          <div class="form-grid two">
+            <div class="field"><label for="rfq-name">{% if lang == "en" %}Name{% else %}姓名{% endif %}<span aria-hidden="true">*</span></label><input id="rfq-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="rfq-email">Email<span aria-hidden="true">*</span></label><input id="rfq-email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
+            <div class="field"><label for="rfq-company">{% if lang == "en" %}Company{% else %}公司{% endif %}<span aria-hidden="true">*</span></label><input id="rfq-company" name="company" type="text" autocomplete="organization" required></div>
+            <div class="field"><label for="rfq-country">{% if lang == "en" %}Country or region{% else %}国家或地区{% endif %}</label><input id="rfq-country" name="country_or_region" type="text" autocomplete="country-name"></div>
+            <div class="field"><label for="rfq-phone">{% if lang == "en" %}Phone{% else %}电话{% endif %}</label><input id="rfq-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"></div>
+          </div>
+          <div class="form-actions form-actions-end"><button class="button button-accent" type="button" data-rfq-next>{% if lang == "en" %}Continue to technical details{% else %}继续填写技术资料{% endif %}</button></div>
+        </fieldset>
+
+        <fieldset class="rfq-step" data-rfq-step="1">
+          <legend>{% if lang == "en" %}Technical information{% else %}技术资料{% endif %}</legend>
+          <p class="rfq-step-intro">{% if lang == "en" %}Choose the closest starting point. The prompts will adapt to the information you have.{% else %}请选择最接近的资料入口，页面会根据现有资料调整填写提示。{% endif %}</p>
+
+          <div class="field">
+            <span class="field-label">{% if lang == "en" %}Starting point{% else %}询价资料入口{% endif %}<span aria-hidden="true">*</span></span>
+            <div class="choice-grid" data-rfq-paths>
+              <label class="choice-option"><input type="radio" name="inquiry_path" value="drawing" required><span><strong>{% if lang == "en" %}Drawing{% else %}按图制造{% endif %}</strong><small>{% if lang == "en" %}Dimensions and revision available{% else %}已有尺寸与图纸版本{% endif %}</small></span></label>
+              <label class="choice-option"><input type="radio" name="inquiry_path" value="sample" required><span><strong>{% if lang == "en" %}Sample{% else %}按样复刻{% endif %}</strong><small>{% if lang == "en" %}Physical sample or old blade available{% else %}已有实物样品或旧刀{% endif %}</small></span></label>
+              <label class="choice-option"><input type="radio" name="inquiry_path" value="application" required><span><strong>{% if lang == "en" %}Application{% else %}工况评估{% endif %}</strong><small>{% if lang == "en" %}Start from machine and operating conditions{% else %}从设备与使用工况开始{% endif %}</small></span></label>
+            </div>
+          </div>
+
+          <div class="form-grid two form-grid-spaced">
+            <div class="field"><label for="rfq-product">{% if lang == "en" %}Product category{% else %}刀具类别{% endif %}<span aria-hidden="true">*</span></label><select id="rfq-product" name="product_category" required><option value="">{% if lang == "en" %}Select a category{% else %}请选择类别{% endif %}</option>{% for product in catalog.products %}<option value="{{ product.slug }}">{{ product.name[lang] }}</option>{% endfor %}<option value="other">{% if lang == "en" %}Other or not sure{% else %}其他或暂不确定{% endif %}</option></select></div>
+            <div class="field"><label for="rfq-quantity">{% if lang == "en" %}Required quantity{% else %}需求数量{% endif %}<span aria-hidden="true">*</span></label><input id="rfq-quantity" name="quantity" type="text" required placeholder="{% if lang == 'en' %}Prototype and annual demand if known{% else %}可填写试样数量及年度需求{% endif %}"></div>
+            <div class="field"><label for="rfq-machine">{% if lang == "en" %}Machine make and model{% else %}设备品牌及型号{% endif %}</label><input id="rfq-machine" name="machine_make_model" type="text"></div>
+            <div class="field"><label for="rfq-material">{% if lang == "en" %}Material being processed{% else %}被处理材料{% endif %}<span aria-hidden="true">*</span></label><input id="rfq-material" name="processed_material" type="text" required></div>
+          </div>
+
+          <div class="field form-grid-spaced">
+            <label for="rfq-message" data-rfq-message-label>{% if lang == "en" %}Dimensions, operating conditions and current issue{% else %}尺寸、使用工况及当前问题{% endif %}<span aria-hidden="true">*</span></label>
+            <textarea id="rfq-message" name="technical_requirements" required data-rfq-message placeholder="{% if lang == 'en' %}Include dimensions or sample condition, mounting details, operating frequency, current failure and target where known{% else %}可填写尺寸或样品状态、安装方式、使用频率、当前失效情况及预期目标{% endif %}"></textarea>
+            <p class="field-help" data-rfq-path-help>{% if lang == "en" %}Provide the information available today; unknown items can be confirmed during review.{% else %}请填写目前已有的信息，暂不确定的项目可在后续评估中确认。{% endif %}</p>
+          </div>
+
+          <div class="field file-upload-field form-grid-spaced">
+            <label for="rfq-files">{% if lang == "en" %}Drawings and supporting files{% else %}图纸与附件{% endif %}<span class="field-optional">{% if lang == "en" %}Optional{% else %}选填{% endif %}</span></label>
+            <input id="rfq-files" name="attachments[]" type="file" multiple accept=".pdf,.dxf,.dwg,.step,.stp,.igs,.iges,.zip,.jpg,.jpeg,.png,.webp" data-rfq-files>
+            <p class="field-help">{% if lang == "en" %}PDF, DXF, DWG, STEP, IGS, ZIP, JPG or PNG. Up to 10 files, 25 MB each and 100 MB total.{% else %}支持 PDF、DXF、DWG、STEP、IGS、ZIP、JPG、PNG；最多10个文件，单个25MB，总计100MB。{% endif %}</p>
+            <div class="file-selection" data-rfq-file-selection hidden>
+              <ul class="file-list" data-rfq-file-list></ul>
+              <button class="file-clear" type="button" data-rfq-file-clear>{% if lang == "en" %}Remove all files{% else %}清除全部附件{% endif %}</button>
+            </div>
+            <p class="file-status" role="status" aria-live="polite" data-rfq-file-status></p>
+          </div>
+
+          <div class="form-actions form-actions-between"><button class="button button-outline" type="button" data-rfq-back>{% if lang == "en" %}Back{% else %}返回{% endif %}</button><button class="button button-accent" type="button" data-rfq-next>{% if lang == "en" %}Review information{% else %}核对询价资料{% endif %}</button></div>
+        </fieldset>
+
+        <fieldset class="rfq-step" data-rfq-step="2">
+          <legend>{% if lang == "en" %}Review and submit{% else %}核对并提交{% endif %}</legend>
+          <p class="rfq-step-intro">{% if lang == "en" %}Confirm the key information below. Material grade, hardness, tolerance, process route, price and lead time follow technical review.{% else %}请核对以下关键信息。材料牌号、硬度、公差、工艺路线、价格及交期将在技术评估后确认。{% endif %}</p>
+          <dl class="rfq-review" data-rfq-review></dl>
+          <div class="rfq-file-handoff">
+            <strong>{% if lang == "en" %}Uploaded files are stored with this RFQ{% else %}已选附件将随本次询价保存{% endif %}</strong>
+            <p>{% if lang == "en" %}The confirmation screen also provides an email option for additional or oversized files.{% else %}提交成功页仍提供邮件入口，可用于补充附件或发送超出限制的大文件。{% endif %}</p>
+          </div>
+          <label class="consent-field"><input type="checkbox" name="privacy_consent" value="accepted" required><span>{% if lang == "en" %}I agree that the submitted information may be used to review and respond to this RFQ, as described in the <a href="/en/privacy/" target="_blank" rel="noopener">privacy notice</a>.{% else %}我同意所提交资料按照<a href="/privacy/" target="_blank" rel="noopener">隐私说明</a>用于本次询价评估与回复。{% endif %}</span></label>
+          <div class="form-actions form-actions-between"><button class="button button-outline" type="button" data-rfq-back>{% if lang == "en" %}Back{% else %}返回修改{% endif %}</button><button class="button button-accent" type="submit">{% if lang == "en" %}Submit technical RFQ{% else %}提交技术询价{% endif %}</button></div>
+        </fieldset>
+
+        <section class="rfq-success" hidden data-rfq-success tabindex="-1">
+          <span class="eyebrow">RFQ RECEIVED</span>
+          <h2>{% if lang == "en" %}Technical information submitted{% else %}技术询价已提交{% endif %}</h2>
+          <p>{% if lang == "en" %}The RFQ and selected files have been recorded. Keep the reference below when sending additional material. Technical review precedes quotation and process confirmation.{% else %}询价信息及已选附件已经记录。补充资料时请保留以下询价编号；报价与工艺确认前将先进行技术评估。{% endif %}</p>
+          <strong class="rfq-success-reference" data-rfq-success-reference></strong>
+          <div class="form-actions"><a class="button button-accent" href="mailto:{{ site.email }}" data-rfq-email>{% if lang == "en" %}Email drawings and photographs{% else %}邮件发送图纸与照片{% endif %}</a><button class="button button-outline" type="button" data-rfq-restart>{% if lang == "en" %}Start another RFQ{% else %}提交另一项询价{% endif %}</button></div>
+        </section>
+
+        <input type="hidden" name="rfq_reference" value="" data-rfq-reference-input>
         <input type="hidden" name="language" value="{{ lang }}">
-        <div class="form-actions"><button class="button button-accent" type="submit">{% if lang == "en" %}Submit RFQ{% else %}提交询价{% endif %}</button><a class="button button-outline" href="mailto:{{ site.email }}">{% if lang == "en" %}Email drawings{% else %}邮件发送图纸{% endif %}</a></div>
+        <input type="hidden" name="source_page" value="{{ canonicalUrl }}">
+        <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-status" role="status" aria-live="polite" data-form-status></div>
       </form>
     </div>

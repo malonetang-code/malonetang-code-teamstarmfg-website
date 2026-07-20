@@ -3,7 +3,8 @@ layout: layouts/base.njk
 ---
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
-  <section class="home-hero" style="--hero-image: url('/images/web/product-parts.jpg')">
+  <section class="home-hero">
+    <img class="hero-media" src="/images/web/product-parts.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container hero-inner">
       <div class="hero-copy">
         <span class="eyebrow">CUSTOM INDUSTRIAL MACHINE KNIVES / 01</span>
@@ -70,7 +71,7 @@ layout: layouts/base.njk
           <div class="system-row"><strong>{{ capability.code }}</strong><p>{{ capability.summary[lang] }}</p><a href="{{ prefix }}/capabilities/{{ capability.slug }}/">{% if lang == "en" %}OPEN{% else %}查看{% endif %}</a></div>
           {% endfor %}
         </div>
-        <div class="system-media"><img src="/images/web/product-parts.jpg" alt="{% if lang == 'en' %}Finished industrial blade components{% else %}工业刀具成品零件{% endif %}" loading="lazy" width="1920" height="1280"></div>
+        <div class="system-media"><img src="/images/web/product-parts.jpg" alt="{% if lang == 'en' %}Finished industrial blade components{% else %}工业刀具成品零件{% endif %}" loading="lazy" eleventy:widths="640,960,1440" sizes="(min-width: 768px) 44vw, 100vw"></div>
       </div>
     </div>
   </section>
@@ -82,9 +83,9 @@ layout: layouts/base.njk
         <p>{% if lang == "en" %}Material analysis, coordinate measurement, image measurement and metallography support applicable material, dimensional and process inspections.{% else %}材料分析、三坐标测量、影像尺寸测量与金相检验，为相应的材料、尺寸和过程检验提供支持。{% endif %}</p>
       </div>
       <div class="quality-preview">
-        <figure><img src="/images/quality/spectrolab-spectrometer.jpeg" alt="SPECTROLAB spectrometer" loading="lazy" width="1269" height="846"><figcaption>{% if lang == "en" %}SPECTROLAB spectrometer / material analysis{% else %}SPECTROLAB 光谱仪 / 材料分析{% endif %}</figcaption></figure>
-        <figure><img src="/images/quality/cmm-beyond-apex707.jpeg" alt="Mitutoyo BEYOND APEX 707 CMM" loading="lazy" width="1269" height="1903"><figcaption>{% if lang == "en" %}Mitutoyo BEYOND APEX 707 / dimensional inspection{% else %}三丰 BEYOND APEX 707 / 尺寸检测{% endif %}</figcaption></figure>
-        <figure><img src="/images/quality/keyence-im7000.jpeg" alt="KEYENCE IM-7000 image measurement system" loading="lazy" width="1269" height="846"><figcaption>{% if lang == "en" %}KEYENCE IM-7000 / image dimension measurement{% else %}基恩士 IM-7000 / 影像尺寸测量{% endif %}</figcaption></figure>
+        <figure><img src="/images/quality/spectrolab-spectrometer.jpeg" alt="SPECTROLAB spectrometer" loading="lazy" eleventy:widths="360,720" sizes="(min-width: 1080px) 32vw, (min-width: 600px) 48vw, 100vw"><figcaption>{% if lang == "en" %}SPECTROLAB spectrometer / material analysis{% else %}SPECTROLAB 光谱仪 / 材料分析{% endif %}</figcaption></figure>
+        <figure><img src="/images/quality/cmm-beyond-apex707.jpeg" alt="Mitutoyo BEYOND APEX 707 CMM" loading="lazy" eleventy:widths="360,720" sizes="(min-width: 1080px) 32vw, (min-width: 600px) 48vw, 100vw"><figcaption>{% if lang == "en" %}Mitutoyo BEYOND APEX 707 / dimensional inspection{% else %}三丰 BEYOND APEX 707 / 尺寸检测{% endif %}</figcaption></figure>
+        <figure><img src="/images/quality/keyence-im7000.jpeg" alt="KEYENCE IM-7000 image measurement system" loading="lazy" eleventy:widths="360,720" sizes="(min-width: 1080px) 32vw, (min-width: 600px) 48vw, 100vw"><figcaption>{% if lang == "en" %}KEYENCE IM-7000 / image dimension measurement{% else %}基恩士 IM-7000 / 影像尺寸测量{% endif %}</figcaption></figure>
       </div>
       <div class="quality-points">
         <div class="quality-point"><strong>ISO 9001:2015</strong><span>{% if lang == "en" %}Quality management system{% else %}质量管理体系{% endif %}</span></div>
@@ -96,7 +97,8 @@ layout: layouts/base.njk
     </div>
   </section>
 
-  <section class="factory-band" style="--factory-image: url('/images/web/factory-building.jpg')">
+  <section class="factory-band">
+    <img class="factory-media" src="/images/web/factory-building.jpg" alt="" loading="lazy" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container factory-band-inner">
       <span class="eyebrow">MODERN FACTORY / GROUP BACKGROUND</span>
       <h2>{% if lang == "en" %}Group manufacturing experience and the Zhangzhou production base{% else %}集团制造体系与漳州生产基地{% endif %}</h2>
@@ -119,7 +121,7 @@ layout: layouts/base.njk
       </div>
       <div class="logo-wall">
         {% for logo in ["kam", "eastman", "sata", "stanley", "baird-medical", "tti", "jwei", "lectra", "bullmer", "fiskars"] %}
-        <div class="logo-item"><img src="/images/logos/{{ logo }}.png" alt="{{ logo }} logo" loading="lazy"></div>
+        <div class="logo-item"><img src="/images/logos/{{ logo }}.png" alt="{{ logo }} logo" loading="lazy" eleventy:widths="120,240" sizes="160px"></div>
         {% endfor %}
       </div>
     </div>

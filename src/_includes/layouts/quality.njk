@@ -3,7 +3,8 @@ layout: layouts/base.njk
 ---
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
-  <section class="page-hero page-hero-dark" style="--hero-image: url('/images/web/quality-control.jpg')">
+  <section class="page-hero page-hero-dark">
+    <img class="hero-media" src="/images/web/quality-control.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1280,1600" sizes="100vw">
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Quality{% else %}质量体系{% endif %}</span></nav>
       <span class="eyebrow">QUALITY SYSTEM / ISO 9001:2015</span>
@@ -26,10 +27,10 @@ layout: layouts/base.njk
     <div class="container">
       <div class="section-head"><div><span class="eyebrow">INSPECTION EQUIPMENT</span><h2>{% if lang == "en" %}Material and dimensional inspection equipment{% else %}材料与尺寸检测设备{% endif %}</h2></div><p>{% if lang == "en" %}Spectrometry, coordinate measurement, image measurement and metallography support applicable material analysis, dimensional inspection and process verification.{% else %}光谱分析、三坐标测量、影像尺寸测量与金相检验，用于相应的材料分析、尺寸检测及过程验证。{% endif %}</p></div>
       <div class="quality-equipment-grid">
-        <article class="equipment-item"><img src="/images/quality/spectrolab-spectrometer.jpeg" alt="SPECTROLAB spectrometer" loading="lazy"><div><strong>SPECTROLAB</strong><span>{% if lang == "en" %}Spectrometer / material analysis{% else %}光谱仪 / 材料分析{% endif %}</span></div></article>
-        <article class="equipment-item"><img src="/images/quality/cmm-beyond-apex707.jpeg" alt="Mitutoyo BEYOND APEX 707 CMM" loading="lazy"><div><strong>Mitutoyo BEYOND APEX 707</strong><span>{% if lang == "en" %}Coordinate measuring machine{% else %}三坐标测量机{% endif %}</span></div></article>
-        <article class="equipment-item"><img src="/images/quality/keyence-im7000.jpeg" alt="KEYENCE IM-7000" loading="lazy"><div><strong>KEYENCE IM-7000</strong><span>{% if lang == "en" %}Image dimension measurement{% else %}影像尺寸测量{% endif %}</span></div></article>
-        <article class="equipment-item"><img src="/images/quality/nikon-metallographic-microscope.jpeg" alt="NIKON metallographic microscope" loading="lazy"><div><strong>NIKON</strong><span>{% if lang == "en" %}Metallographic microscope{% else %}金相显微镜{% endif %}</span></div></article>
+        <article class="equipment-item"><img src="/images/quality/spectrolab-spectrometer.jpeg" alt="SPECTROLAB spectrometer" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>SPECTROLAB</strong><span>{% if lang == "en" %}Spectrometer / material analysis{% else %}光谱仪 / 材料分析{% endif %}</span></div></article>
+        <article class="equipment-item"><img src="/images/quality/cmm-beyond-apex707.jpeg" alt="Mitutoyo BEYOND APEX 707 CMM" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>Mitutoyo BEYOND APEX 707</strong><span>{% if lang == "en" %}Coordinate measuring machine{% else %}三坐标测量机{% endif %}</span></div></article>
+        <article class="equipment-item"><img src="/images/quality/keyence-im7000.jpeg" alt="KEYENCE IM-7000" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>KEYENCE IM-7000</strong><span>{% if lang == "en" %}Image dimension measurement{% else %}影像尺寸测量{% endif %}</span></div></article>
+        <article class="equipment-item"><img src="/images/quality/nikon-metallographic-microscope.jpeg" alt="NIKON metallographic microscope" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>NIKON</strong><span>{% if lang == "en" %}Metallographic microscope{% else %}金相显微镜{% endif %}</span></div></article>
       </div>
       <div class="section-actions"><a class="button button-outline" href="{% if lang == 'en' %}/images/certs/iso9001-en.pdf{% else %}/images/certs/iso9001-cn.pdf{% endif %}">{% if lang == "en" %}View ISO certificate{% else %}查看 ISO 证书{% endif %}</a></div>
     </div>

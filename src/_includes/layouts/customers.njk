@@ -3,7 +3,8 @@ layout: layouts/base.njk
 ---
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
-  <section class="page-hero" style="--hero-image: url('/images/web/product-parts.jpg')">
+  <section class="page-hero">
+    <img class="hero-media" src="/images/web/product-parts.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}References{% else %}合作参考{% endif %}</span></nav>
       <span class="eyebrow">CUSTOMER REFERENCES</span>
@@ -15,7 +16,7 @@ layout: layouts/base.njk
     <div class="container">
       <div class="logo-wall">
         {% for logo in ["kam", "eastman", "sata", "stanley", "baird-medical", "tti", "jwei", "lectra", "bullmer", "fiskars"] %}
-        <div class="logo-item"><img src="/images/logos/{{ logo }}.png" alt="{{ logo }} logo" loading="lazy"></div>
+        <div class="logo-item"><img src="/images/logos/{{ logo }}.png" alt="{{ logo }} logo" loading="lazy" eleventy:widths="120,240" sizes="160px"></div>
         {% endfor %}
       </div>
       <p class="reference-note">{% if lang == "en" %}Trademarks shown belong to their respective owners and are presented only as references to relevant brands or equipment applications.{% else %}所示商标归其权利人所有，仅用于说明相关品牌或设备应用背景。{% endif %}</p>

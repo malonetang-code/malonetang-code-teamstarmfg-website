@@ -3,7 +3,8 @@ layout: layouts/base.njk
 ---
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
-  <section class="page-hero page-hero-dark" style="--hero-image: url('/images/web/product-parts.jpg')">
+  <section class="page-hero page-hero-dark">
+    <img class="hero-media" src="/images/web/product-parts.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</span></nav>
       <span class="eyebrow">MANUFACTURING CAPABILITIES</span>

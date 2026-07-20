@@ -10,6 +10,8 @@ eleventyExcludeFromCollections: true
   <url><loc>{{ site.url }}/{{ path }}/</loc></url>
   <url><loc>{{ site.url }}/en/{{ path }}/</loc></url>
   {% endfor %}
+  <url><loc>{{ site.url }}/privacy/</loc></url>
+  <url><loc>{{ site.url }}/en/privacy/</loc></url>
   {% for product in catalog.products %}
   <url><loc>{{ site.url }}/products/{{ product.slug }}/</loc></url>
   <url><loc>{{ site.url }}/en/products/{{ product.slug }}/</loc></url>

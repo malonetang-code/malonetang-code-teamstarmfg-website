@@ -1,7 +1,7 @@
 {% set prefix = "/en" if lang == "en" else "" %}
 <article class="product-card">
   <a class="product-image" href="{{ prefix }}/products/{{ product.slug }}/">
-    <img src="{{ product.image }}" alt="{{ product.name[lang] }}" loading="lazy">
+    <img src="{{ product.image }}" alt="{{ product.name[lang] }}" loading="lazy" eleventy:widths="240,480,720" sizes="(min-width: 1080px) 31vw, (min-width: 600px) 48vw, 100vw">
   </a>
   <div class="product-card-body">
     <span class="eyebrow">{{ product.code }}</span>

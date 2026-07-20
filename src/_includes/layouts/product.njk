@@ -11,14 +11,41 @@ layout: layouts/base.njk
       <span class="eyebrow">{{ product.code }}</span>
       <h1>{{ product.name[lang] }}</h1>
       <p>{{ product.summary[lang] }}</p>
-      <div class="page-hero-actions"><a class="button button-dark" href="{{ prefix }}/rfq/?product={{ product.slug }}#rfq-form">{% if lang == "en" %}Submit an RFQ{% else %}提交技术询价{% endif %}</a></div>
+      <div class="page-hero-actions"><a class="button button-dark" href="#project-start">{% if lang == "en" %}Choose an RFQ starting point{% else %}选择询价资料入口{% endif %}</a><a class="text-link" href="{{ prefix }}/rfq/custom-industrial-knife-drawing-checklist/">{% if lang == "en" %}RFQ preparation guide{% else %}查看询价资料指南{% endif %}<span aria-hidden="true">→</span></a></div>
     </div>
   </section>
   <section class="section section-soft">
     <div class="container detail-proof">
       <div class="detail-proof-item"><strong>{% if lang == "en" %}Typical equipment{% else %}典型设备{% endif %}</strong><span>{{ product.equipment[lang] }}</span></div>
-      <div class="detail-proof-item"><strong>{% if lang == "en" %}Technical considerations{% else %}制造要点{% endif %}</strong><span>{{ product.focus[lang] }}</span></div>
-      <div class="detail-proof-item"><strong>{% if lang == "en" %}Review inputs{% else %}评估资料{% endif %}</strong><span>{% if lang == "en" %}Drawing, physical sample or application information{% else %}图纸、实物样品或工况资料{% endif %}</span></div>
+      <div class="detail-proof-item"><strong>{% if lang == "en" %}Processed materials{% else %}适用材料{% endif %}</strong><span>{{ product.materials[lang] }}</span></div>
+      <div class="detail-proof-item"><strong>{% if lang == "en" %}Review focus{% else %}评估重点{% endif %}</strong><span>{{ product.focus[lang] }}</span></div>
+    </div>
+  </section>
+  <section class="section product-start-section" id="project-start">
+    <div class="container">
+      <div class="section-head product-start-head">
+        <div><span class="eyebrow">RFQ STARTING POINT</span><h2>{% if lang == "en" %}Start with the information available now{% else %}根据现有资料发起技术评估{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Choose the route that best matches your project. Each route opens the RFQ form with this product category and information path already selected.{% else %}请选择最符合当前项目的资料入口，询价表单会自动带入本产品类别和对应资料路径。{% endif %}</p>
+      </div>
+      <div class="product-start-grid">
+        <a class="product-start-option" href="{{ prefix }}/rfq/?type=drawing&amp;product={{ product.slug }}#rfq-form"><b>01 / DRAWING</b><h3>{% if lang == "en" %}Drawing-based manufacture{% else %}按图制造{% endif %}</h3><p>{% if lang == "en" %}Use a current drawing to review dimensions, interfaces, controlled tolerances, material requirements and revision status.{% else %}依据现行图纸核对尺寸、安装接口、受控公差、材料要求及图纸版本。{% endif %}</p><span>{% if lang == "en" %}Start from a drawing{% else %}按图纸发起询价{% endif %}<i aria-hidden="true">→</i></span></a>
+        <a class="product-start-option" href="{{ prefix }}/rfq/?type=sample&amp;product={{ product.slug }}#rfq-form"><b>02 / SAMPLE</b><h3>{% if lang == "en" %}Physical-sample replication{% else %}按样复刻{% endif %}</h3><p>{% if lang == "en" %}Use an old blade, physical sample or clear photographs to review geometry, mounting details, wear and replacement fit.{% else %}依据旧刀、实物样品或清晰照片核对几何形状、安装细节、磨损及替换匹配。{% endif %}</p><span>{% if lang == "en" %}Start from a sample{% else %}按样品发起询价{% endif %}<i aria-hidden="true">→</i></span></a>
+        <a class="product-start-option" href="{{ prefix }}/rfq/?type=application&amp;product={{ product.slug }}#rfq-form"><b>03 / APPLICATION</b><h3>{% if lang == "en" %}Application review{% else %}工况评估{% endif %}</h3><p>{% if lang == "en" %}Start from the machine, processed material, operating method, current problem and target when no complete drawing is available.{% else %}暂无完整图纸时，可从设备、被处理材料、运行方式、当前问题及预期目标开始评估。{% endif %}</p><span>{% if lang == "en" %}Start from an application{% else %}按工况发起询价{% endif %}<i aria-hidden="true">→</i></span></a>
+      </div>
+    </div>
+  </section>
+  <section class="section section-system product-review-section">
+    <div class="container">
+      <div class="section-head product-review-head">
+        <div><span class="eyebrow">ENGINEERING REVIEW</span><h2>{% if lang == "en" %}Information used for technical review{% else %}技术评估所需的关键信息{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Complete information is helpful but not required for the first contact. Unknown items can be confirmed with our technical team during review.{% else %}首次联系不要求一次提供全部资料，暂不确定的项目可在后续技术沟通中确认。{% endif %}</p>
+      </div>
+      <div class="product-review-grid">
+        {% for input in product.reviewInputs %}
+        <div class="product-review-item"><b>0{{ loop.index }}</b><strong>{{ input.label[lang] }}</strong><span>{{ input.detail[lang] }}</span></div>
+        {% endfor %}
+      </div>
+      <div class="product-review-boundary"><strong>{% if lang == "en" %}Quotation boundary{% else %}报价边界{% endif %}</strong><p>{% if lang == "en" %}Material grade, hardness, tolerances, manufacturing route, price and lead time are confirmed only after the drawing, sample or application has been reviewed.{% else %}材料牌号、硬度、公差、制造工艺、价格及交期，均需在图纸、样品或工况完成评估后确认。{% endif %}</p></div>
     </div>
   </section>
   <section class="section">

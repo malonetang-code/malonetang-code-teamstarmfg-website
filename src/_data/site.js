@@ -11,7 +11,7 @@ module.exports = {
   addressZh: "福建省漳州市长泰区古农农场顺兴路6号",
   addressEn: "No. 6 Shunxing Road, Gutong Farm, Changtai District, Zhangzhou, Fujian, China",
   formEndpoint: "/api/rfq",
-  assetVersion: "20260720-2b",
+  assetVersion: "20260720-2c",
   icp: "闽ICP备2026007966号-1",
   icpUrl: "https://beian.miit.gov.cn/"
 };

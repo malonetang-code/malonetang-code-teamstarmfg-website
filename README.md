@@ -20,8 +20,8 @@ Core goals:
 - Eleventy-generated static multi-page site with Nunjucks templates and shared data
 - Separate Chinese and English URLs with canonical and `hreflang` metadata
 - Shared CSS and JavaScript under `src/assets/`
-- Contact form handled by Formspree
-- Production DNS for the root domain and `www` points to `116.62.121.239`
+- Self-hosted `/api/rfq` service with optional private file storage and Alibaba Cloud DirectMail notification
+- Root domain points to the Aliyun origin; `www` uses Alibaba Cloud CDN with the Hangzhou server as origin
 
 ## Key Files
 

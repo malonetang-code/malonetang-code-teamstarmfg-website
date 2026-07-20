@@ -24,7 +24,7 @@
 - **当前架构：** Eleventy 静态多页面站点，`src/` 源码构建到 `dist/`
 - **模板：** Nunjucks 共享布局和数据；详见 `../content_plan/website_architecture_evolution_2026-07-17.md`
 - **双语：** 中文根路径与 `/en/` 英文独立 URL，包含 canonical 和 `hreflang`
-- **表单：** Formspree ID: mbdqlnar → tang@teamstarmfg.com
+- **表单：** 自建 `/api/rfq`，支持可选附件、私有存储和失败重试；阿里云 DirectMail 通知 `yiyi@teamstarmfg.com`
 
 ## 📂 关键文件
 - `src/` — 页面、模板、数据、CSS 和 JS 源码
@@ -36,7 +36,7 @@
 - `topics/teamstarmfg-website.md` — 网站维护话题记录
 
 ## ⚡ 部署流程
-用户已批准在视觉风格确认和本地验收后执行最终部署。风格未确认前只做本地预览、内容和架构；不要上传正式站。
+每个新阶段在视觉与内容确认、本地验收后再执行正式部署。未经当轮确认时只做本地预览、内容和架构；不要上传正式站。
 
 1. 修改并本地验证桌面、平板、手机和中英文页面
 2. 记录现网状态并备份 `/www/wwwroot/wordpress`

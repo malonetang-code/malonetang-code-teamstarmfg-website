@@ -10,6 +10,7 @@ layout: layouts/base.njk
       <span class="eyebrow">DRAWING / SAMPLE / APPLICATION</span>
       <h1>{% if lang == "en" %}Technical RFQ for industrial machine knives{% else %}工业机械刀具技术询价{% endif %}</h1>
       <p>{% if lang == "en" %}Start with the information available today. A drawing, physical sample or documented machine and operating condition can each begin a manufacturing review.{% else %}从现有资料开始即可。完整图纸、实物样品，或明确的设备与工况信息均可用于启动制造评估。{% endif %}</p>
+      <div class="page-hero-actions"><a class="button button-dark" href="#rfq-form">{% if lang == "en" %}Open the RFQ form{% else %}填写技术询价{% endif %}</a><a class="button button-outline" href="{{ prefix }}/rfq/custom-industrial-knife-drawing-checklist/">{% if lang == "en" %}Preparation guide{% else %}询价资料指南{% endif %}</a></div>
     </div>
   </section>
 
@@ -28,6 +29,7 @@ layout: layouts/base.njk
           <strong>{% if lang == "en" %}Drawings and photographs{% else %}图纸与照片{% endif %}</strong>
           <p>{% if lang == "en" %}Files can be uploaded with the RFQ or sent to {{ site.email }} using the reference shown after submission. Uploading files is optional.{% else %}可随询价直接上传文件，也可在提交后使用询价编号发送至 {{ site.email }}。附件不是必填项。{% endif %}</p>
         </div>
+        <a class="text-link rfq-guide-link" href="{{ prefix }}/rfq/custom-industrial-knife-drawing-checklist/">{% if lang == "en" %}View the complete RFQ preparation guide{% else %}查看完整询价资料指南{% endif %}<span aria-hidden="true">→</span></a>
       </aside>
 
       <form class="rfq-form" id="rfq-form" action="{{ site.formEndpoint }}" method="POST" enctype="multipart/form-data" data-rfq-form>

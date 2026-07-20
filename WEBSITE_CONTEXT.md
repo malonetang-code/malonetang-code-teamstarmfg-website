@@ -13,7 +13,7 @@
 - **历史：** 台北群新工业 40+ 年，1990 年深圳设厂，中国 30+ 年经验
 - **认证：** ISO9001:2015
 - **联系方式：**
-  - 邮箱：info@teamstarmfg.com（对外）/ tang@teamstarmfg.com（联系表单接收）
+  - 邮箱：info@teamstarmfg.com（对外）/ yiyi@teamstarmfg.com（官网询价通知）
   - 手机/电话：+86 181-5070-7007
   - 地址：福建省漳州市长泰区古农农场顺兴路6号
 - **六大生产基地：** 台北伟群、深圳伟群、漳州群新、昆山伟群、越南据点、长泰新厂
@@ -29,7 +29,7 @@
 - **GitHub 仓库：** https://github.com/malonetang-code/malonetang-code-teamstarmfg-website.git
 - **GitHub 账号：** malonetang-code
 - **分支：** `main`（唯一分支）
-- **生产域名：** `teamstarmfg.com` 与 `www.teamstarmfg.com`，A 记录均指向 `116.62.121.239`
+- **生产域名：** 根域名 A 记录指向 `116.62.121.239`；`www` 使用阿里云 CDN CNAME，杭州服务器作为源站
 - **代码仓库职责：** GitHub 保留源码与版本历史；push 到 `main` 不等于正式站发布
 - **历史兼容文件：** `CNAME` 与 `.github/workflows/pages.yml` 属于旧 GitHub Pages 流程，不作为当前生产部署依据
 - **SSH 密钥：** 上级项目目录 `deploy_packages/ssh/teamstar_aliyun_ed25519`，不得外传
@@ -53,8 +53,8 @@ npm run serve
 - **静态生成器：** Eleventy 3，源码目录 `src/`，部署产物 `dist/`
 - **模板：** Nunjucks 共享布局、局部组件和 `_data` 数据文件
 - **CSS / JS：** `src/assets/css/site.css` 与 `src/assets/js/site.js`
-- **字体：** Google Fonts — IBM Plex Sans + Noto Sans SC
-- **联系表单：** Formspree（ID: `mbdqlnar`），表单提交发到 tang@teamstarmfg.com
+- **字体：** 自托管 IBM Plex Sans；中文使用系统字体栈
+- **联系表单：** 自建 `/api/rfq` 服务，支持可选附件私有存储、30 天签名链接和失败重试；阿里云 DirectMail 通知 `yiyi@teamstarmfg.com`
 - **双语支持：** 中文使用根路径，英文使用 `/en/`；页面包含 canonical 与双向 `hreflang`
 - **生产方式：** 阿里云 Nginx 只托管经过验证的 `dist/` 静态产物
 
@@ -98,7 +98,8 @@ npm run serve
 | 4 | `/quality/` | 质量体系 | 四阶段质量路径、证书与检测设备 |
 | 5 | `/company/` | 公司与基地 | 集团历史、漳州基地和工厂实景 |
 | 6 | `/customers/` | 客户背书 | Logo 墙和证据边界说明 |
-| 7 | `/rfq/` | 询盘入口 | RFQ 资料清单、邮件附件说明和 Formspree 表单 |
+| 7 | `/rfq/` | 询盘入口 | 三步技术 RFQ、可选附件上传与独立询价编号 |
+| 8 | `/rfq/custom-industrial-knife-drawing-checklist/` | 询价资料指南 | 按图、按样、工况三类资料准备与人工评估说明 |
 
 ### 导航栏
 - 固定顶部，毛玻璃效果
@@ -121,8 +122,8 @@ npm run serve
 ```
 
 ### 字体
-- 英文：Inter（300-700）
-- 中文：Noto Sans SC（300-700）
+- 英文：自托管 IBM Plex Sans（400-700）
+- 中文：系统无衬线字体栈
 
 ### 设计风格
 - 2026-07-17 已确认 A+B+C 组合：Precision Catalog 为全站骨架，Modern Factory 用于公司与工厂，Engineering System 用于能力与质量。
@@ -147,7 +148,7 @@ npm run serve
 
 ### 修改联系信息
 - 搜索对应文字直接改即可
-- 如需修改表单接收邮箱，需登录 Formspree 后台改
+- 如需修改询价通知邮箱，需同步更新生产 RFQ 后端配置并完成真实收件验证
 
 ### 添加新板块
 1. 优先在 `src/_includes/layouts/` 或 `src/_includes/partials/` 扩展共享模板。
@@ -199,9 +200,9 @@ c3d3bad Initial website - bilingual (zh/en)
 1. **公司名写法：** 中文是「伟群」（Wei Qun），不是「威群」
 2. **母公司 vs 子公司：** 台北是群新工业股份有限公司（母公司），大陆工厂统称伟群
 3. **图片体积：** `images/` 中历史素材较多，新图必须筛选、压缩并记录来源
-4. **架构状态：** 单文件是过渡基线，已批准向静态多页面架构演进；视觉确认前不部署
-5. **Formspree 免费版限制：** 不支持文件上传（已移除），每月 50 次提交
-6. **部署边界：** 已批准最终部署，但必须在视觉确认和本地验收之后执行
+4. **架构状态：** 正式站已使用 Eleventy 双语静态多页面；历史单文件只作为回退基线
+5. **RFQ 边界：** 报价由工程和报价人员人工评估，不承诺 AI 自动报价或即时价格
+6. **部署边界：** 新阶段仍需在视觉确认和本地验收之后执行正式部署
 7. **PPT 资料：** `company_presentation.pptx` 是原始公司介绍 PPT，里面有很多产品图和公司信息可供参考
 8. **topics/ 文件夹下的 BiteLog.md 与本网站无关**，是另一个项目的话题文件，不要修改
 
@@ -217,8 +218,8 @@ c3d3bad Initial website - bilingual (zh/en)
 | 生产托管 | 阿里云杭州轻量应用服务器，`116.62.121.239` |
 | 部署方式 | 本地验证 → 服务器备份 → 上传静态产物 → 校验与回读 |
 | 生产目录 | `/www/wwwroot/wordpress` |
-| 域名配置 | 阿里云 DNS，根域与 `www` 均指向生产 IP |
-| 表单服务 | Formspree ID: mbdqlnar → tang@teamstarmfg.com |
+| 域名配置 | 阿里云 DNS；根域指向源站，`www` 通过阿里云 CDN 加速 |
+| 表单服务 | 自建 `/api/rfq` + 阿里云 DirectMail → yiyi@teamstarmfg.com |
 | 台北伟群 | https://www.greatknives.tw/ |
 | 联系邮箱 | info@teamstarmfg.com |
 | 联系电话 | +86 181-5070-7007 |

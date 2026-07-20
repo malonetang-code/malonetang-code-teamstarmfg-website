@@ -292,6 +292,51 @@ ul { margin: 0; padding: 0; }
 .process-step::before { content: "0" counter(process); color: var(--accent); font-size: 13px; font-weight: 800; }
 .process-step p { margin: 0; }
 .notice { padding: 18px; border-left: 4px solid var(--accent); background: var(--paper-soft); color: var(--ink-soft); font-size: 13px; }
+.detail-rfq-actions { display: grid; justify-items: start; gap: 18px; margin-top: 24px; }
+
+.rfq-guide-hero { min-height: 520px; }
+.rfq-guide-hero .button-outline { border-color: var(--ink); background: rgba(255,255,255,.72); }
+.rfq-guide-hero .button-outline:hover { background: #fff; }
+.guide-section-head p { max-width: 620px; }
+.guide-route-grid { display: grid; border-top: 3px solid var(--accent); }
+.guide-route { min-width: 0; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.guide-route > b { display: block; color: var(--accent); font-size: 13px; }
+.guide-route-label { display: block; margin-top: 28px; color: var(--muted); font-size: 10px; font-weight: 800; }
+.guide-route h3 { margin: 7px 0 12px; font-size: 24px; }
+.guide-route > p { min-height: 3.2em; margin-bottom: 24px; color: var(--muted); font-size: 14px; }
+.guide-route dl { margin: 0 0 24px; border-top: 1px solid var(--line); }
+.guide-route dl div { padding: 13px 0; border-bottom: 1px solid var(--line); }
+.guide-route dt { color: var(--muted); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.guide-route dd { margin: 4px 0 0; font-size: 13px; }
+.guide-detail-grid { display: grid; gap: 42px; }
+.guide-detail-main { min-width: 0; }
+.guide-block-spaced { margin-top: 56px; }
+.guide-number-list { margin: 30px 0 0; list-style: none; border-top: 1px solid var(--line); }
+.guide-number-list li { display: grid; grid-template-columns: 46px minmax(0,1fr); gap: 12px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.guide-number-list b { color: var(--accent); font-size: 12px; }
+.guide-number-list strong, .guide-number-list span { display: block; }
+.guide-number-list strong { font-size: 14px; }
+.guide-number-list span { margin-top: 4px; color: var(--muted); font-size: 13px; }
+.guide-photo-grid { display: grid; border-top: 3px solid var(--system); }
+.guide-photo-grid div { min-height: 136px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.guide-photo-grid strong, .guide-photo-grid span { display: block; }
+.guide-photo-grid span { margin-top: 8px; color: var(--muted); font-size: 13px; }
+.guide-spec-panel { align-self: start; padding: 24px; border-top: 4px solid var(--system); background: var(--system-soft); }
+.guide-spec-panel h2 { margin: 9px 0 22px; font-size: 27px; }
+.guide-spec-list { margin: 0; border-top: 1px solid rgba(23,63,49,.28); }
+.guide-spec-list div { padding: 14px 0; border-bottom: 1px solid rgba(23,63,49,.28); }
+.guide-spec-list dt { color: #476155; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.guide-spec-list dd { margin: 4px 0 0; overflow-wrap: anywhere; font-size: 13px; font-weight: 700; }
+.guide-spec-note { margin: 22px 0; color: #476155; font-size: 12px; }
+.guide-review-grid { display: grid; border-top: 1px solid rgba(23,63,49,.28); }
+.guide-review-grid > div { min-height: 180px; padding: 22px 0; border-bottom: 1px solid rgba(23,63,49,.28); }
+.guide-review-grid b, .guide-review-grid strong, .guide-review-grid span { display: block; }
+.guide-review-grid b { color: var(--system); font-size: 12px; }
+.guide-review-grid strong { margin-top: 24px; font-size: 17px; }
+.guide-review-grid span { margin-top: 8px; color: #476155; font-size: 12px; }
+.guide-review-note { margin-top: 34px; padding: 24px; border-left: 4px solid var(--system); background: #fff; }
+.guide-review-note strong { display: block; }
+.guide-review-note p { max-width: 920px; margin: 8px 0 0; color: #476155; font-size: 13px; }
 
 .capability-list { display: grid; gap: 16px; }
 .capability-card { overflow: hidden; border: 1px solid var(--line); background: #fff; }
@@ -341,6 +386,7 @@ ul { margin: 0; padding: 0; }
 .rfq-guide-note { margin-top: 24px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .rfq-guide-note strong { font-size: 13px; }
 .rfq-guide-note p { margin: 7px 0 0; color: var(--muted); font-size: 13px; }
+.rfq-guide-link { margin-top: 22px; }
 .rfq-form { position: relative; min-width: 0; padding: 24px; border: 1px solid var(--line); background: #fff; }
 .rfq-form-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
 .rfq-form h2 { margin: 9px 0 0; font-size: 27px; }
@@ -446,6 +492,9 @@ ul { margin: 0; padding: 0; }
   .hero-actions, .page-hero-actions, .form-actions { flex-direction: row; align-items: center; }
   .form-actions-end { justify-content: flex-end; }
   .product-grid, .quality-preview, .quality-equipment-grid, .company-photo-grid { grid-template-columns: repeat(2,1fr); }
+  .guide-photo-grid { grid-template-columns: repeat(2,1fr); }
+  .guide-photo-grid div { padding: 22px; border-right: 1px solid var(--line); }
+  .guide-photo-grid div:nth-child(2n) { border-right: 0; }
   .logo-wall { grid-template-columns: repeat(3,1fr); }
   .factory-facts { grid-template-columns: repeat(4,1fr); }
 }
@@ -476,6 +525,15 @@ ul { margin: 0; padding: 0; }
   .detail-proof-item:first-child { padding-left: 0; }
   .detail-proof-item:last-child { border-right: 0; }
   .content-grid { grid-template-columns: minmax(0,1.15fr) minmax(280px,.85fr); gap: 64px; }
+  .guide-route-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .guide-route { padding: 30px 26px; border-right: 1px solid var(--line); }
+  .guide-route:first-child { padding-left: 0; }
+  .guide-route:last-child { padding-right: 0; border-right: 0; }
+  .guide-detail-grid { grid-template-columns: minmax(0,1.35fr) minmax(290px,.65fr); gap: 64px; }
+  .guide-review-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .guide-review-grid > div { padding: 24px; border-right: 1px solid rgba(23,63,49,.28); }
+  .guide-review-grid > div:first-child { padding-left: 0; }
+  .guide-review-grid > div:last-child { padding-right: 0; border-right: 0; }
   .capability-list { grid-template-columns: repeat(3,1fr); }
   .evidence-row { grid-template-columns: 180px 1fr; align-items: start; }
   .quality-flow { grid-template-columns: repeat(4,1fr); }

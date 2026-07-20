@@ -1,0 +1,131 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+<main id="main-content">
+  <section class="page-hero rfq-guide-hero">
+    <img class="hero-media" src="/images/web/product-parts.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><a href="{{ prefix }}/rfq/">{% if lang == "en" %}Technical RFQ{% else %}技术询价{% endif %}</a><span>/</span><span>{% if lang == "en" %}Preparation guide{% else %}资料指南{% endif %}</span></nav>
+      <span class="eyebrow">ENGINEERING RFQ GUIDE</span>
+      <h1>{% if lang == "en" %}Industrial machine knife RFQ preparation guide{% else %}工业机械刀具询价资料指南{% endif %}</h1>
+      <p>{% if lang == "en" %}A complete drawing is useful but not mandatory. A physical sample, old-blade photographs or documented machine and operating conditions can also start a manufacturing review.{% else %}完整图纸有助于评估，但不是启动询价的必要条件。实物样品、旧刀照片，或明确的设备与工况资料同样可用于制造评估。{% endif %}</p>
+      <div class="page-hero-actions">
+        <a class="button button-dark" href="{{ prefix }}/rfq/#rfq-form">{% if lang == "en" %}Submit a technical RFQ{% else %}提交技术询价{% endif %}</a>
+        <a class="button button-outline" href="#starting-point">{% if lang == "en" %}Review preparation routes{% else %}查看资料准备路径{% endif %}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="starting-point">
+    <div class="container">
+      <div class="section-head guide-section-head">
+        <div><span class="eyebrow">STARTING POINT</span><h2>{% if lang == "en" %}Choose the route that matches the available information{% else %}根据现有资料选择询价路径{% endif %}</h2></div>
+        <p>{% if lang == "en" %}The three routes lead to the same manual technical review. Unknown items can be identified and confirmed after the enquiry is received.{% else %}三种路径均进入人工技术评估。暂不确定的项目可在收到询价后识别并进一步确认。{% endif %}</p>
+      </div>
+      <div class="guide-route-grid">
+        <article class="guide-route">
+          <b>01</b>
+          <span class="guide-route-label">DRAWING</span>
+          <h3>{% if lang == "en" %}Drawing-based manufacture{% else %}按图制造{% endif %}</h3>
+          <p>{% if lang == "en" %}Use when a controlled drawing, CAD file or dimensional sketch is available.{% else %}适用于已有受控图纸、CAD 文件或尺寸草图的项目。{% endif %}</p>
+          <dl>
+            <div><dt>{% if lang == "en" %}Primary reference{% else %}主要依据{% endif %}</dt><dd>{% if lang == "en" %}Drawing number, revision and units{% else %}图号、版本及计量单位{% endif %}</dd></div>
+            <div><dt>{% if lang == "en" %}Key details{% else %}关键资料{% endif %}</dt><dd>{% if lang == "en" %}Overall dimensions, thickness, mounting interfaces and controlled tolerances{% else %}外形尺寸、厚度、安装接口及受控公差{% endif %}</dd></div>
+            <div><dt>{% if lang == "en" %}Also include{% else %}建议补充{% endif %}</dt><dd>{% if lang == "en" %}Processed material, machine information, quantity and current issue{% else %}被处理材料、设备信息、数量及当前问题{% endif %}</dd></div>
+          </dl>
+          <a class="text-link" href="{{ prefix }}/rfq/?type=drawing#rfq-form">{% if lang == "en" %}Start from a drawing{% else %}按图纸发起询价{% endif %}<span aria-hidden="true">→</span></a>
+        </article>
+        <article class="guide-route">
+          <b>02</b>
+          <span class="guide-route-label">SAMPLE</span>
+          <h3>{% if lang == "en" %}Physical-sample replication{% else %}按样复刻{% endif %}</h3>
+          <p>{% if lang == "en" %}Use when an old blade, unused sample or equipment-specific part is available.{% else %}适用于已有旧刀、未使用样品或设备专用零件的项目。{% endif %}</p>
+          <dl>
+            <div><dt>{% if lang == "en" %}Primary reference{% else %}主要依据{% endif %}</dt><dd>{% if lang == "en" %}Physical sample and photographs of both sides{% else %}实物样品及正反面照片{% endif %}</dd></div>
+            <div><dt>{% if lang == "en" %}Key details{% else %}关键资料{% endif %}</dt><dd>{% if lang == "en" %}Mounting position, edge condition, wear pattern and known dimensions{% else %}安装位置、刃口状态、磨损形态及已知尺寸{% endif %}</dd></div>
+            <div><dt>{% if lang == "en" %}Also include{% else %}建议补充{% endif %}</dt><dd>{% if lang == "en" %}Machine make and model, processed material and sample availability{% else %}设备品牌型号、被处理材料及样品可提供情况{% endif %}</dd></div>
+          </dl>
+          <a class="text-link" href="{{ prefix }}/rfq/?type=sample#rfq-form">{% if lang == "en" %}Start from a sample{% else %}按样品发起询价{% endif %}<span aria-hidden="true">→</span></a>
+        </article>
+        <article class="guide-route">
+          <b>03</b>
+          <span class="guide-route-label">APPLICATION</span>
+          <h3>{% if lang == "en" %}Application review{% else %}工况评估{% endif %}</h3>
+          <p>{% if lang == "en" %}Use when the requirement begins with a machine, processed material or cutting problem.{% else %}适用于从设备、被处理材料或现有切割问题开始评估的项目。{% endif %}</p>
+          <dl>
+            <div><dt>{% if lang == "en" %}Primary reference{% else %}主要依据{% endif %}</dt><dd>{% if lang == "en" %}Machine make, model and operating method{% else %}设备品牌、型号及运行方式{% endif %}</dd></div>
+            <div><dt>{% if lang == "en" %}Key details{% else %}关键资料{% endif %}</dt><dd>{% if lang == "en" %}Processed material, mounting method, operating frequency and current failure{% else %}被处理材料、安装方式、使用频率及当前失效情况{% endif %}</dd></div>
+            <div><dt>{% if lang == "en" %}Also include{% else %}建议补充{% endif %}</dt><dd>{% if lang == "en" %}Installation-space dimensions, photographs, quantity and target service life{% else %}安装空间尺寸、现场照片、数量及预期使用寿命{% endif %}</dd></div>
+          </dl>
+          <a class="text-link" href="{{ prefix }}/rfq/?type=application#rfq-form">{% if lang == "en" %}Start from an application{% else %}按工况发起询价{% endif %}<span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container guide-detail-grid">
+      <div class="guide-detail-main">
+        <div class="content-block">
+          <span class="eyebrow">DRAWING CHECKLIST</span>
+          <h2>{% if lang == "en" %}Information to show on a technical drawing{% else %}技术图纸建议包含的信息{% endif %}</h2>
+          <p>{% if lang == "en" %}Mark the characteristics that control fit, cutting performance and inspection. Do not add tolerances or material requirements that have not been technically confirmed.{% else %}应标识影响安装、切割表现与检验的受控特性。尚未经技术确认的公差或材料要求不应作为确定条件填写。{% endif %}</p>
+          <ol class="guide-number-list">
+            <li><b>01</b><div><strong>{% if lang == "en" %}Overall geometry{% else %}整体几何{% endif %}</strong><span>{% if lang == "en" %}Length or outside diameter, width, thickness and profile dimensions{% else %}长度或外径、宽度、厚度及轮廓尺寸{% endif %}</span></div></li>
+            <li><b>02</b><div><strong>{% if lang == "en" %}Mounting interfaces{% else %}安装接口{% endif %}</strong><span>{% if lang == "en" %}Bores, slots, countersinks, pitch dimensions and reference datums{% else %}孔、槽、沉孔、节距尺寸及基准{% endif %}</span></div></li>
+            <li><b>03</b><div><strong>{% if lang == "en" %}Edge definition{% else %}刃口定义{% endif %}</strong><span>{% if lang == "en" %}Cutting-edge position, bevel direction and controlled edge geometry{% else %}切削刃位置、开刃方向及受控刃口几何{% endif %}</span></div></li>
+            <li><b>04</b><div><strong>{% if lang == "en" %}Controlled requirements{% else %}受控要求{% endif %}</strong><span>{% if lang == "en" %}Applicable tolerances, material or hardness requirements and surface requirements{% else %}适用公差、材料或硬度要求及表面要求{% endif %}</span></div></li>
+            <li><b>05</b><div><strong>{% if lang == "en" %}Document control{% else %}文件控制{% endif %}</strong><span>{% if lang == "en" %}Drawing number, revision, units, quantity and approval status{% else %}图号、版本、单位、数量及批准状态{% endif %}</span></div></li>
+          </ol>
+        </div>
+
+        <div class="content-block guide-block-spaced">
+          <span class="eyebrow">WITHOUT A DRAWING</span>
+          <h2>{% if lang == "en" %}Photographs and measurements that support initial review{% else %}无图纸项目的照片与测量资料{% endif %}</h2>
+          <div class="guide-photo-grid">
+            <div><strong>{% if lang == "en" %}Full blade{% else %}刀具全貌{% endif %}</strong><span>{% if lang == "en" %}Front, back and edge views with a scale reference{% else %}正面、背面及刃口视图，并带比例参照{% endif %}</span></div>
+            <div><strong>{% if lang == "en" %}Mounting area{% else %}安装区域{% endif %}</strong><span>{% if lang == "en" %}Bores, slots, shoulders, mating parts and installation orientation{% else %}孔槽、台阶、配合零件及安装方向{% endif %}</span></div>
+            <div><strong>{% if lang == "en" %}Machine identification{% else %}设备识别信息{% endif %}</strong><span>{% if lang == "en" %}Machine nameplate, make, model and blade location{% else %}设备铭牌、品牌型号及刀具所在位置{% endif %}</span></div>
+            <div><strong>{% if lang == "en" %}Wear and failure{% else %}磨损与失效{% endif %}</strong><span>{% if lang == "en" %}Close photographs of wear, chipping, deformation or cut-quality problems{% else %}磨损、崩刃、变形或切口质量问题的近照{% endif %}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="guide-spec-panel">
+        <span class="eyebrow">FILE HANDOFF</span>
+        <h2>{% if lang == "en" %}Supported files and upload limits{% else %}支持的文件与上传限制{% endif %}</h2>
+        <dl class="guide-spec-list">
+          <div><dt>{% if lang == "en" %}Drawings and CAD{% else %}图纸与 CAD{% endif %}</dt><dd>PDF, DXF, DWG, STEP, STP, IGS, IGES</dd></div>
+          <div><dt>{% if lang == "en" %}Photographs{% else %}照片{% endif %}</dt><dd>JPG, JPEG, PNG, WebP</dd></div>
+          <div><dt>{% if lang == "en" %}Archive{% else %}压缩文件{% endif %}</dt><dd>ZIP</dd></div>
+          <div><dt>{% if lang == "en" %}Per enquiry{% else %}单次询价{% endif %}</dt><dd>{% if lang == "en" %}Up to 10 files and 100 MB total{% else %}最多 10 个文件，合计 100 MB{% endif %}</dd></div>
+          <div><dt>{% if lang == "en" %}Per file{% else %}单个文件{% endif %}</dt><dd>{% if lang == "en" %}Up to 25 MB{% else %}最大 25 MB{% endif %}</dd></div>
+        </dl>
+        <p class="guide-spec-note">{% if lang == "en" %}File upload is optional. Additional or oversized files can be referenced by the RFQ number and sent separately to {{ site.email }}.{% else %}附件上传为选填项。补充资料或超出限制的文件可注明询价编号，另行发送至 {{ site.email }}。{% endif %}</p>
+        <a class="button button-accent" href="{{ prefix }}/rfq/#rfq-form">{% if lang == "en" %}Open the RFQ form{% else %}打开技术询价表单{% endif %}</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-system">
+    <div class="container guide-review">
+      <div class="section-head guide-section-head">
+        <div><span class="eyebrow">MANUAL ENGINEERING REVIEW</span><h2>{% if lang == "en" %}What happens after submission{% else %}提交后的技术评估流程{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Quotation follows technical review. Geometry, material, heat treatment, machining, grinding and inspection requirements can each change the process route and price.{% else %}报价在技术评估后形成。几何结构、材料、热处理、机加工、研磨及检验要求均可能影响工艺路线与价格。{% endif %}</p>
+      </div>
+      <div class="guide-review-grid">
+        <div><b>01</b><strong>{% if lang == "en" %}RFQ registration{% else %}询价登记{% endif %}</strong><span>{% if lang == "en" %}The enquiry and uploaded files are assigned an independent RFQ reference{% else %}询价信息及已上传文件生成独立询价编号{% endif %}</span></div>
+        <div><b>02</b><strong>{% if lang == "en" %}Information review{% else %}资料审查{% endif %}</strong><span>{% if lang == "en" %}Engineering checks the manufacturing references and identifies missing controlled information{% else %}工程人员核对制造依据并识别缺失的受控信息{% endif %}</span></div>
+        <div><b>03</b><strong>{% if lang == "en" %}Technical clarification{% else %}技术澄清{% endif %}</strong><span>{% if lang == "en" %}Questions on geometry, application, acceptance or sample validation are confirmed{% else %}确认几何、工况、验收或样品验证相关问题{% endif %}</span></div>
+        <div><b>04</b><strong>{% if lang == "en" %}Process and quotation{% else %}工艺与报价{% endif %}</strong><span>{% if lang == "en" %}The applicable process route, price and lead time are prepared after manual review{% else %}人工评估后制定适用工艺路线、价格与交期{% endif %}</span></div>
+      </div>
+      <div class="guide-review-note">
+        <strong>{% if lang == "en" %}Why Teamstar does not provide instant automated pricing{% else %}群新不提供即时自动报价的原因{% endif %}</strong>
+        <p>{% if lang == "en" %}A single manufacturing or inspection requirement can materially change the process route and total cost. Manual review keeps the quotation aligned with the actual blade geometry, application and acceptance requirements.{% else %}单项制造或检验要求就可能显著改变工艺路线与总成本。人工评估可使报价与实际刀具几何、使用工况及验收要求保持一致。{% endif %}</p>
+      </div>
+    </div>
+  </section>
+
+  {% include "partials/rfq-cta.njk" %}
+</main>

@@ -64,7 +64,8 @@ Implemented multi-page structure:
 
 9. `/rfq/` and `/en/rfq/` - RFQ contact
    - Contact details
-   - Formspree contact form
+   - Self-hosted three-step technical RFQ form
+   - Optional drawing and photograph upload
    - RFQ data checklist
 
 ## Implemented SEO Pages
@@ -78,6 +79,7 @@ Implemented multi-page structure:
 - `/capabilities/heat-treatment/`
 - `/capabilities/precision-grinding/`
 - `/capabilities/inspection-lab/`
+- `/rfq/custom-industrial-knife-drawing-checklist/`
 
 Each route above has an English counterpart under `/en/`. The following remain future, evidence-led expansion candidates:
 
@@ -87,7 +89,6 @@ Each route above has an English counterpart under `/en/`. The following remain f
 - `/industries/plastic-recycling/`
 - `/customers/`
 - `/case-studies/`
-- `/rfq/custom-industrial-knife-drawing-checklist/`
 
 ## Visual System
 
@@ -102,7 +103,7 @@ Each route above has an English counterpart under `/en/`. The following remain f
   - Border: `#d7ddda`
 - Typography:
   - Latin: IBM Plex Sans
-  - Chinese: Noto Sans SC
+  - Chinese: system sans-serif stack
 - Layout rules:
   - Use grid, borders, real photos, and restrained typography.
   - Avoid oversized rounded cards, decorative gradients, emoji icons, and excessive shadow.

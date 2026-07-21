@@ -9,11 +9,16 @@ layout: layouts/base.njk
       <div class="hero-copy">
         <span class="eyebrow">CUSTOM INDUSTRIAL MACHINE KNIVES / 01</span>
         <h1>{% if lang == "en" %}Custom industrial machine knives{% else %}工业机械刀具<br>定制制造{% endif %}</h1>
-        <p>{% if lang == "en" %}Custom machine knives for woodworking, food processing, plastics recycling, paper converting, textile and special-purpose equipment. Manufacturing routes are reviewed from drawings, samples and operating requirements and may include material selection, heat treatment, precision machining, grinding and inspection.{% else %}面向木工、食品加工、塑料回收、纸品加工、纺织服装及专用设备领域，依据图纸、样品或工况要求，提供材料评估、热处理、精密加工、研磨、检测及批量制造服务。{% endif %}</p>
+        <p>{% if lang == "en" %}For custom knife projects from equipment manufacturers, brand owners and industrial users, technical review can begin with a drawing, physical sample or documented machine application. Manufacturing processes and quotation are confirmed against blade geometry, processed material, quantity and acceptance requirements.{% else %}面向设备制造商、品牌企业及工业用户的定制刀具项目，可从图纸、实物样品或设备工况开始技术评估。制造工艺与报价由工程团队依据刀具结构、被处理材料、数量及验收要求确认。{% endif %}</p>
         <div class="hero-actions">
-          <a class="button button-dark" href="{{ prefix }}/rfq/#rfq-form">{% if lang == "en" %}Submit an RFQ{% else %}提交技术询价{% endif %}</a>
-          <a class="button button-outline" href="{{ prefix }}/products/">{% if lang == "en" %}View products{% else %}查看产品目录{% endif %}</a>
+          <a class="button button-dark" href="{{ prefix }}/rfq/#rfq-form">{% if lang == "en" %}Start a technical RFQ{% else %}按现有资料发起询价{% endif %}</a>
+          <a class="button button-outline" href="#product-directory">{% if lang == "en" %}Find products by application{% else %}按应用查找产品{% endif %}</a>
         </div>
+        <nav class="hero-paths-mobile" aria-label="{% if lang == 'en' %}RFQ entry paths{% else %}询价资料入口{% endif %}">
+          <a href="{{ prefix }}/rfq/?type=drawing#rfq-form"><b>01</b><span>{% if lang == "en" %}Drawing{% else %}图纸{% endif %}</span></a>
+          <a href="{{ prefix }}/rfq/?type=sample#rfq-form"><b>02</b><span>{% if lang == "en" %}Physical sample{% else %}实物样品{% endif %}</span></a>
+          <a href="{{ prefix }}/rfq/?type=application#rfq-form"><b>03</b><span>{% if lang == "en" %}Machine application{% else %}设备工况{% endif %}</span></a>
+        </nav>
       </div>
       <nav class="hero-index" aria-label="{% if lang == 'en' %}RFQ entry paths{% else %}询价入口{% endif %}">
         <a href="{{ prefix }}/rfq/?type=drawing#rfq-form"><b>01</b><span>{% if lang == "en" %}Drawing-based manufacture{% else %}按图制造{% endif %}</span></a>
@@ -30,22 +35,22 @@ layout: layouts/base.njk
     </div>
   </section>
 
-  <section class="section section-soft">
+  <section class="section section-soft" id="product-directory">
     <div class="container">
       <div class="section-head">
         <div><span class="eyebrow">PRODUCT DIRECTORY</span><h2>{% if lang == "en" %}Industrial machine knives by application{% else %}工业机械刀具产品分类{% endif %}</h2></div>
-        <p>{% if lang == "en" %}Product categories are organized by industry, equipment and typical application, with the technical information required for manufacturing review.{% else %}产品按行业、设备与典型应用分类，并列明制造评估所需的技术资料。{% endif %}</p>
+        <p>{% if lang == "en" %}Compare the closest machine application and processed material first. Each category lists the technical information needed to begin manufacturing review.{% else %}先按最接近的设备应用和被处理材料进行判断，每个分类均列明启动制造评估所需的技术资料。{% endif %}</p>
       </div>
       <div class="product-grid">
         {% for product in catalog.products %}
           {% include "partials/product-card.njk" %}
         {% endfor %}
       </div>
-      <div class="section-actions"><a class="button button-dark" href="{{ prefix }}/products/">{% if lang == "en" %}View all products{% else %}查看全部产品{% endif %}</a></div>
+      <div class="section-actions"><a class="button button-dark" href="{{ prefix }}/products/">{% if lang == "en" %}Review all product categories{% else %}查看六类产品与评估要素{% endif %}</a></div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="rfq-routes">
     <div class="container">
       <div class="section-head">
         <div><span class="eyebrow">RFQ ENTRY PATHS</span><h2>{% if lang == "en" %}Technical inputs for RFQ review{% else %}技术评估资料入口{% endif %}</h2></div>

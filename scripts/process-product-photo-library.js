@@ -17,6 +17,9 @@ const groups = [
   { folder: "缝纫类刀片", slug: "sewing-blades", representative: "dsc01065.jpg" },
   { folder: "食品刀片", slug: "food-blades", representative: "dsc00604-1.jpg" }
 ];
+const backgroundOverrides = new Map([
+  ["woodworking-machine-blades/dsc01134.jpg", { r: 156, g: 156, b: 157 }]
+]);
 
 function outputName(filename) {
   return filename
@@ -27,13 +30,36 @@ function outputName(filename) {
     .replace(/^-|-$/g, "") + ".jpg";
 }
 
-async function processImage(input, output) {
+async function processImage(input, output, backgroundOverride) {
   const stats = await sharp(input).stats();
   const background = { ...stats.dominant, alpha: 1 };
-  await sharp(input)
+  const pipeline = sharp(input)
     .rotate()
     .sharpen({ sigma: 0.45 })
-    .resize({ width: 1600, height: 1200, fit: "contain", background })
+    .resize({ width: 1600, height: 1200, fit: "contain", background });
+
+  if (!backgroundOverride) {
+    await pipeline.jpeg({ quality: 88, progressive: true, mozjpeg: true }).toFile(output);
+    return;
+  }
+
+  const { data, info } = await pipeline
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const result = Buffer.alloc(data.length);
+
+  for (let index = 0; index < data.length; index += info.channels) {
+    const luminance = 0.2126 * data[index] + 0.7152 * data[index + 1] + 0.0722 * data[index + 2];
+    let subjectWeight = Math.max(0, Math.min(1, (235 - luminance) / 95));
+    subjectWeight = subjectWeight * subjectWeight * (3 - 2 * subjectWeight);
+
+    result[index] = Math.round(data[index] * subjectWeight + backgroundOverride.r * (1 - subjectWeight));
+    result[index + 1] = Math.round(data[index + 1] * subjectWeight + backgroundOverride.g * (1 - subjectWeight));
+    result[index + 2] = Math.round(data[index + 2] * subjectWeight + backgroundOverride.b * (1 - subjectWeight));
+  }
+
+  await sharp(result, { raw: { width: info.width, height: info.height, channels: 3 } })
     .jpeg({ quality: 88, progressive: true, mozjpeg: true })
     .toFile(output);
 }
@@ -74,8 +100,10 @@ async function main() {
 
     for (const filename of files) {
       const input = path.join(sourceDirectory, filename);
-      const output = path.join(outputDirectory, outputName(filename));
-      await processImage(input, output);
+      const processedName = outputName(filename);
+      const output = path.join(outputDirectory, processedName);
+      const backgroundOverride = backgroundOverrides.get(`${group.slug}/${processedName}`);
+      await processImage(input, output, backgroundOverride);
       total += 1;
       console.log(`${group.folder}\t${filename}\t${path.relative(root, output)}`);
     }

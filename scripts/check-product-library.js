@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const sharp = require("sharp");
 const productPhotoLibrary = require("../src/_data/productPhotoLibrary");
 
 const root = path.resolve(__dirname, "..");
@@ -89,4 +90,35 @@ if ((productsIndex.match(/class="?product-library-group/g) || []).length !== exp
   fail("product directory does not expose all five source-defined photo groups");
 }
 
-console.log("Product photo check passed: 86 photographs remain in five source-defined groups and legacy product images are absent");
+async function checkWoodworkingBackground() {
+  const imagePath = path.join(
+    root,
+    "images/web/product-library-20260722/woodworking-machine-blades/dsc01134.jpg"
+  );
+  const metadata = await sharp(imagePath).metadata();
+  if (metadata.width !== 1600 || metadata.height !== 1200) {
+    fail(`woodworking product photograph 09 has unexpected dimensions: ${metadata.width}x${metadata.height}`);
+  }
+
+  for (const region of [
+    { left: 0, top: 0, width: 120, height: 120 },
+    { left: 735, top: 590, width: 20, height: 20 }
+  ]) {
+    const regionBuffer = await sharp(imagePath).extract(region).toBuffer();
+    const stats = await sharp(regionBuffer).stats();
+    for (const channel of stats.channels.slice(0, 3)) {
+      if (channel.mean < 154 || channel.mean > 158 || channel.stdev > 2) {
+        fail("woodworking product photograph 09 does not retain the approved neutral-gray background");
+      }
+    }
+  }
+}
+
+checkWoodworkingBackground()
+  .then(() => {
+    console.log("Product photo check passed: 86 photographs remain in five source-defined groups, product 09 uses the approved gray background and legacy product images are absent");
+  })
+  .catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });

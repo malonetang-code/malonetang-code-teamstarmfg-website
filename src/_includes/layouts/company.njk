@@ -8,7 +8,7 @@ layout: layouts/base.njk
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Company{% else %}公司概况{% endif %}</span></nav>
       <span class="eyebrow">TEAMSTAR / QUNXIN INDUSTRIAL</span>
-      <h1>{% if lang == "en" %}Zhangzhou manufacturing base within the group network{% else %}集团制造体系下的漳州生产基地{% endif %}</h1>
+      <h1>{% if lang == "en" %}Zhangzhou manufacturing base within the group network{% else %}集团制造体系下的<br>漳州生产基地{% endif %}</h1>
       <p>{% if lang == "en" %}Qunxin Industrial was established in Zhangzhou in 2024 as a member of Wei Qun Cutting Tools Group, continuing the group’s experience in industrial knives and cutting tools.{% else %}群新工业（漳州）有限公司成立于 2024 年，是伟群制刀工业集团成员企业，延续集团在工业刀具与切削工具领域的制造经验。{% endif %}</p>
     </div>
   </section>
@@ -21,6 +21,21 @@ layout: layouts/base.njk
         <div class="timeline-row"><div class="timeline-year">ISO</div><div><h3>ISO 9001:2015</h3><p>{% if lang == "en" %}Quality management system certification.{% else %}质量管理体系认证。{% endif %}</p></div></div>
       </div></div>
       <aside><div class="notice">{% if lang == "en" %}Manufacturing processes and inspection plans are defined for each project according to blade family, drawing and batch requirements.{% else %}各项目的制造工艺与检验方案，依据刀具类别、图纸及批量要求确定。{% endif %}</div></aside>
+    </div>
+  </section>
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">FACTORY EVIDENCE</span><h2>{% if lang == "en" %}Zhangzhou manufacturing base{% else %}漳州基地实景{% endif %}</h2></div>
+        <p>{% if lang == "en" %}These photographs document the site entrance, office and production building, manufacturing workshop, CNC equipment area and inspection room at the Zhangzhou base.{% else %}以下照片记录漳州基地的厂区入口、办公及生产楼、生产车间、数控设备区与检测室，展示公司当前生产环境。{% endif %}</p>
+      </div>
+      <div class="company-photo-grid">
+        <figure class="company-photo company-photo-gate"><img src="/images/web/factory-20260722/factory-gate.jpg" alt="{% if lang == 'en' %}Entrance to Qunxin Industrial in Zhangzhou{% else %}群新工业漳州厂区入口{% endif %}" loading="lazy" eleventy:widths="480,720,960,1440" sizes="(min-width: 768px) 50vw, 100vw"><figcaption>{% if lang == "en" %}Qunxin Industrial entrance{% else %}群新工业厂区入口{% endif %}</figcaption></figure>
+        <figure class="company-photo"><img src="/images/web/factory-20260722/office-building-side.jpg" alt="{% if lang == 'en' %}Office and production building at the Zhangzhou base{% else %}漳州基地办公及生产楼侧景{% endif %}" loading="lazy" eleventy:widths="480,720,960,1440" sizes="(min-width: 768px) 50vw, 100vw"><figcaption>{% if lang == "en" %}Office and production building{% else %}办公及生产楼{% endif %}</figcaption></figure>
+        <figure class="company-photo"><img src="/images/web/factory-20260722/manufacturing-workshop.jpg" alt="{% if lang == 'en' %}Manufacturing workshop at Qunxin Industrial{% else %}群新工业生产车间{% endif %}" loading="lazy" eleventy:widths="480,720,960" sizes="(min-width: 768px) 33vw, 100vw"><figcaption>{% if lang == "en" %}Manufacturing workshop{% else %}生产车间{% endif %}</figcaption></figure>
+        <figure class="company-photo"><img src="/images/web/factory-20260722/cnc-equipment-area.jpg" alt="{% if lang == 'en' %}CNC equipment area at Qunxin Industrial{% else %}群新工业数控加工设备区{% endif %}" loading="lazy" eleventy:widths="480,720,960" sizes="(min-width: 768px) 33vw, 100vw"><figcaption>{% if lang == "en" %}CNC equipment area{% else %}数控加工设备区{% endif %}</figcaption></figure>
+        <figure class="company-photo"><img src="/images/web/factory-20260722/inspection-room.jpg" alt="{% if lang == 'en' %}Inspection room at Qunxin Industrial{% else %}群新工业检测室{% endif %}" loading="lazy" eleventy:widths="480,720,960" sizes="(min-width: 768px) 33vw, 100vw"><figcaption>{% if lang == "en" %}Inspection room{% else %}检测室{% endif %}</figcaption></figure>
+      </div>
     </div>
   </section>
   {% include "partials/rfq-cta.njk" %}

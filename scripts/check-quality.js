@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const inspection = require("../src/_data/inspection");
+const site = require("../src/_data/site");
 
 const root = path.resolve(__dirname, "..");
 const expectedModels = [
@@ -45,7 +46,7 @@ for (const file of [
   "dist/en/capabilities/inspection-lab/index.html"
 ]) {
   const html = fs.readFileSync(path.join(root, file), "utf8");
-  if (!html.includes("20260722-2g")) fail(`missing Stage 2G marker: ${file}`);
+  if (!html.includes(site.assetVersion)) fail(`missing current asset marker: ${file}`);
   if ((html.match(/class="?equipment-item/g) || []).length !== expectedModels.length) fail(`unexpected equipment-card count: ${file}`);
   if ((html.match(/class="?inspection-scope/g) || []).length < inspection.scopes.length) fail(`inspection scopes missing: ${file}`);
   for (const model of expectedModels) {

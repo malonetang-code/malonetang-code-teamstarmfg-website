@@ -10,6 +10,7 @@
     "clean": "rm -rf dist",
     "check:content": "node scripts/check-content.js",
     "check:build": "node scripts/check-build.js",
+    "check:quality": "node scripts/check-quality.js",
     "check:rfq": "node scripts/check-rfq.js"
   },
   "devDependencies": {

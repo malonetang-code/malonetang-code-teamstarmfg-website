@@ -23,16 +23,30 @@ layout: layouts/base.njk
       </div>
     </div>
   </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">CONTROLLED CHARACTERISTICS</span><h2>{% if lang == "en" %}Inspection follows the drawing and process route{% else %}依据图纸与工艺路线确定检验项目{% endif %}</h2></div><p>{% if lang == "en" %}Inspection methods are selected for the characteristics that control material identity, heat-treatment condition, mounting fit, blade geometry and applicable surface requirements.{% else %}围绕材料确认、热处理状态、安装配合、刀具几何及相应表面要求，选择适用的检验方法。{% endif %}</p></div>
+      <div class="inspection-scope-grid">
+        {% for scope in inspection.scopes %}
+        <article class="inspection-scope">
+          <b>{{ scope.code }}</b>
+          <h3>{{ scope.name[lang] }}</h3>
+          <p>{{ scope.summary[lang] }}</p>
+          <span>{{ scope.equipment[lang] }}</span>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
   <section class="section section-dark">
     <div class="container">
-      <div class="section-head"><div><span class="eyebrow">INSPECTION EQUIPMENT</span><h2>{% if lang == "en" %}Material and dimensional inspection equipment{% else %}材料与尺寸检测设备{% endif %}</h2></div><p>{% if lang == "en" %}Spectrometry, coordinate measurement, image measurement and metallography support applicable material analysis, dimensional inspection and process verification.{% else %}光谱分析、三坐标测量、影像尺寸测量与金相检验，用于相应的材料分析、尺寸检测及过程验证。{% endif %}</p></div>
+      <div class="section-head"><div><span class="eyebrow">INSPECTION EQUIPMENT</span><h2>{% if lang == "en" %}Inspection equipment for material, hardness, geometry and surface control{% else %}材料、硬度、几何与表面检测设备{% endif %}</h2></div><p>{% if lang == "en" %}The equipment below supports applicable incoming, in-process and final inspection. The inspection plan is confirmed for each drawing and project requirement.{% else %}以下设备用于相应的来料、过程及成品检验；具体检验方案依据图纸与项目要求确认。{% endif %}</p></div>
       <div class="quality-equipment-grid">
-        <article class="equipment-item"><img src="/images/quality/spectrolab-spectrometer.jpeg" alt="SPECTROLAB spectrometer" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>SPECTROLAB</strong><span>{% if lang == "en" %}Spectrometer / material analysis{% else %}光谱仪 / 材料分析{% endif %}</span></div></article>
-        <article class="equipment-item"><img src="/images/quality/cmm-beyond-apex707.jpeg" alt="Mitutoyo BEYOND APEX 707 CMM" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>Mitutoyo BEYOND APEX 707</strong><span>{% if lang == "en" %}Coordinate measuring machine{% else %}三坐标测量机{% endif %}</span></div></article>
-        <article class="equipment-item"><img src="/images/quality/keyence-im7000.jpeg" alt="KEYENCE IM-7000" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>KEYENCE IM-7000</strong><span>{% if lang == "en" %}Image dimension measurement{% else %}影像尺寸测量{% endif %}</span></div></article>
-        <article class="equipment-item"><img src="/images/quality/nikon-metallographic-microscope.jpeg" alt="NIKON metallographic microscope" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 24vw, (min-width: 600px) 48vw, 100vw"><div><strong>NIKON</strong><span>{% if lang == "en" %}Metallographic microscope{% else %}金相显微镜{% endif %}</span></div></article>
+        {% for equipment in inspection.equipment %}
+        <article class="equipment-item"><img src="{{ equipment.image }}" alt="{{ equipment.alt[lang] }}" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 31vw, (min-width: 600px) 48vw, 100vw"><div><strong>{{ equipment.model }}</strong><span>{{ equipment.function[lang] }}</span></div></article>
+        {% endfor %}
       </div>
-      <div class="section-actions"><a class="button button-outline" href="{% if lang == 'en' %}/images/certs/iso9001-en.pdf{% else %}/images/certs/iso9001-cn.pdf{% endif %}">{% if lang == "en" %}View ISO certificate{% else %}查看 ISO 证书{% endif %}</a></div>
+      <div class="section-actions"><a class="button button-outline" href="{{ prefix }}/capabilities/inspection-lab/">{% if lang == "en" %}Review inspection capability{% else %}查看检测能力{% endif %}</a><a class="button button-outline" href="{% if lang == 'en' %}/images/certs/iso9001-en.pdf{% else %}/images/certs/iso9001-cn.pdf{% endif %}">{% if lang == "en" %}View ISO certificate{% else %}查看 ISO 证书{% endif %}</a></div>
     </div>
   </section>
   {% include "partials/rfq-cta.njk" %}

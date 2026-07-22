@@ -274,8 +274,8 @@ module.exports = {
         en: "Material-composition, dimensional, hardness, metallographic and image-measurement inspections support prototype validation, final inspection and batch consistency."
       },
       evidence: {
-        zh: ["SPECTROLAB 光谱仪用于材料成分分析", "三丰三坐标测量机用于尺寸与几何检测", "KEYENCE 影像尺寸测量仪与 NIKON 金相显微镜用于相应检验项目"],
-        en: ["SPECTROLAB spectrometer for material-composition analysis", "Mitutoyo coordinate measuring machine for dimensional and geometric inspection", "KEYENCE image-measurement system and NIKON metallographic microscope for applicable inspection items"]
+        zh: ["材料成分可通过光谱仪或手持式 X 射线荧光光谱仪进行相应确认", "维氏硬度、洛氏硬度与金相检验依据材料及热处理控制要求选择", "三坐标、影像尺寸测量与投影测量用于相应尺寸和几何特征", "表面粗糙度与膜厚按图纸、工艺或验收要求检测"],
+        en: ["Material composition can be reviewed with spectrometry or handheld XRF analysis where applicable", "Vickers hardness, Rockwell hardness and metallographic inspection are selected according to material and heat-treatment controls", "Coordinate, image and profile-projection measurement support applicable dimensional and geometric characteristics", "Surface roughness and coating thickness are checked where required by drawings, process routes or acceptance criteria"]
       }
     }
   ]

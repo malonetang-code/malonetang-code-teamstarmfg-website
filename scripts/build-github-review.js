@@ -7,6 +7,7 @@ const sourceDir = path.join(projectRoot, "dist");
 const outputDir = process.env.REVIEW_OUT || path.join(os.tmpdir(), "teamstar-website-review");
 const repository = process.env.REVIEW_REPO || "teamstar-website-review";
 const basePath = `/${repository}`;
+const site = require(path.join(projectRoot, "src", "_data", "site"));
 
 if (!fs.existsSync(path.join(sourceDir, "index.html"))) {
   throw new Error("dist/index.html is missing; run npm run build first");
@@ -70,7 +71,7 @@ fs.rmSync(path.join(outputDir, "CNAME"), { force: true });
 
 const reviewMetadata = [
   "Teamstar website review mirror",
-  `Version: 20260721-2e`,
+  `Version: ${site.assetVersion}`,
   `Base path: ${basePath}/`,
   "Production form submission: disabled in this static review mirror",
   ""

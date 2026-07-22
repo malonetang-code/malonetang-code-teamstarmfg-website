@@ -17,6 +17,28 @@ layout: layouts/base.njk
       <aside><div class="notice">{% if lang == "en" %}Precision, working range and acceptance criteria are confirmed against the specific drawing and application requirement.{% else %}具体精度、加工范围和验收标准根据图纸与应用要求确认。{% endif %}</div></aside>
     </div>
   </section>
+  {% if capabilitySlug == "inspection-lab" %}
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">INSPECTION SCOPE</span><h2>{% if lang == "en" %}Inspection methods by controlled characteristic{% else %}按受控特性配置检验方法{% endif %}</h2></div><p>{% if lang == "en" %}The inspection scope is defined from the drawing, material route, manufacturing process and agreed acceptance requirements.{% else %}检验范围依据图纸、材料路线、制造工艺及确认的验收要求确定。{% endif %}</p></div>
+      <div class="inspection-scope-grid inspection-scope-grid-dark">
+        {% for scope in inspection.scopes %}
+        <article class="inspection-scope">
+          <b>{{ scope.code }}</b>
+          <h3>{{ scope.name[lang] }}</h3>
+          <p>{{ scope.summary[lang] }}</p>
+          <span>{{ scope.equipment[lang] }}</span>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="quality-equipment-grid inspection-equipment-full">
+        {% for equipment in inspection.equipment %}
+        <article class="equipment-item"><img src="{{ equipment.image }}" alt="{{ equipment.alt[lang] }}" loading="lazy" eleventy:widths="320,640" sizes="(min-width: 1080px) 31vw, (min-width: 600px) 48vw, 100vw"><div><strong>{{ equipment.model }}</strong><span>{{ equipment.function[lang] }}</span></div></article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
   <section class="section">
     <div class="container">
       <div class="section-head"><div><span class="eyebrow">PROCESS CONTROL</span><h2>{% if lang == "en" %}Process route and control requirements{% else %}工艺路线与控制要求{% endif %}</h2></div><p>{% if lang == "en" %}The process sequence and inspection items are defined according to blade family, material and validation requirements.{% else %}具体工序与检验项目依据刀具类别、材料及验证要求确定。{% endif %}</p></div>

@@ -68,23 +68,34 @@
         "description": "{{ description }}",
         "isPartOf": { "@id": "{{ site.url }}/#website" },
         "about": { "@id": "{{ site.url }}/#organization" },
+        {% if productSlug %}"mainEntity": { "@id": "{{ site.url }}{{ canonicalUrl }}#service" },{% elseif pageType == "products" %}"mainEntity": { "@id": "{{ site.url }}{{ canonicalUrl }}#custom-manufacturing-services" },{% endif %}
         "inLanguage": "{% if lang == 'en' %}en{% else %}zh-CN{% endif %}"
       }
     ]
   }
   </script>
-  {% if parentTitle %}
+  {% if pageTitle %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "{% if lang == 'en' %}Home{% else %}首页{% endif %}", "item": "{{ site.url }}{% if lang == 'en' %}/en/{% else %}/{% endif %}" },
+      {% if parentTitle %}
       { "@type": "ListItem", "position": 2, "name": "{{ parentTitle }}", "item": "{{ site.url }}{{ parentUrl }}" },
       { "@type": "ListItem", "position": 3, "name": "{{ pageTitle }}", "item": "{{ site.url }}{{ canonicalUrl }}" }
+      {% else %}
+      { "@type": "ListItem", "position": 2, "name": "{{ pageTitle }}", "item": "{{ site.url }}{{ canonicalUrl }}" }
+      {% endif %}
     ]
   }
   </script>
+  {% endif %}
+  {% if productSlug %}
+  {% set structuredProduct = catalog.products | findBySlug(productSlug) %}
+  <script type="application/ld+json">{{ structuredProduct | manufacturingServiceSchema(lang, canonicalUrl, description, site) | jsonLd | safe }}</script>
+  {% elseif pageType == "products" %}
+  <script type="application/ld+json">{{ catalog.products | manufacturingCatalogSchema(lang, canonicalUrl, site) | jsonLd | safe }}</script>
   {% endif %}
 </head>
 <body class="page-{{ pageType or 'standard' }}">

@@ -1,5 +1,33 @@
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
+function buildManufacturingService(product, lang, canonicalUrl, description, site) {
+  const prefix = lang === "en" ? "/en" : "";
+  const pageUrl = `${site.url}${canonicalUrl}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    url: pageUrl,
+    name: product.name[lang],
+    description,
+    image: `${site.url}/images/web/product-library-20260722/overview.jpg`,
+    serviceType: product.name[lang],
+    category: lang === "en" ? "Custom industrial machine knife manufacturing" : "工业机械刀具定制制造",
+    provider: { "@id": `${site.url}/#organization` },
+    audience: {
+      "@type": "Audience",
+      audienceType: lang === "en"
+        ? "Machine OEMs, brand owners and industrial users"
+        : "设备制造商、品牌企业及工业用户"
+    },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${site.url}${prefix}/rfq/?product=${encodeURIComponent(product.slug)}#rfq-form`
+    },
+    mainEntityOfPage: { "@id": `${pageUrl}#webpage` }
+  };
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({
@@ -44,6 +72,41 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("localized", (value, lang) => {
     return value && value[lang] ? value[lang] : "";
+  });
+
+  eleventyConfig.addFilter("jsonLd", (value) => {
+    return JSON.stringify(value)
+      .replace(/</g, "\\u003c")
+      .replace(/>/g, "\\u003e")
+      .replace(/&/g, "\\u0026")
+      .replace(/\u2028/g, "\\u2028")
+      .replace(/\u2029/g, "\\u2029");
+  });
+
+  eleventyConfig.addFilter("manufacturingServiceSchema", (product, lang, canonicalUrl, description, site) => {
+    return buildManufacturingService(product, lang, canonicalUrl, description, site);
+  });
+
+  eleventyConfig.addFilter("manufacturingCatalogSchema", (products, lang, canonicalUrl, site) => {
+    return {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${site.url}${canonicalUrl}#custom-manufacturing-services`,
+      name: lang === "en"
+        ? "Custom industrial machine knife manufacturing services"
+        : "工业机械刀具定制制造服务目录",
+      numberOfItems: products.length,
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      itemListElement: products.map((product, index) => {
+        const productUrl = `${lang === "en" ? "/en" : ""}/products/${product.slug}/`;
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          item: buildManufacturingService(product, lang, productUrl, product.summary[lang], site)
+        };
+      }),
+      mainEntityOfPage: { "@id": `${site.url}${canonicalUrl}#webpage` }
+    };
   });
 
   return {

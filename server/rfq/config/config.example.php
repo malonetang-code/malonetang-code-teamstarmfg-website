@@ -23,7 +23,10 @@ return [
         'password' => 'replace-with-directmail-smtp-password',
         'from_address' => 'rfq@notify.teamstarmfg.com',
         'from_name' => 'Teamstar Website RFQ',
-        'recipients' => ['yiyi@teamstarmfg.com'],
+        'recipients' => [
+            'yiyi@teamstarmfg.com',
+            'rd01@teamstarmfg.com',
+        ],
         'subject_prefix' => '[Teamstar RFQ]',
     ],
 ];

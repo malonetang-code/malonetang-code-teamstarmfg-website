@@ -13,7 +13,7 @@
 - **历史：** 台北群新工业 40+ 年，1990 年深圳设厂，中国 30+ 年经验
 - **认证：** ISO9001:2015
 - **联系方式：**
-  - 邮箱：info@teamstarmfg.com（对外）/ yiyi@teamstarmfg.com（官网询价通知）
+  - 邮箱：info@teamstarmfg.com（对外）/ yiyi@teamstarmfg.com、rd01@teamstarmfg.com（官网询价通知）
   - 手机/电话：+86 181-5070-7007
   - 地址：福建省漳州市长泰区古农农场顺兴路6号
 - **六大生产基地：** 台北伟群、深圳伟群、漳州群新、昆山伟群、越南据点、长泰新厂
@@ -54,7 +54,7 @@ npm run serve
 - **模板：** Nunjucks 共享布局、局部组件和 `_data` 数据文件
 - **CSS / JS：** `src/assets/css/site.css` 与 `src/assets/js/site.js`
 - **字体：** 自托管 IBM Plex Sans；中文使用系统字体栈
-- **联系表单：** 自建 `/api/rfq` 服务，支持可选附件私有存储、30 天签名链接和失败重试；阿里云 DirectMail 通知 `yiyi@teamstarmfg.com`
+- **联系表单：** 自建 `/api/rfq` 服务，支持可选附件私有存储、30 天签名链接和失败重试；阿里云 DirectMail 同时通知 `yiyi@teamstarmfg.com` 和 `rd01@teamstarmfg.com`
 - **双语支持：** 中文使用根路径，英文使用 `/en/`；页面包含 canonical 与双向 `hreflang`
 - **生产方式：** 阿里云 Nginx 只托管经过验证的 `dist/` 静态产物
 
@@ -219,7 +219,7 @@ c3d3bad Initial website - bilingual (zh/en)
 | 部署方式 | 本地验证 → 服务器备份 → 上传静态产物 → 校验与回读 |
 | 生产目录 | `/www/wwwroot/wordpress` |
 | 域名配置 | 阿里云 DNS；根域指向源站，`www` 通过阿里云 CDN 加速 |
-| 表单服务 | 自建 `/api/rfq` + 阿里云 DirectMail → yiyi@teamstarmfg.com |
+| 表单服务 | 自建 `/api/rfq` + 阿里云 DirectMail → yiyi@teamstarmfg.com、rd01@teamstarmfg.com |
 | 台北伟群 | https://www.greatknives.tw/ |
 | 联系邮箱 | info@teamstarmfg.com |
 | 联系电话 | +86 181-5070-7007 |

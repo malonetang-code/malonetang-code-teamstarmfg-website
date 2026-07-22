@@ -24,7 +24,7 @@
 - **当前架构：** Eleventy 静态多页面站点，`src/` 源码构建到 `dist/`
 - **模板：** Nunjucks 共享布局和数据；详见 `../content_plan/website_architecture_evolution_2026-07-17.md`
 - **双语：** 中文根路径与 `/en/` 英文独立 URL，包含 canonical 和 `hreflang`
-- **表单：** 自建 `/api/rfq`，支持可选附件、私有存储和失败重试；阿里云 DirectMail 通知 `yiyi@teamstarmfg.com`
+- **表单：** 自建 `/api/rfq`，支持可选附件、私有存储和失败重试；阿里云 DirectMail 同时通知 `yiyi@teamstarmfg.com` 和 `rd01@teamstarmfg.com`
 
 ## 📂 关键文件
 - `src/` — 页面、模板、数据、CSS 和 JS 源码

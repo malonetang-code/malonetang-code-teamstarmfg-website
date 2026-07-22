@@ -21,7 +21,10 @@ return [
         'password' => 'not-used-by-file-transport',
         'from_address' => 'rfq@notify.teamstarmfg.com',
         'from_name' => 'Teamstar Website RFQ Test',
-        'recipients' => ['yiyi@teamstarmfg.com'],
+        'recipients' => [
+            'yiyi@teamstarmfg.com',
+            'rd01@teamstarmfg.com',
+        ],
         'subject_prefix' => '[TEST Teamstar RFQ]',
     ],
 ];

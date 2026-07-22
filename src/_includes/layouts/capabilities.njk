@@ -18,6 +18,19 @@ layout: layouts/base.njk
       <div class="capability-list">{% for capability in catalog.capabilities %}{% include "partials/capability-card.njk" %}{% endfor %}</div>
     </div>
   </section>
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">MANUFACTURING FLOOR</span><h2>{% if lang == "en" %}Manufacturing floor at the Zhangzhou base{% else %}漳州基地制造现场{% endif %}</h2></div>
+        <p>{% if lang == "en" %}The photographs show machining equipment lines, the equipment area and laser cutting equipment within the current production environment.{% else %}以下照片展示漳州基地当前生产环境中的机加工设备列阵、设备加工区域与激光切割设备。{% endif %}</p>
+      </div>
+      <div class="manufacturing-photo-grid">
+        <figure class="manufacturing-photo"><img src="/images/web/factory-20260722/machining-equipment-line.jpg" alt="{% if lang == 'en' %}Machining equipment line at the Zhangzhou base{% else %}漳州基地机加工设备列阵{% endif %}" loading="lazy" eleventy:widths="480,720,960,1280" sizes="(min-width: 768px) 33vw, 100vw"><figcaption>{% if lang == "en" %}Machining equipment line{% else %}机加工设备列阵{% endif %}</figcaption></figure>
+        <figure class="manufacturing-photo"><img src="/images/web/factory-20260722/machining-equipment-area.jpg" alt="{% if lang == 'en' %}Machining equipment area at the Zhangzhou base{% else %}漳州基地机加工设备区域{% endif %}" loading="lazy" eleventy:widths="480,720,960,1280" sizes="(min-width: 768px) 33vw, 100vw"><figcaption>{% if lang == "en" %}Machining equipment area{% else %}机加工设备区域{% endif %}</figcaption></figure>
+        <figure class="manufacturing-photo"><img src="/images/web/factory-20260722/laser-cutting-equipment.jpg" alt="{% if lang == 'en' %}Laser cutting equipment at the Zhangzhou base{% else %}漳州基地激光切割设备{% endif %}" loading="lazy" eleventy:widths="480,720,960,1280" sizes="(min-width: 768px) 33vw, 100vw"><figcaption>{% if lang == "en" %}Laser cutting equipment{% else %}激光切割设备{% endif %}</figcaption></figure>
+      </div>
+    </div>
+  </section>
   <section class="section">
     <div class="container evidence-table">
       <div class="evidence-row"><strong>INPUT / {% if lang == "en" %}TECHNICAL DATA{% else %}技术资料{% endif %}</strong><span>{% if lang == "en" %}Drawing, physical sample, machine information, processed material and quantity{% else %}图纸、实物样品、设备信息、被处理材料及需求数量{% endif %}</span></div>

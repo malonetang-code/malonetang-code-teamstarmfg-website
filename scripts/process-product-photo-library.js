@@ -13,7 +13,7 @@ const outputRoot = path.join(root, "images/web/product-library-20260722");
 const groups = [
   { folder: "包装类刀片", slug: "packaging-blades", representative: "dsc01058.jpg" },
   { folder: "工业机械用刀", slug: "industrial-machine-knives", representative: "dsc00952-copy.jpg" },
-  { folder: "木工机械刀片", slug: "woodworking-machine-blades", representative: "dsc01134.jpg" },
+  { folder: "木工机械刀片", slug: "woodworking-machine-blades", representative: "dsc00676-1.jpg" },
   { folder: "缝纫类刀片", slug: "sewing-blades", representative: "dsc01065.jpg" },
   { folder: "食品刀片", slug: "food-blades", representative: "dsc00604-1.jpg" }
 ];

@@ -10,6 +10,13 @@ const expected = new Map([
   ["sewing-blades", 14],
   ["food-blades", 22]
 ]);
+const expectedRepresentatives = new Map([
+  ["packaging-blades", "dsc01058.jpg"],
+  ["industrial-machine-knives", "dsc00952-copy.jpg"],
+  ["woodworking-machine-blades", "dsc00676-1.jpg"],
+  ["sewing-blades", "dsc01065.jpg"],
+  ["food-blades", "dsc00604-1.jpg"]
+]);
 const legacyImages = [
   "images/product_01.png",
   "images/product_02.png",
@@ -43,6 +50,10 @@ for (const group of productPhotoLibrary.groups) {
   const expectedCount = expected.get(group.slug);
   if (!expectedCount) fail(`unexpected product photo group: ${group.slug}`);
   if (group.photoCount !== expectedCount) fail(`${group.slug}: expected ${expectedCount} photos, found ${group.photoCount}`);
+  const expectedRepresentative = expectedRepresentatives.get(group.slug);
+  if (!group.representative.endsWith(`/${expectedRepresentative}`)) {
+    fail(`${group.slug}: expected representative ${expectedRepresentative}, found ${group.representative}`);
+  }
   for (const photo of group.photos) {
     const source = path.join(root, photo.image.replace(/^\//, ""));
     if (!fs.existsSync(source)) fail(`missing processed product photograph: ${photo.image}`);

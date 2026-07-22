@@ -21,7 +21,7 @@ const definitions = [
     slug: "woodworking-machine-blades",
     folderName: "木工机械刀片",
     name: { zh: "木工机械刀片", en: "Woodworking Machine Blades" },
-    representative: "dsc01134.jpg"
+    representative: "dsc00676-1.jpg"
   },
   {
     slug: "sewing-blades",

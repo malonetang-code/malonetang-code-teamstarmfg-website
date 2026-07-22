@@ -121,20 +121,22 @@
 |---|-----------|---------|------|
 | 1 | #home | 首页 Hero | 大图背景 + 公司标语 + CTA 按钮 |
 | 2 | #about | 关于我们 | 公司简介、里程碑数据 |
-| 3 | #products | 产品中心 | 5个品类Tab：木工/食品/塑胶/服装/工业 |
+| 3 | #products | 产品中心 | 新产品实拍按原文件夹五类展示，技术询价入口另行保留 |
 | 4 | #quality | 品控与服务 | ISO认证、热处理、涂层、检测 |
 | 5 | #locations | 全球布局 | 6大生产基地卡片 |
 | 6 | #contact | 联系我们 | 联系信息 + Formspree表单 |
 | 7 | Footer | 页脚 | 链接、版权信息 |
 
 ## 产品分类
-| data-category | 中文 | 图片 |
-|---------------|------|------|
-| woodworking | 木工业用刀 | product_01.png |
-| food | 食品业用刀 | product_04.png |
-| plastic | 塑胶业用刀 | product_05.png |
-| apparel | 服装业用刀 | product_02.png |
-| industrial | 工业用刀（纸品/手动工具/文具/其他） | product_06/07/03.png, page24_Image543.png |
+| 原文件夹分类 | 中文 | 新照片数 |
+|---------------|------|---------:|
+| packaging-blades | 包装类刀片 | 22 |
+| industrial-machine-knives | 工业机械用刀 | 19 |
+| woodworking-machine-blades | 木工机械刀片 | 9 |
+| sewing-blades | 缝纫类刀片 | 14 |
+| food-blades | 食品刀片 | 22 |
+
+旧 `product_01–07`、`product_parts`、`products_overview` 等产品图片已于 2026-07-22 退出网站与正式源码，不再作为回退图使用。
 
 ## 已验证的能力（2026-04-29）
 - ✅ 读取所有项目文件

@@ -5,7 +5,7 @@ layout: layouts/base.njk
 {% set product = catalog.products | findBySlug(productSlug) %}
 <main id="main-content">
   <section class="page-hero">
-    <img class="hero-media" src="{{ product.image }}" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440" sizes="100vw">
+    <img class="hero-media" src="/images/web/product-library-20260722/overview.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><a href="{{ prefix }}/products/">{% if lang == "en" %}Products{% else %}产品目录{% endif %}</a><span>/</span><span>{{ product.name[lang] }}</span></nav>
       <span class="eyebrow">{{ product.code }}</span>

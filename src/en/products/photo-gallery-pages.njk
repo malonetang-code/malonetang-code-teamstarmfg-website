@@ -1,0 +1,20 @@
+---
+layout: layouts/product-gallery.njk
+lang: en
+pageType: product-gallery
+pagination:
+  data: productPhotoLibrary.groups
+  size: 1
+  alias: photoGroup
+permalink: "/en/products/gallery/{{ photoGroup.slug }}/index.html"
+eleventyComputed:
+  title: "{{ photoGroup.name.en }} Product Photography | Teamstar Manufacturing"
+  description: "Professional {{ photoGroup.name.en }} photographs grouped exactly as supplied in the original source folder. Project specifications are confirmed from drawings, samples and application information."
+  canonicalUrl: "/en/products/gallery/{{ photoGroup.slug }}/"
+  alternateUrl: "/products/gallery/{{ photoGroup.slug }}/"
+  zhUrl: "/products/gallery/{{ photoGroup.slug }}/"
+  parentTitle: "Products"
+  parentUrl: "/en/products/"
+  pageTitle: "{{ photoGroup.name.en }}"
+  ogImage: "{{ photoGroup.representative }}"
+---

@@ -4,7 +4,7 @@ layout: layouts/base.njk
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
   <section class="page-hero">
-    <img class="hero-media" src="/images/web/product-parts.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
+    <img class="hero-media" src="/images/web/product-library-20260722/overview.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Products{% else %}产品目录{% endif %}</span></nav>
       <span class="eyebrow">PRODUCT DIRECTORY</span>
@@ -34,7 +34,23 @@ layout: layouts/base.njk
       </div>
     </div>
   </section>
-  <section class="section">
+  <section class="section" id="product-photo-library">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">PRODUCT PHOTO LIBRARY</span><h2>{% if lang == "en" %}Professional product photography by source category{% else %}按原始分类查看专业产品实拍{% endif %}</h2></div>
+        <p>{% if lang == "en" %}All photographs remain in the five categories supplied with the source files. Open a category to review the complete set without reassigning products across folders.{% else %}全部照片严格沿用原文件夹的五类名称与归属，不跨文件夹重新判断或调整产品类别。进入分类可查看该文件夹的完整照片。{% endif %}</p>
+      </div>
+      <div class="product-library-grid">
+        {% for group in productPhotoLibrary.groups %}
+        <a class="product-library-group" href="{{ prefix }}/products/gallery/{{ group.slug }}/">
+          <div class="product-library-media"><img src="{{ group.representative }}" alt="{{ group.representativeAlt[lang] }}" loading="lazy" eleventy:widths="320,640,960" sizes="(min-width: 1080px) 20vw, (min-width: 640px) 33vw, 50vw"></div>
+          <div class="product-library-copy"><span class="eyebrow">0{{ loop.index }} / {{ group.photoCount }} PHOTOS</span><h3>{{ group.name[lang] }}</h3><span class="text-link">{% if lang == "en" %}Open photo category{% else %}查看完整分类{% endif %}<i aria-hidden="true">→</i></span></div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="section section-soft">
     <div class="container">
       <div class="content-grid">
         <div class="content-block"><span class="eyebrow">SELECTION CRITERIA</span><h2>{% if lang == "en" %}Selection and manufacturing review criteria{% else %}选型与制造评估要素{% endif %}</h2><p>{% if lang == "en" %}Machine configuration, processed material and operating conditions may require different material grades, heat-treatment processes, edge geometries and inspection plans for the same general blade type.{% else %}同一通用刀型在不同设备、被处理材料与工况下，可能采用不同的材料牌号、热处理工艺、刃口几何及检验方案。{% endif %}</p></div>

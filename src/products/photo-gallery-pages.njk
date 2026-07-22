@@ -1,0 +1,20 @@
+---
+layout: layouts/product-gallery.njk
+lang: zh
+pageType: product-gallery
+pagination:
+  data: productPhotoLibrary.groups
+  size: 1
+  alias: photoGroup
+permalink: "/products/gallery/{{ photoGroup.slug }}/index.html"
+eleventyComputed:
+  title: "{{ photoGroup.name.zh }}产品实拍 | 群新工业"
+  description: "按原始素材文件夹归类展示{{ photoGroup.name.zh }}专业产品照片，具体规格依据项目图纸、样品和工况资料确认。"
+  canonicalUrl: "/products/gallery/{{ photoGroup.slug }}/"
+  alternateUrl: "/en/products/gallery/{{ photoGroup.slug }}/"
+  zhUrl: "/products/gallery/{{ photoGroup.slug }}/"
+  parentTitle: "产品目录"
+  parentUrl: "/products/"
+  pageTitle: "{{ photoGroup.name.zh }}"
+  ogImage: "{{ photoGroup.representative }}"
+---

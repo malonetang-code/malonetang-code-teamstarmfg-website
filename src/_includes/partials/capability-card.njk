@@ -1,6 +1,8 @@
 {% set prefix = "/en" if lang == "en" else "" %}
 <article class="capability-card">
+  {% if capability.image %}
   <img src="{{ capability.image }}" alt="{{ capability.name[lang] }}" loading="lazy" eleventy:widths="480,800,1200" sizes="(min-width: 768px) 33vw, 100vw">
+  {% endif %}
   <div class="capability-card-body">
     <span class="eyebrow">{{ capability.code }}</span>
     <h3>{{ capability.name[lang] }}</h3>

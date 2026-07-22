@@ -5,7 +5,9 @@ layout: layouts/base.njk
 {% set capability = catalog.capabilities | findBySlug(capabilitySlug) %}
 <main id="main-content">
   <section class="page-hero page-hero-dark">
+    {% if capability.image %}
     <img class="hero-media" src="{{ capability.image }}" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
+    {% endif %}
     <div class="container page-hero-inner">
       <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><a href="{{ prefix }}/capabilities/">{% if lang == "en" %}Capabilities{% else %}制造能力{% endif %}</a><span>/</span><span>{{ capability.name[lang] }}</span></nav>
       <span class="eyebrow">{{ capability.code }}</span><h1>{{ capability.name[lang] }}</h1><p>{{ capability.summary[lang] }}</p>

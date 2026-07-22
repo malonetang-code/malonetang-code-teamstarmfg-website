@@ -4,7 +4,7 @@ layout: layouts/base.njk
 {% set prefix = "/en" if lang == "en" else "" %}
 <main id="main-content">
   <section class="home-hero">
-    <img class="hero-media" src="/images/web/product-parts.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
+    <img class="hero-media" src="/images/web/factory-building.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
     <div class="container hero-inner">
       <div class="hero-copy">
         <span class="eyebrow">CUSTOM INDUSTRIAL MACHINE KNIVES / 01</span>
@@ -76,7 +76,7 @@ layout: layouts/base.njk
           <div class="system-row"><strong>{{ capability.code }}</strong><p>{{ capability.summary[lang] }}</p><a href="{{ prefix }}/capabilities/{{ capability.slug }}/">{% if lang == "en" %}OPEN{% else %}查看{% endif %}</a></div>
           {% endfor %}
         </div>
-        <div class="system-media"><img src="/images/web/product-parts.jpg" alt="{% if lang == 'en' %}Finished industrial blade components{% else %}工业刀具成品零件{% endif %}" loading="lazy" eleventy:widths="640,960,1440" sizes="(min-width: 768px) 44vw, 100vw"></div>
+        <div class="system-media"><img src="/images/web/product-library-20260722/overview.jpg" alt="{% if lang == 'en' %}Product photographs from the five source-defined categories{% else %}按五个原文件夹分类的产品实物照片{% endif %}" loading="lazy" eleventy:widths="640,960,1440,1920" sizes="(min-width: 768px) 44vw, 100vw"></div>
       </div>
     </div>
   </section>

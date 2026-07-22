@@ -3,7 +3,7 @@ module.exports = {
     {
       slug: "woodworking-knives",
       code: "01 / WOODWORKING",
-      image: "/images/product_01.png",
+      image: null,
       name: { zh: "木工与家具制造刀具", en: "Woodworking and Furniture Machine Knives" },
       summary: {
         zh: "用于平刨、压刨、指接及家具生产设备的平刨刀、指接刀、电刨刀和配套刀片。产品结构依据图纸、实物样品或设备型号进行技术评估。",
@@ -42,7 +42,7 @@ module.exports = {
     {
       slug: "food-processing-knives",
       code: "02 / FOOD PROCESSING",
-      image: "/images/product_04.png",
+      image: null,
       name: { zh: "食品机械用刀", en: "Food Processing Machine Knives" },
       summary: {
         zh: "用于肉类切片、绞碎、分切及食品加工设备的机械刀具。材料、刃口与安装接口依据食品类型、清洁方式和设备要求进行评估。",
@@ -81,7 +81,7 @@ module.exports = {
     {
       slug: "plastic-crusher-blades",
       code: "03 / PLASTIC RECYCLING",
-      image: "/images/product_05.png",
+      image: null,
       name: { zh: "塑料粉碎与造粒刀具", en: "Plastic Crusher and Granulator Knives" },
       summary: {
         zh: "用于粉碎机、破碎机、造粒机及塑料回收设备。材料与制造工艺依据被处理材料、设备参数、负载及磨损情况进行评估。",
@@ -120,7 +120,7 @@ module.exports = {
     {
       slug: "paper-slitting-knives",
       code: "04 / PAPER CONVERTING",
-      image: "/images/product_06.png",
+      image: null,
       name: { zh: "纸品分切与裁切刀具", en: "Paper Slitting and Cutting Knives" },
       summary: {
         zh: "用于纸张、纸板和卷材的分条、修边与裁切。外径、内孔、厚度、端面及刃口要求依据图纸和设备条件确认。",
@@ -159,7 +159,7 @@ module.exports = {
     {
       slug: "textile-cutting-knives",
       code: "05 / TEXTILE & APPAREL",
-      image: "/images/product_02.png",
+      image: null,
       name: { zh: "纺织与服装裁切刀具", en: "Textile and Apparel Cutting Knives" },
       summary: {
         zh: "用于纺织面料、工业织物及服装生产设备的裁刀、圆刀、剪刀和相关零件。刀具规格依据设备品牌型号、图纸或实物样品确认。",
@@ -198,7 +198,7 @@ module.exports = {
     {
       slug: "custom-industrial-blades",
       code: "06 / CUSTOM INDUSTRIAL",
-      image: "/images/web/product-parts.jpg",
+      image: null,
       name: { zh: "异型与设备配套刀具", en: "Custom and Machine-specific Blades" },
       summary: {
         zh: "面向停产零件替代、实物样品复刻、设备制造商配套及长期备件需求。安装接口、刀具几何与制造工艺依据技术资料和工况确认。",
@@ -253,7 +253,7 @@ module.exports = {
     {
       slug: "precision-grinding",
       code: "02 / PRECISION GRINDING",
-      image: "/images/web/product-parts.jpg",
+      image: null,
       name: { zh: "精密加工与研磨", en: "Precision Machining and Grinding" },
       summary: {
         zh: "适用于直刃刀、圆刀、锯片及异型件的机加工与研磨工艺，重点控制安装接口、刀具几何和批次重复性。",

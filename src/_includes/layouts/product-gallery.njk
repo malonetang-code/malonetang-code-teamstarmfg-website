@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+<main id="main-content">
+  <section class="page-hero product-gallery-hero">
+    <img class="hero-media" src="{{ photoGroup.representative }}" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1600" sizes="100vw">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><a href="{{ prefix }}/products/">{% if lang == "en" %}Products{% else %}产品目录{% endif %}</a><span>/</span><span>{{ photoGroup.name[lang] }}</span></nav>
+      <span class="eyebrow">PRODUCT PHOTO CATEGORY</span>
+      <h1>{{ photoGroup.name[lang] }}</h1>
+      <p>{% if lang == "en" %}This gallery preserves the category name and photograph assignment from the original source folder. Product specifications are confirmed from project drawings, samples and application information.{% else %}本图册完整保留原始文件夹的类别名称与照片归属。具体产品规格需依据项目图纸、样品及工况资料确认。{% endif %}</p>
+      <div class="page-hero-actions"><a class="button button-dark" href="#photo-gallery">{% if lang == "en" %}View {{ photoGroup.photoCount }} photographs{% else %}查看 {{ photoGroup.photoCount }} 张产品实拍{% endif %}</a><a class="button button-outline" href="{{ prefix }}/products/">{% if lang == "en" %}Back to products{% else %}返回产品目录{% endif %}</a></div>
+    </div>
+  </section>
+  <section class="section section-soft" id="photo-gallery">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">{{ photoGroup.photoCount }} PRODUCT PHOTOGRAPHS</span><h2>{% if lang == "en" %}Complete source-folder gallery{% else %}原文件夹完整图册{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Photographs are displayed in filename order and have not been moved into other product categories. Select an image to open the larger web version.{% else %}照片按原文件名顺序展示，未移动到其他产品分类。选择照片可查看较大的网页版本。{% endif %}</p>
+      </div>
+      <div class="photo-gallery-grid">
+        {% for photo in photoGroup.photos %}
+        <a class="photo-gallery-item" href="{{ photo.image }}" target="_blank" rel="noopener" aria-label="{{ photo.alt[lang] }}">
+          <img src="{{ photo.image }}" alt="{{ photo.alt[lang] }}" loading="{% if loop.index <= 4 %}eager{% else %}lazy{% endif %}" eleventy:widths="320,640,960" sizes="(min-width: 1080px) 25vw, (min-width: 640px) 33vw, 50vw">
+          <span>{% if lang == "en" %}Product photograph{% else %}产品实物{% endif %} {{ "0" if photo.sequence < 10 }}{{ photo.sequence }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% include "partials/rfq-cta.njk" %}
+</main>

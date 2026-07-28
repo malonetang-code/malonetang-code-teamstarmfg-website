@@ -21,6 +21,41 @@
     });
   }
 
+  const processVideos = Array.from(document.querySelectorAll("[data-process-video]"));
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function loadProcessVideo(video) {
+    const source = video.querySelector("source[data-src]");
+    if (!source) return;
+    source.src = source.dataset.src;
+    source.removeAttribute("data-src");
+    video.load();
+  }
+
+  if (processVideos.length && !reducedMotion) {
+    if ("IntersectionObserver" in window) {
+      const videoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            loadProcessVideo(video);
+            video.play().catch(function () {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { rootMargin: "300px 0px", threshold: 0.15 });
+
+      processVideos.forEach(function (video) {
+        videoObserver.observe(video);
+      });
+    } else {
+      processVideos.forEach(function (video) {
+        loadProcessVideo(video);
+      });
+    }
+  }
+
   document.querySelectorAll("[data-rfq-form]").forEach(function (form) {
     const language = document.documentElement.lang === "en" ? "en" : "zh";
     const steps = Array.from(form.querySelectorAll("[data-rfq-step]"));

@@ -18,6 +18,35 @@ layout: layouts/base.njk
       <div class="capability-list">{% for capability in catalog.capabilities %}{% include "partials/capability-card.njk" %}{% endfor %}</div>
     </div>
   </section>
+  <section class="section process-evidence" aria-labelledby="process-evidence-title">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">CONTROLLED PROCESS</span><h2 id="process-evidence-title">{% if lang == "en" %}Eight manufacturing and control stages{% else %}八道制造与质量控制工序{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Real production media from the Zhangzhou base shows the route from incoming material checks to protective packaging. The exact route remains subject to blade geometry, material and approved technical requirements.{% else %}以下实拍素材展示漳州基地从来料核对到包装防护的工艺路径，具体工序仍需依据刀型、材料及经确认的技术要求安排。{% endif %}</p>
+      </div>
+      <ol class="process-evidence-list">
+        {% for process in manufacturingProcesses %}
+        <li class="process-evidence-row" id="process-{{ process.slug }}">
+          <div class="process-evidence-media">
+            {% if process.video %}
+            <video data-process-video muted loop playsinline preload="none" poster="{{ process.media }}" aria-hidden="true" tabindex="-1">
+              <source data-src="{{ process.video }}" type="video/mp4">
+            </video>
+            {% else %}
+            <img src="{{ process.media }}" alt="{{ process.alt[lang] }}" loading="lazy" width="1280" height="720">
+            {% endif %}
+          </div>
+          <div class="process-evidence-copy">
+            <span class="process-evidence-number">{{ process.number }}</span>
+            <h3>{{ process.title[lang] }}</h3>
+            <p>{{ process.detail[lang] }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+      <p class="process-evidence-note">{% if lang == "en" %}Media is selected to show working methods without disclosing controlled drawings, inspection records or process parameters.{% else %}网页素材仅用于展示作业方式，不公开受控图纸、检验记录或具体工艺参数。{% endif %}</p>
+    </div>
+  </section>
   <section class="section section-soft">
     <div class="container">
       <div class="section-head">

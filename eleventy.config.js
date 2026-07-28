@@ -31,6 +31,9 @@ function buildManufacturingService(product, lang, canonicalUrl, description, sit
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({
+    "images/web/process-20260725": "images/web/process-20260725"
+  });
+  eleventyConfig.addPassthroughCopy({
     "node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2": "assets/fonts/ibm-plex-sans-latin-400-normal.woff2",
     "node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2": "assets/fonts/ibm-plex-sans-latin-500-normal.woff2",
     "node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2": "assets/fonts/ibm-plex-sans-latin-600-normal.woff2",

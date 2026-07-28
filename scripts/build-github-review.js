@@ -29,7 +29,7 @@ function prefixRootPath(value) {
 
 function rewriteHtml(html) {
   const withAttributes = html
-    .replace(/(\b(?:href|src|action)=["'])\/(?!\/)/gi, `$1${basePath}/`)
+    .replace(/(\b(?:href|src|poster|data-src|action)=["'])\/(?!\/)/gi, `$1${basePath}/`)
     .replace(/(\bsrcset=["'])([^"']*)(["'])/gi, (_, start, value, end) => `${start}${prefixRootPath(value)}${end}`);
 
   const robotsMeta = '<meta name="robots" content="noindex,nofollow,noarchive">';

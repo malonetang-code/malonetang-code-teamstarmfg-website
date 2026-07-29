@@ -8,23 +8,27 @@ module.exports = [
       en: "Handheld analysis equipment supports applicable material checks. Final grades and requirements follow controlled technical documents and inspection records.",
     },
     media: "/images/web/process-20260725/01-material-verification.jpg",
+    video: "/images/web/process-20260725/01-material-verification.mp4",
     alt: {
       zh: "工作人员使用手持分析设备核对刀具材料",
       en: "Operator using handheld analysis equipment to check blade material",
     },
     supportingMedia: [
       {
-        media: "/images/web/process-20260725/01-material-sample.jpg",
-        alt: { zh: "完成表面清理的材料核对样件", en: "Prepared sample for material verification" },
-        caption: { zh: "材料核对样件", en: "Material check sample" },
+        media: "/images/web/process-20260725/01-material-contact.jpg",
+        alt: {
+          zh: "手持分析设备与刀具样件接触位置特写",
+          en: "Close view of handheld analysis equipment contacting a blade sample",
+        },
+        caption: { zh: "材料检测接触点", en: "Analyzer contact point" },
       },
       {
         media: "/images/web/process-20260725/01-material-analyzer.jpg",
         alt: {
-          zh: "工作人员从另一角度使用手持分析设备",
-          en: "Operator using a handheld analyzer from a second working angle",
+          zh: "工作人员手持材料分析设备准备进行核对",
+          en: "Operator preparing a handheld analyzer for material verification",
         },
-        caption: { zh: "现场核对操作", en: "On-site verification" },
+        caption: { zh: "手持分析设备", en: "Handheld analyzer" },
       },
     ],
   },

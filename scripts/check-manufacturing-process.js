@@ -70,7 +70,7 @@ async function main() {
     if ((html.match(/class="process-evidence-row"/g) || []).length !== 8) {
       fail(`unexpected process-stage count: ${file}`);
     }
-    if ((html.match(/data-process-video/g) || []).length !== 6) {
+    if ((html.match(/data-process-video/g) || []).length !== 7) {
       fail(`unexpected process-video count: ${file}`);
     }
     if ((html.match(/class="process-evidence-detail"/g) || []).length !== 13) {
@@ -82,7 +82,7 @@ async function main() {
   }
 
   console.log(
-    "Manufacturing process check passed: eight stages, six silent H.264 videos and 13 metadata-free supporting photographs"
+    "Manufacturing process check passed: eight stages, seven silent H.264 videos and 13 metadata-free supporting photographs"
   );
 }
 

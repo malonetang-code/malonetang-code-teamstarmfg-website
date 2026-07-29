@@ -13,8 +13,11 @@ const outputRoot = path.join(siteRoot, "images/web/process-20260725");
 const media = [
   {
     slug: "01-material-verification",
-    type: "image",
-    source: "1材料确认/IMG_20260725_100259_064.jpg",
+    type: "video",
+    source: "1材料确认/VID_20260725_100435_067.mp4",
+    start: 1.2,
+    duration: 7,
+    filter: "crop=1120:630:350:450,scale=1280:720:flags=lanczos,fps=30",
   },
   {
     slug: "02-blank-shaping",
@@ -71,12 +74,14 @@ const media = [
 
 const supportingMedia = [
   {
-    slug: "01-material-sample",
-    source: "1材料确认/IMG_20260725_100541_069.jpg",
+    slug: "01-material-contact",
+    source: "1材料确认/IMG_20260725_100352_066.jpg",
+    imageFilter: "crop=3600:2025:1800:3000,scale=960:540:flags=lanczos",
   },
   {
     slug: "01-material-analyzer",
     source: "1材料确认/IMG_20260725_100550_070.jpg",
+    imageFilter: "crop=7040:3960:0:0,scale=960:540:flags=lanczos",
   },
   {
     slug: "02-laser-cutting-area",

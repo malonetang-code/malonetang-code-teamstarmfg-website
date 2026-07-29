@@ -44,7 +44,7 @@ const media = [
   {
     slug: "05-precision-grinding",
     type: "video",
-    source: "5精密研磨/VID_20260725_095803_061.mp4",
+    source: "5精密研磨/VID_20260725_095822_062.mp4",
     start: 1.2,
     duration: 7,
   },

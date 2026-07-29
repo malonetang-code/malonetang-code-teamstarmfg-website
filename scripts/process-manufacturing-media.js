@@ -9,6 +9,11 @@ const sourceRoot = path.join(
   "assets/incoming_manufacturing_process_2026-07-25/raw/8组拍摄过程"
 );
 const outputRoot = path.join(siteRoot, "images/web/process-20260725");
+const mainImageFilter =
+  "scale=1280:720:force_original_aspect_ratio=decrease:flags=lanczos,pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=0x10181d";
+const mainVideoFilter = `${mainImageFilter},fps=30`;
+const supportingImageFilter =
+  "scale=960:540:force_original_aspect_ratio=decrease:flags=lanczos,pad=960:540:(ow-iw)/2:(oh-ih)/2:color=0xe8ecea";
 
 const media = [
   {
@@ -17,7 +22,6 @@ const media = [
     source: "1材料确认/VID_20260725_100435_067.mp4",
     start: 1.2,
     duration: 7,
-    filter: "crop=1120:630:350:450,scale=1280:720:flags=lanczos,fps=30",
   },
   {
     slug: "02-blank-shaping",
@@ -39,7 +43,6 @@ const media = [
     slug: "04-machining",
     type: "image",
     source: "4机加工/051A9126.jpg",
-    imageFilter: "crop=2660:1496:700:360,scale=1280:720:flags=lanczos",
   },
   {
     slug: "05-precision-grinding",
@@ -61,7 +64,6 @@ const media = [
     source: "7终检与记录/VID_20260725_101610_093.mp4",
     start: 1.4,
     duration: 7,
-    filter: "crop=1280:720:400:300,scale=1280:720:flags=lanczos,fps=30",
   },
   {
     slug: "08-protective-packaging",
@@ -76,12 +78,10 @@ const supportingMedia = [
   {
     slug: "01-material-contact",
     source: "1材料确认/IMG_20260725_100352_066.jpg",
-    imageFilter: "crop=3600:2025:1800:3000,scale=960:540:flags=lanczos",
   },
   {
     slug: "01-material-analyzer",
     source: "1材料确认/IMG_20260725_100550_070.jpg",
-    imageFilter: "crop=7040:3960:0:0,scale=960:540:flags=lanczos",
   },
   {
     slug: "02-laser-cutting-area",
@@ -118,7 +118,6 @@ const supportingMedia = [
   {
     slug: "07-final-gauge-detail",
     source: "7终检与记录/IMG_20260725_101718_096.jpg",
-    imageFilter: "crop=3600:2025:0:2200,scale=960:540:flags=lanczos",
   },
   {
     slug: "08-edge-protection",
@@ -158,8 +157,7 @@ for (const item of media) {
       "-i",
       source,
       "-vf",
-      item.imageFilter ||
-        "scale=1280:720:force_original_aspect_ratio=increase:flags=lanczos,crop=1280:720",
+      mainImageFilter,
       "-frames:v",
       "1",
       "-q:v",
@@ -173,10 +171,6 @@ for (const item of media) {
 
   const videoOutput = path.join(outputRoot, `${item.slug}.mp4`);
   const posterOutput = path.join(outputRoot, `${item.slug}.jpg`);
-  const filter =
-    item.filter ||
-    "scale=1280:720:force_original_aspect_ratio=increase:flags=lanczos,crop=1280:720,fps=30";
-
   run("ffmpeg", [
     "-hide_banner",
     "-loglevel",
@@ -190,7 +184,7 @@ for (const item of media) {
     String(item.duration),
     "-an",
     "-vf",
-    filter,
+    mainVideoFilter,
     "-c:v",
     "libx264",
     "-preset",
@@ -218,7 +212,7 @@ for (const item of media) {
     "-i",
     posterSource,
     "-vf",
-    "scale=1280:720:force_original_aspect_ratio=increase:flags=lanczos,crop=1280:720",
+    mainImageFilter,
     "-frames:v",
     "1",
     "-q:v",
@@ -242,8 +236,7 @@ for (const item of supportingMedia) {
     "-i",
     source,
     "-vf",
-    item.imageFilter ||
-      "scale=960:540:force_original_aspect_ratio=increase:flags=lanczos,crop=960:540",
+    supportingImageFilter,
     "-frames:v",
     "1",
     "-q:v",

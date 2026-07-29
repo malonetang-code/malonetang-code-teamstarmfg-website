@@ -24,6 +24,22 @@ function probe(file) {
 async function main() {
   if (processes.length !== 8) fail(`expected 8 process stages, found ${processes.length}`);
 
+  const processorSource = fs.readFileSync(
+    path.join(root, "scripts/process-manufacturing-media.js"),
+    "utf8"
+  );
+  if (processorSource.includes("crop=")) {
+    fail("manufacturing media processor still contains destructive crop filters");
+  }
+
+  const cssSource = fs.readFileSync(path.join(root, "src/assets/css/site.css"), "utf8");
+  if (!/\.process-evidence-media video\s*\{[^}]*object-fit:\s*contain/s.test(cssSource)) {
+    fail("main process media is not configured for full-frame display");
+  }
+  if (!/\.process-evidence-detail img\s*\{[^}]*object-fit:\s*contain/s.test(cssSource)) {
+    fail("supporting process media is not configured for full-frame display");
+  }
+
   for (const process of processes) {
     for (const language of ["zh", "en"]) {
       if (/[。.!！?？]$/.test(process.title[language])) {

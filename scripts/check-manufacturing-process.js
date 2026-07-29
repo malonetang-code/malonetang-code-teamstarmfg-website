@@ -37,6 +37,21 @@ async function main() {
     if (metadata.width !== 1280 || metadata.height !== 720) fail(`unexpected image size: ${process.media}`);
     if (metadata.exif) fail(`process image retains EXIF metadata: ${process.media}`);
 
+    if (!process.supportingMedia || process.supportingMedia.length < 1) {
+      fail(`missing supporting process photographs: ${process.slug}`);
+    }
+    for (const supporting of process.supportingMedia) {
+      const supportingImage = path.join(root, supporting.media.replace(/^\//, ""));
+      if (!fs.existsSync(supportingImage)) fail(`missing supporting process image: ${supporting.media}`);
+      const supportingMetadata = await sharp(supportingImage).metadata();
+      if (supportingMetadata.width !== 960 || supportingMetadata.height !== 540) {
+        fail(`unexpected supporting image size: ${supporting.media}`);
+      }
+      if (supportingMetadata.exif) {
+        fail(`supporting process image retains EXIF metadata: ${supporting.media}`);
+      }
+    }
+
     if (!process.video) continue;
     const video = path.join(root, process.video.replace(/^\//, ""));
     if (!fs.existsSync(video)) fail(`missing process video: ${process.video}`);
@@ -58,12 +73,17 @@ async function main() {
     if ((html.match(/data-process-video/g) || []).length !== 6) {
       fail(`unexpected process-video count: ${file}`);
     }
+    if ((html.match(/class="process-evidence-detail"/g) || []).length !== 13) {
+      fail(`unexpected supporting-photo count: ${file}`);
+    }
     if (/VID_20260725|IMG_20260725|DSC0|051A/.test(html)) {
       fail(`raw source filename leaked into output: ${file}`);
     }
   }
 
-  console.log("Manufacturing process check passed: eight stages, six silent H.264 videos and metadata-free photographs");
+  console.log(
+    "Manufacturing process check passed: eight stages, six silent H.264 videos and 13 metadata-free supporting photographs"
+  );
 }
 
 main().catch((error) => {

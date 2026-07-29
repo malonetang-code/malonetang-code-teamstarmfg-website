@@ -69,6 +69,62 @@ const media = [
   },
 ];
 
+const supportingMedia = [
+  {
+    slug: "01-material-sample",
+    source: "1材料确认/IMG_20260725_100541_069.jpg",
+  },
+  {
+    slug: "01-material-analyzer",
+    source: "1材料确认/IMG_20260725_100550_070.jpg",
+  },
+  {
+    slug: "02-laser-cutting-area",
+    source: "2刀坯成型/051A9192.jpg",
+  },
+  {
+    slug: "03-heat-treatment-loading",
+    source: "3热处理/IMG_20260725_093727_027.jpg",
+  },
+  {
+    slug: "04-machining-line",
+    source: "4机加工/051A9108.jpg",
+  },
+  {
+    slug: "04-machined-workpiece",
+    source: "4机加工/IMG_20260725_093236_022.jpg",
+  },
+  {
+    slug: "05-grinding-equipment",
+    source: "5精密研磨/DSC01299.JPG",
+  },
+  {
+    slug: "05-ground-blade-samples",
+    source: "5精密研磨/IMG_20260725_095542_054.jpg",
+  },
+  {
+    slug: "06-optical-inspection",
+    source: "6过程检验/IMG_20260725_100606_071.jpg",
+  },
+  {
+    slug: "06-surface-inspection",
+    source: "6过程检验/IMG_20260725_101319_087.jpg",
+  },
+  {
+    slug: "07-final-gauge-detail",
+    source: "7终检与记录/IMG_20260725_101718_096.jpg",
+    imageFilter: "crop=3600:2025:0:2200,scale=960:540:flags=lanczos",
+  },
+  {
+    slug: "08-edge-protection",
+    source: "8包装与追溯/IMG_20260725_102216_103.jpg",
+  },
+  {
+    slug: "08-box-packaging",
+    source: "8包装与追溯/IMG_20260725_102943_122.jpg",
+  },
+];
+
 function run(command, args) {
   const result = spawnSync(command, args, { encoding: "utf8" });
   if (result.status !== 0) {
@@ -169,4 +225,30 @@ for (const item of media) {
   run("ffmpeg", posterArgs);
 }
 
-console.log(`Processed ${media.length} manufacturing steps into ${outputRoot}`);
+for (const item of supportingMedia) {
+  const source = path.join(sourceRoot, item.source);
+  const output = path.join(outputRoot, `${item.slug}.jpg`);
+  assertSource(source);
+  run("ffmpeg", [
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-i",
+    source,
+    "-vf",
+    item.imageFilter ||
+      "scale=960:540:force_original_aspect_ratio=increase:flags=lanczos,crop=960:540",
+    "-frames:v",
+    "1",
+    "-q:v",
+    "3",
+    "-map_metadata",
+    "-1",
+    output,
+  ]);
+}
+
+console.log(
+  `Processed ${media.length} manufacturing steps and ${supportingMedia.length} supporting photographs into ${outputRoot}`
+);

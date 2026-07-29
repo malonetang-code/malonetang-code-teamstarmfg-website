@@ -27,13 +27,25 @@ layout: layouts/base.njk
       <ol class="process-evidence-list">
         {% for process in manufacturingProcesses %}
         <li class="process-evidence-row" id="process-{{ process.slug }}">
-          <div class="process-evidence-media">
-            {% if process.video %}
-            <video data-process-video muted loop playsinline preload="none" poster="{{ process.media }}" aria-hidden="true" tabindex="-1">
-              <source data-src="{{ process.video }}" type="video/mp4">
-            </video>
-            {% else %}
-            <img src="{{ process.media }}" alt="{{ process.alt[lang] }}" loading="lazy" width="1280" height="720">
+          <div class="process-evidence-visuals">
+            <div class="process-evidence-media">
+              {% if process.video %}
+              <video data-process-video muted loop playsinline preload="none" poster="{{ process.media }}" aria-hidden="true" tabindex="-1">
+                <source data-src="{{ process.video }}" type="video/mp4">
+              </video>
+              {% else %}
+              <img src="{{ process.media }}" alt="{{ process.alt[lang] }}" loading="lazy" width="1280" height="720">
+              {% endif %}
+            </div>
+            {% if process.supportingMedia %}
+            <div class="process-evidence-supporting">
+              {% for supporting in process.supportingMedia %}
+              <figure class="process-evidence-detail">
+                <img src="{{ supporting.media }}" alt="{{ supporting.alt[lang] }}" loading="lazy" width="960" height="540">
+                <figcaption>{{ supporting.caption[lang] }}</figcaption>
+              </figure>
+              {% endfor %}
+            </div>
             {% endif %}
           </div>
           <div class="process-evidence-copy">

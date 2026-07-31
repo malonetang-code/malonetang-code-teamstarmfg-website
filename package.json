@@ -6,6 +6,7 @@
   "scripts": {
     "build": "eleventy && node scripts/optimize-build.js",
     "build:review": "node scripts/build-github-review.js",
+    "build:approved-production": "node scripts/build-approved-review-production.mjs",
     "photos:process": "node scripts/process-product-photo-library.js",
     "process:manufacturing": "node scripts/process-manufacturing-media.js",
     "serve": "eleventy --serve --port=8080",

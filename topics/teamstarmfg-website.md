@@ -1,5 +1,10 @@
 # Teamstar Manufacturing 网站维护话题
 
+## 2026-07-31 已批准审核版转正式官网
+- 以审核镜像提交 `2a3705438a6a0309f32a4ea512c2a19889ab0ca2` 为批准基线，将较新视频 Home 映射为生产 `/` 与 `/en/`；审核专用 `/home/`、`/en/home/` 双入口未复制到生产。中英文主标语及页脚统一为“因需而制，以准致信。”与“Engineered for Your Needs. Trusted for Precision.”，真实厂区与制造 montage、已验收布局和其他文案保持一致。
+- 正式源码提交 `1340f88fae308fb422ee0921a97ef2fb630d0a08` 已推送；发布号 `20260731114227` 已部署至阿里云 `/www/wwwroot/wordpress`。46 个 sitemap 路由、关键静态文件哈希、双语桌面与移动端、视频/海报、菜单、CTA、RFQ 204、生产索引规则及浏览器控制台均通过公开或源站验证。
+- 即时回退目录为 `/www/wwwroot/wordpress.previous-20260731114227`，压缩备份为 `/root/teamstar-backups/20260731114227/site-before.tar.gz`（SHA-256 `77a75ebeb1428a5fdc54b17b9f00fd0982d6dae0fc87b4c23d0420f0a18fb8db`）。审核镜像仍在提交 `2a370543...`、GitHub Pages 状态 `built` 且保持 `noindex`。
+
 ## 2026-07-22 阶段 2L 定制制造结构化语义上线
 - 12 个中英文产品详情页已使用 Schema.org `Service` 表达按图、按样品和工况资料进行人工制造评估的真实业务；两个产品目录使用六项 `ItemList`，42 个可见面包屑页面均有对应 `BreadcrumbList`。
 - 当前官网没有固定价格、在线销售报价或真实评价数据，因此不添加 `Product`、`Offer`、评分、评价或 `FAQPage` 标记，避免搜索语义与实际业务不符。

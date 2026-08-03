@@ -1,5 +1,10 @@
 # Teamstar Manufacturing 网站维护话题
 
+## 2026-08-03 首页已批准两项调整转正式官网
+- 正式官网严格以审核提交 `722f80444c5bcb92912bd92ebde0feac2f88379e` 为视觉与内容来源，只完整删除中英文“三种询价方式”区块，并将底部 10 枚合作客户与设备品牌 Logo 做为连续双组横向滚动；`prefers-reduced-motion` 保持静态 10 枚布局。首屏视频、黑色方案区、工厂现场区和其他正式内容未改，黑色区未新增询价 CTA。
+- 正式源码提交 `1bca206a4c108f5494cefb4001d4cc1893c20ffe`，发布号 `20260803170138`、页面标记 `20260803-4a`。阿里云发布前备份为 `/root/teamstar-backups/20260803170138/site-before.tar.gz`（SHA-256 `f4b4b213302cc20ff8cea3ce43f5d9275e98a45486e49ae266779d4b5320a257`），即时回退目录为 `/www/wwwroot/wordpress.previous-20260803170138`。
+- 原子切换后 1,403 项清单、46/46 sitemap 路由、中英文桌面与移动端、reduced-motion、关键媒体与样式脚本哈希、MP4 Range 206、RFQ OPTIONS 204、无横向溢出及控制台均通过公开回读；Chromium 在 reduced-motion 仿真中取消了未采用的移动海报候选请求，该资源本身公网 200 且哈希一致，不是服务端缺失。
+
 ## 2026-07-31 已批准审核版转正式官网
 - 以审核镜像提交 `2a3705438a6a0309f32a4ea512c2a19889ab0ca2` 为批准基线，将较新视频 Home 映射为生产 `/` 与 `/en/`；审核专用 `/home/`、`/en/home/` 双入口未复制到生产。中英文主标语及页脚统一为“因需而制，以准致信。”与“Engineered for Your Needs. Trusted for Precision.”，真实厂区与制造 montage、已验收布局和其他文案保持一致。
 - 正式源码提交 `1340f88fae308fb422ee0921a97ef2fb630d0a08` 已推送；发布号 `20260731114227` 已部署至阿里云 `/www/wwwroot/wordpress`。46 个 sitemap 路由、关键静态文件哈希、双语桌面与移动端、视频/海报、菜单、CTA、RFQ 204、生产索引规则及浏览器控制台均通过公开或源站验证。

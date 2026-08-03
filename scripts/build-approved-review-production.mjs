@@ -12,8 +12,8 @@ const outputRoot = path.resolve(
   process.env.APPROVED_OUT || path.join(projectRoot, "dist-approved"),
 );
 const approvedReviewCommit =
-  "2a3705438a6a0309f32a4ea512c2a19889ab0ca2";
-const releaseVersion = "20260803-3b";
+  "722f80444c5bcb92912bd92ebde0feac2f88379e";
+const releaseVersion = "20260803-4a";
 const reviewBase = "/teamstar-website-review";
 
 function git(args) {
@@ -80,24 +80,6 @@ fs.rmSync(path.join(outputRoot, "en", "home"), {
   force: true,
 });
 
-fs.copyFileSync(
-  path.join(projectRoot, "src", "assets", "css", "home-reference-marquee.css"),
-  path.join(outputRoot, "assets", "css", "home-reference-marquee.css"),
-);
-fs.copyFileSync(
-  path.join(projectRoot, "src", "assets", "js", "home-reference-marquee.js"),
-  path.join(outputRoot, "assets", "js", "home-reference-marquee.js"),
-);
-
-function removeHomeRfqSection(content, heading) {
-  const headingIndex = content.indexOf(heading);
-  assert(headingIndex >= 0, `Home RFQ heading is missing: ${heading}`);
-  const sectionStart = content.lastIndexOf("<section", headingIndex);
-  const sectionClose = content.indexOf("</section>", headingIndex);
-  assert(sectionStart >= 0 && sectionClose > sectionStart, `Home RFQ section is malformed: ${heading}`);
-  return `${content.slice(0, sectionStart)}${content.slice(sectionClose + "</section>".length)}`;
-}
-
 const textExtensions = new Set([
   ".css",
   ".html",
@@ -116,24 +98,9 @@ for (const file of walk(outputRoot)) {
     .replaceAll("/en/home/", "/en/")
     .replaceAll("/home/", "/")
     .replaceAll("noindex,nofollow,noarchive", "index, follow")
+    .replace(/<meta name="teamstar-review-baseline" content="[^"]+">/g, "")
     .replace(/\?v=[A-Za-z0-9._-]+/g, `?v=${releaseVersion}`);
   if (file.endsWith(".html")) {
-    const relativeFile = path.relative(outputRoot, file);
-    if (relativeFile === "index.html" || relativeFile === path.join("en", "index.html")) {
-      content = removeHomeRfqSection(
-        content,
-        relativeFile === "index.html" ? "三种询价方式" : "Three Ways to Start",
-      );
-      content = content
-        .replace(
-          /<\/head>/i,
-          `<link rel="stylesheet" href="/assets/css/home-reference-marquee.css?v=${releaseVersion}"></head>`,
-        )
-        .replace(
-          /<\/body>/i,
-          `<script defer src="/assets/js/home-reference-marquee.js?v=${releaseVersion}"></script></body>`,
-        );
-    }
     content = content.replace(
       /<\/head>/i,
       `<meta name="teamstar-release" content="${releaseVersion}"></head>`,
@@ -167,6 +134,7 @@ for (const forbidden of [
   'href="/home/"',
   'href="/en/home/"',
   'action="/teamstar-website-review/api/rfq"',
+  "teamstar-review-baseline",
 ]) {
   assert(!allText.includes(forbidden), `Review-only production content remains: ${forbidden}`);
 }

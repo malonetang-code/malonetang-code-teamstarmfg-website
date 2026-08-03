@@ -6,8 +6,10 @@
   display: flex;
   grid-template-columns: none;
   width: max-content;
+  max-width: none;
   border: 0;
-  animation: home-logo-drift 40s linear infinite;
+  animation: home-logo-marquee 42s linear infinite;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
@@ -19,14 +21,24 @@
 .page-home-video .reference-section .logo-wall.is-home-marquee .logo-item {
   flex: 0 0 clamp(164px, 16vw, 220px);
   min-height: 108px;
-  border-top: 1px solid var(--line);
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  border-left: 0;
+  border: 1px solid var(--line);
 }
 
-.page-home-video .reference-section .logo-wall.is-home-marquee .logo-item:first-child {
-  border-left: 1px solid var(--line);
+@keyframes home-logo-marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .page-home-video .reference-section .logo-wall.is-home-marquee {
+    animation-duration: 36s;
+  }
+
+  .page-home-video .reference-section .logo-wall.is-home-marquee .logo-item {
+    flex-basis: 156px;
+    min-height: 96px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

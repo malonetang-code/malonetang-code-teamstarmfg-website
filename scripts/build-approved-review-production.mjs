@@ -13,7 +13,7 @@ const outputRoot = path.resolve(
 );
 const approvedReviewCommit =
   "2a3705438a6a0309f32a4ea512c2a19889ab0ca2";
-const releaseVersion = "20260731-3a";
+const releaseVersion = "20260803-3b";
 const reviewBase = "/teamstar-website-review";
 
 function git(args) {
@@ -80,6 +80,24 @@ fs.rmSync(path.join(outputRoot, "en", "home"), {
   force: true,
 });
 
+fs.copyFileSync(
+  path.join(projectRoot, "src", "assets", "css", "home-reference-marquee.css"),
+  path.join(outputRoot, "assets", "css", "home-reference-marquee.css"),
+);
+fs.copyFileSync(
+  path.join(projectRoot, "src", "assets", "js", "home-reference-marquee.js"),
+  path.join(outputRoot, "assets", "js", "home-reference-marquee.js"),
+);
+
+function removeHomeRfqSection(content, heading) {
+  const headingIndex = content.indexOf(heading);
+  assert(headingIndex >= 0, `Home RFQ heading is missing: ${heading}`);
+  const sectionStart = content.lastIndexOf("<section", headingIndex);
+  const sectionClose = content.indexOf("</section>", headingIndex);
+  assert(sectionStart >= 0 && sectionClose > sectionStart, `Home RFQ section is malformed: ${heading}`);
+  return `${content.slice(0, sectionStart)}${content.slice(sectionClose + "</section>".length)}`;
+}
+
 const textExtensions = new Set([
   ".css",
   ".html",
@@ -100,6 +118,22 @@ for (const file of walk(outputRoot)) {
     .replaceAll("noindex,nofollow,noarchive", "index, follow")
     .replace(/\?v=[A-Za-z0-9._-]+/g, `?v=${releaseVersion}`);
   if (file.endsWith(".html")) {
+    const relativeFile = path.relative(outputRoot, file);
+    if (relativeFile === "index.html" || relativeFile === path.join("en", "index.html")) {
+      content = removeHomeRfqSection(
+        content,
+        relativeFile === "index.html" ? "三种询价方式" : "Three Ways to Start",
+      );
+      content = content
+        .replace(
+          /<\/head>/i,
+          `<link rel="stylesheet" href="/assets/css/home-reference-marquee.css?v=${releaseVersion}"></head>`,
+        )
+        .replace(
+          /<\/body>/i,
+          `<script defer src="/assets/js/home-reference-marquee.js?v=${releaseVersion}"></script></body>`,
+        );
+    }
     content = content.replace(
       /<\/head>/i,
       `<meta name="teamstar-release" content="${releaseVersion}"></head>`,
@@ -170,6 +204,21 @@ assert(
 );
 assert(zhHome.includes("data-home-video"), "Chinese production Home video is missing");
 assert(enHome.includes("data-home-video"), "English production Home video is missing");
+assert(!zhHome.includes("三种询价方式"), "Chinese Home RFQ routes remain");
+assert(!enHome.includes("Three Ways to Start"), "English Home RFQ routes remain");
+assert(!zhHome.includes('class="rfq-paths"'), "Chinese Home RFQ cards remain");
+assert(!enHome.includes('class="rfq-paths"'), "English Home RFQ cards remain");
+assert(
+  zhHome.includes("home-reference-marquee.js") && enHome.includes("home-reference-marquee.js"),
+  "Home reference marquee script is missing",
+);
+
+for (const html of [zhHome, enHome]) {
+  const partnerStart = html.indexOf('<section class="section partner-section">');
+  const partnerEnd = html.indexOf("</section>", partnerStart);
+  assert(partnerStart >= 0 && partnerEnd > partnerStart, "Home manufacturing summary is missing");
+  assert(!html.slice(partnerStart, partnerEnd).includes("/rfq/"), "Home manufacturing summary contains an RFQ CTA");
+}
 
 for (const locale of ["rfq/index.html", "en/rfq/index.html"]) {
   const html = fs.readFileSync(path.join(outputRoot, locale), "utf8");

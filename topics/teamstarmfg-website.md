@@ -1,5 +1,11 @@
 # Teamstar Manufacturing 网站维护话题
 
+## 2026-09-03 1号方案已发布至正式官网
+- 用户明确批准将“1号方案（克制极简）”布置到正式官网；批准的评审源提交为 `bc61e5e751d89b60a19ea72f62aa5d19c25879f8`，正式源码提交为 `7eb1f75c93c1fd47de9b58823140df4b84448f7d`。
+- 发布号 `20260903135000`、页面标记 `20260903-1` 已上线。中文、英文主页及产品目录、制造能力、质量体系、公司概况、询价和已评审 AI-GEO 页面均采用同一克制极简视觉；评审方案路由未进入正式包。
+- 1,427 项文件清单、50/50 sitemap 路由、中英文桌面与移动端、关键资源、视频 Range、粘性页眉、多语言入口及 RFQ OPTIONS 204 均通过公网验证，未发现 CDN 传播异常。
+- 发布前备份位于 `/root/teamstar-backups/20260903135000/site-before.tar.gz`，即时回退目录为 `/www/wwwroot/wordpress.previous-20260903135000`；完整证据见 `deploy_packages/releases/20260903135000/DEPLOYMENT.md`。
+
 ## 2026-08-26 评审镜像迁至个人域名
 - 用户确认后续 Teamstar 网站评审默认发布到 `https://malonetang.com/teamstar-review/`；该路径使用服务端密码验证，默认记住当前设备 30 天，GitHub Pages 旧镜像仅保留为历史备用。
 - 评审静态文件独立位于个人站服务器 `/var/www/teamstar-review/`，认证服务为 `teamstar-review-auth.service`（仅监听 `127.0.0.1:8012`），Nginx 规则为 `/etc/nginx/snippets/teamstar-review.conf`。构建与部署工具位于上级目录 `review_hosting/`。

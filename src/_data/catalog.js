@@ -119,6 +119,7 @@ module.exports = {
     },
     {
       slug: "paper-slitting-knives",
+      guideSlug: "paper-slitter-knife-selection",
       code: "04 / PAPER CONVERTING",
       image: null,
       name: { zh: "纸品分切与裁切刀具", en: "Paper Slitting and Cutting Knives" },
@@ -158,6 +159,7 @@ module.exports = {
     },
     {
       slug: "textile-cutting-knives",
+      guideSlug: "textile-cutting-knife-selection",
       code: "05 / TEXTILE & APPAREL",
       image: null,
       name: { zh: "纺织与服装裁切刀具", en: "Textile and Apparel Cutting Knives" },
@@ -197,6 +199,7 @@ module.exports = {
     },
     {
       slug: "custom-industrial-blades",
+      guideSlug: "custom-machine-knife-from-drawing-or-sample",
       code: "06 / CUSTOM INDUSTRIAL",
       image: null,
       name: { zh: "异型与设备配套刀具", en: "Custom and Machine-specific Blades" },

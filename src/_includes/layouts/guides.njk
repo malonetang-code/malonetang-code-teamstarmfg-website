@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+<main id="main-content">
+  <section class="page-hero knowledge-hero">
+    <img class="hero-media" src="/images/web/factory-20260722/manufacturing-workshop.jpg" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
+    <div class="container page-hero-inner">
+      <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><span>{% if lang == "en" %}Buyer Guides{% else %}采购指南{% endif %}</span></nav>
+      <span class="eyebrow">INDUSTRIAL KNIFE BUYER GUIDES</span>
+      <h1>{% if lang == "en" %}Practical answers before you source a machine knife{% else %}工业刀具采购前，先把关键问题弄清楚{% endif %}</h1>
+      <p>{% if lang == "en" %}Three application-focused guides covering custom machine knives, textile cutting and paper slitting. Use them to identify the right technical information before sending an enquiry.{% else %}围绕异型刀、纺织服装裁切和纸品分切三类需求，说明询价前应确认哪些资料、怎样描述现场问题，以及供应商需要据此核对什么。{% endif %}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head knowledge-intro">
+        <div><span class="eyebrow">START WITH THE APPLICATION</span><h2>{% if lang == "en" %}Choose the guide closest to your project{% else %}选择最接近当前项目的指南{% endif %}</h2></div>
+        <p>{% if lang == "en" %}Each guide gives a direct answer, a buyer's checklist and the questions that normally need clarification. Final specifications still follow the submitted drawing, sample and operating conditions.{% else %}每篇指南都给出直接答案、资料清单和常见确认问题。最终规格仍以实际图纸、样品与工况评估为准。{% endif %}</p>
+      </div>
+      <div class="knowledge-card-grid">
+        {% for guide in buyerGuides %}
+        <article class="knowledge-card">
+          <span class="knowledge-card-code">{{ guide.code }}</span>
+          <h2><a href="{{ prefix }}/guides/{{ guide.slug }}/">{{ guide.title[lang] }}</a></h2>
+          <p>{{ guide.intro[lang] }}</p>
+          <a class="text-link" href="{{ prefix }}/guides/{{ guide.slug }}/">{% if lang == "en" %}Read the buyer guide{% else %}查看采购指南{% endif %}<span aria-hidden="true">→</span></a>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-system">
+    <div class="container knowledge-path">
+      <div><span class="eyebrow">FROM QUESTION TO RFQ</span><h2>{% if lang == "en" %}You do not need every answer before contacting us{% else %}资料不必一次备齐，也可以先沟通{% endif %}</h2></div>
+      <div><p>{% if lang == "en" %}Send the drawing, sample, photographs or machine information already available. Unknown items can be listed clearly and reviewed one by one.{% else %}把现有的图纸、样品、照片或设备信息先发来，并把暂不确定的项目列明，后续可逐项核对。{% endif %}</p><a class="button button-dark" href="{{ prefix }}/rfq/#rfq-form">{% if lang == "en" %}Start a technical RFQ{% else %}发起技术询价{% endif %}</a></div>
+    </div>
+  </section>
+</main>

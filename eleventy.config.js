@@ -28,6 +28,27 @@ function buildManufacturingService(product, lang, canonicalUrl, description, sit
   };
 }
 
+function buildBuyerGuideArticle(guide, lang, canonicalUrl, site) {
+  const pageUrl = `${site.url}${canonicalUrl}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: guide.title[lang],
+    description: guide.description[lang],
+    image: `${site.url}${guide.image}`,
+    inLanguage: lang === "en" ? "en" : "zh-CN",
+    author: { "@id": `${site.url}/#organization` },
+    publisher: { "@id": `${site.url}/#organization` },
+    about: {
+      "@type": "Service",
+      "@id": `${site.url}${lang === "en" ? "/en" : ""}/products/${guide.productSlug}/#service`
+    },
+    mainEntityOfPage: { "@id": `${pageUrl}#webpage` }
+  };
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({
@@ -110,6 +131,10 @@ module.exports = function (eleventyConfig) {
       }),
       mainEntityOfPage: { "@id": `${site.url}${canonicalUrl}#webpage` }
     };
+  });
+
+  eleventyConfig.addFilter("buyerGuideArticleSchema", (guide, lang, canonicalUrl, site) => {
+    return buildBuyerGuideArticle(guide, lang, canonicalUrl, site);
   });
 
   return {

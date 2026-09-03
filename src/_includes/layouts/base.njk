@@ -39,11 +39,27 @@
         "@type": "Organization",
         "@id": "{{ site.url }}/#organization",
         "name": "Teamstar Manufacturing",
-        "alternateName": ["Qunxin Industrial", "群新工业", "Wei Qun Cutting Tools Group"],
+        "legalName": "群新工业（漳州）有限公司",
+        "alternateName": ["Qunxin Industrial", "群新工业", "Teamstar Manufacturing (Zhangzhou) Ltd."],
         "url": "{{ site.url }}/",
         "logo": "{{ site.url }}/images/web/brand-sign.jpg",
+        "foundingDate": "2024",
         "email": "{{ site.email }}",
         "telephone": "{{ site.phoneHref }}",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Great Knives Manufacture Co., Ltd.",
+          "alternateName": "Wei Qun Cutting Tools Group",
+          "url": "https://www.greatknives.com.tw/"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "{{ site.email }}",
+          "telephone": "{{ site.phoneHref }}",
+          "availableLanguage": ["Chinese", "English"]
+        },
+        "knowsAbout": ["Custom industrial machine knives", "Textile and apparel cutting knives", "Paper slitting knives", "Food processing machine knives", "Plastic crusher and granulator knives", "Woodworking machine knives"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "No. 6 Shunxing Road, Gutong Farm, Changtai District",
@@ -68,7 +84,7 @@
         "description": "{{ description }}",
         "isPartOf": { "@id": "{{ site.url }}/#website" },
         "about": { "@id": "{{ site.url }}/#organization" },
-        {% if productSlug %}"mainEntity": { "@id": "{{ site.url }}{{ canonicalUrl }}#service" },{% elseif pageType == "products" %}"mainEntity": { "@id": "{{ site.url }}{{ canonicalUrl }}#custom-manufacturing-services" },{% endif %}
+        {% if productSlug %}"mainEntity": { "@id": "{{ site.url }}{{ canonicalUrl }}#service" },{% elseif guideSlug %}"mainEntity": { "@id": "{{ site.url }}{{ canonicalUrl }}#article" },{% elseif pageType == "products" %}"mainEntity": { "@id": "{{ site.url }}{{ canonicalUrl }}#custom-manufacturing-services" },{% endif %}
         "inLanguage": "{% if lang == 'en' %}en{% else %}zh-CN{% endif %}"
       }
     ]
@@ -96,6 +112,9 @@
   <script type="application/ld+json">{{ structuredProduct | manufacturingServiceSchema(lang, canonicalUrl, description, site) | jsonLd | safe }}</script>
   {% elseif pageType == "products" %}
   <script type="application/ld+json">{{ catalog.products | manufacturingCatalogSchema(lang, canonicalUrl, site) | jsonLd | safe }}</script>
+  {% elseif guideSlug %}
+  {% set structuredGuide = buyerGuides | findBySlug(guideSlug) %}
+  <script type="application/ld+json">{{ structuredGuide | buyerGuideArticleSchema(lang, canonicalUrl, site) | jsonLd | safe }}</script>
   {% endif %}
 </head>
 <body class="page-{{ pageType or 'standard' }}">

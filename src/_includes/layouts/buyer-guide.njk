@@ -1,0 +1,78 @@
+---
+layout: layouts/base.njk
+---
+{% set prefix = "/en" if lang == "en" else "" %}
+{% set guide = buyerGuides | findBySlug(guideSlug) %}
+{% set product = catalog.products | findBySlug(guide.productSlug) %}
+<main id="main-content">
+  <article class="buyer-guide-article">
+    <section class="page-hero buyer-guide-hero">
+      <img class="hero-media" src="{{ guide.image }}" alt="" loading="eager" fetchpriority="high" eleventy:widths="640,960,1440,1920" sizes="100vw">
+      <div class="container page-hero-inner">
+        <nav class="breadcrumbs"><a href="{{ prefix }}/">{% if lang == "en" %}Home{% else %}首页{% endif %}</a><span>/</span><a href="{{ prefix }}/guides/">{% if lang == "en" %}Buyer Guides{% else %}采购指南{% endif %}</a><span>/</span><span>{{ product.name[lang] }}</span></nav>
+        <span class="eyebrow">{{ guide.code }}</span>
+        <h1>{{ guide.title[lang] }}</h1>
+        <p>{{ guide.intro[lang] }}</p>
+        <div class="page-hero-actions"><a class="button button-dark" href="#direct-answer">{% if lang == "en" %}Get the short answer{% else %}先看简要答案{% endif %}</a><a class="text-link" href="{{ prefix }}/products/{{ product.slug }}/">{% if lang == "en" %}View this product family{% else %}查看对应产品{% endif %}<span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="direct-answer">
+      <div class="container answer-panel">
+        <div><span class="eyebrow">SHORT ANSWER</span><h2>{% if lang == "en" %}What a buyer should do first{% else %}采购方第一步应该做什么{% endif %}</h2></div>
+        <p>{{ guide.directAnswer[lang] }}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">BUYER CHECKLIST</span><h2>{{ guide.decisionsTitle[lang] }}</h2></div>
+          <p>{% if lang == "en" %}These inputs help separate confirmed requirements from items that still need technical review.{% else %}这些资料有助于把已确认的要求与仍需评估的项目分开，减少来回猜测。{% endif %}</p>
+        </div>
+        <div class="guide-decision-grid">
+          {% for item in guide.decisions %}
+          <div class="guide-decision"><b>0{{ loop.index }}</b><h3>{{ item.label[lang] }}</h3><p>{{ item.detail[lang] }}</p></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-system">
+      <div class="container guide-question-layout">
+        <div class="guide-question-main">
+          <span class="eyebrow">COMMON BUYER QUESTIONS</span>
+          <h2>{% if lang == "en" %}Questions worth clarifying before an order{% else %}下单前值得先确认的问题{% endif %}</h2>
+          <div class="guide-question-list">
+            {% for item in guide.questions %}
+            <section>
+              <h3>{{ item.question[lang] }}</h3>
+              <p>{{ item.answer[lang] }}</p>
+            </section>
+            {% endfor %}
+          </div>
+        </div>
+        <aside class="guide-send-panel">
+          <span class="eyebrow">WHAT TO SEND</span>
+          <h2>{% if lang == "en" %}Useful files and project details{% else %}建议随询价提供的资料{% endif %}</h2>
+          <ul>
+            {% for item in guide.send[lang] %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+          <a class="button button-dark" href="{{ prefix }}/rfq/?product={{ product.slug }}#rfq-form">{% if lang == "en" %}Submit this project{% else %}提交这个项目{% endif %}</a>
+        </aside>
+      </div>
+      <div class="container guide-scope-note"><strong>{% if lang == "en" %}Technical confirmation{% else %}技术确认说明{% endif %}</strong><p>{{ guide.reviewNote[lang] }}</p></div>
+    </section>
+
+    <section class="section">
+      <div class="container guide-related">
+        <div><span class="eyebrow">NEXT STEP</span><h2>{% if lang == "en" %}Review the evidence behind the quotation{% else %}继续查看报价与制造依据{% endif %}</h2></div>
+        <nav aria-label="{% if lang == 'en' %}Related resources{% else %}相关内容{% endif %}">
+          <a href="{{ prefix }}/products/{{ product.slug }}/"><strong>{{ product.name[lang] }}</strong><span>{% if lang == "en" %}Product scope and RFQ inputs{% else %}产品范围与询价资料{% endif %}</span></a>
+          <a href="{{ prefix }}/capabilities/"><strong>{% if lang == "en" %}Manufacturing capabilities{% else %}制造能力{% endif %}</strong><span>{% if lang == "en" %}Process scope and factory evidence{% else %}工艺范围与工厂实景{% endif %}</span></a>
+          <a href="{{ prefix }}/quality/"><strong>{% if lang == "en" %}Quality and inspection{% else %}质量与检验{% endif %}</strong><span>{% if lang == "en" %}Inspection scope and quality records{% else %}检验范围与质量记录{% endif %}</span></a>
+        </nav>
+      </div>
+    </section>
+  </article>
+</main>

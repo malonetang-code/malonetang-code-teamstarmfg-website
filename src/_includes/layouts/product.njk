@@ -21,6 +21,16 @@ layout: layouts/base.njk
       <div class="detail-proof-item"><strong>{% if lang == "en" %}Review focus{% else %}评估重点{% endif %}</strong><span>{{ product.focus[lang] }}</span></div>
     </div>
   </section>
+  {% if product.guideSlug %}
+  {% set buyerGuide = buyerGuides | findBySlug(product.guideSlug) %}
+  <section class="product-guide-link-section">
+    <div class="container product-guide-link">
+      <div><span class="eyebrow">BUYER GUIDE</span><h2>{{ buyerGuide.title[lang] }}</h2></div>
+      <p>{% if lang == "en" %}Review the machine, material and application information that helps define this knife before sending an enquiry.{% else %}在询价前先确认设备、被切材料与实际问题，了解哪些资料有助于准确评估这类刀具。{% endif %}</p>
+      <a class="text-link" href="{{ prefix }}/guides/{{ buyerGuide.slug }}/">{% if lang == "en" %}Read the buyer guide{% else %}查看采购指南{% endif %}<span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+  {% endif %}
   <section class="section product-start-section" id="project-start">
     <div class="container">
       <div class="section-head product-start-head">

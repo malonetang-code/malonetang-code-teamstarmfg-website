@@ -8,6 +8,7 @@ let jsonLdBlocks = 0;
 let breadcrumbPages = 0;
 let servicePages = 0;
 let catalogPages = 0;
+let articlePages = 0;
 
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -69,6 +70,10 @@ function checkFile(filePath) {
     for (const required of ["Organization", "WebSite", "WebPage"]) {
       if (!graphTypes.includes(required)) errors.push(`${relative}: base graph is missing ${required}`);
     }
+    const organization = findNode([graph], "Organization");
+    if (!organization?.legalName || !organization?.foundingDate || !organization?.parentOrganization || !organization?.contactPoint) {
+      errors.push(`${relative}: Organization is missing legal name, founding date, parent organization or contact point`);
+    }
   }
 
   const hasVisibleBreadcrumb = html.includes('class="breadcrumbs"');
@@ -114,6 +119,22 @@ function checkFile(filePath) {
     }
   }
 
+  const isBuyerGuide = html.includes('class="buyer-guide-article"');
+  if (isBuyerGuide) {
+    articlePages += 1;
+    const article = findNode(documents, "TechArticle");
+    if (!article) {
+      errors.push(`${relative}: buyer guide is missing TechArticle JSON-LD`);
+    } else {
+      for (const key of ["@id", "url", "headline", "description", "image", "inLanguage", "author", "publisher", "about", "mainEntityOfPage"]) {
+        if (!article[key]) errors.push(`${relative}: TechArticle is missing ${key}`);
+      }
+      if (article.author?.["@id"] !== "https://www.teamstarmfg.com/#organization" || article.publisher?.["@id"] !== "https://www.teamstarmfg.com/#organization") {
+        errors.push(`${relative}: TechArticle author and publisher must reference the canonical organization`);
+      }
+    }
+  }
+
   const unsupportedTypes = new Set(["Product", "Offer", "AggregateOffer", "Review", "AggregateRating", "FAQPage"]);
   const presentUnsupported = collectTypes(documents).filter((type) => unsupportedTypes.has(type));
   if (presentUnsupported.length) {
@@ -130,10 +151,11 @@ walk(outputDir);
 
 if (servicePages !== 12) errors.push(`expected 12 bilingual product Service pages, found ${servicePages}`);
 if (catalogPages !== 2) errors.push(`expected 2 bilingual product ItemList pages, found ${catalogPages}`);
+if (articlePages !== 6) errors.push(`expected 6 bilingual buyer-guide TechArticle pages, found ${articlePages}`);
 if (errors.length) {
   console.error("Structured-data check failed:");
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`Structured-data check passed: ${jsonLdBlocks} JSON-LD blocks parse across ${htmlFiles} pages, ${breadcrumbPages} visible breadcrumb pages match BreadcrumbList markup, 12 product families use Service and two catalogs use six-item ItemList data`);
+console.log(`Structured-data check passed: ${jsonLdBlocks} JSON-LD blocks parse across ${htmlFiles} pages, ${breadcrumbPages} visible breadcrumb pages match BreadcrumbList markup, 12 product families use Service, two catalogs use six-item ItemList data, and six buyer guides use TechArticle`);

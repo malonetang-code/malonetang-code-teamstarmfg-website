@@ -18,7 +18,8 @@
     "check:process": "node scripts/check-manufacturing-process.js",
     "check:quality": "node scripts/check-quality.js",
     "check:schema": "node scripts/check-structured-data.js",
-    "check:rfq": "node scripts/check-rfq.js"
+    "check:rfq": "node scripts/check-rfq.js",
+    "check:geo": "node scripts/check-ai-geo.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",

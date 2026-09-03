@@ -1,5 +1,11 @@
 # Teamstar Manufacturing 网站维护话题
 
+## 2026-08-26 评审镜像迁至个人域名
+- 用户确认后续 Teamstar 网站评审默认发布到 `https://malonetang.com/teamstar-review/`；该路径使用服务端密码验证，默认记住当前设备 30 天，GitHub Pages 旧镜像仅保留为历史备用。
+- 评审静态文件独立位于个人站服务器 `/var/www/teamstar-review/`，认证服务为 `teamstar-review-auth.service`（仅监听 `127.0.0.1:8012`），Nginx 规则为 `/etc/nginx/snippets/teamstar-review.conf`。构建与部署工具位于上级目录 `review_hosting/`。
+- 公开验收已覆盖匿名拦截、有效登录、30 天安全 Cookie、注销、中文/英文首页、产品/质量/公司/GEO 指南、静态资源、桌面与 390px 移动端；所有评审页面继续 `noindex,nofollow,noarchive`，真实 RFQ 接口保持 404。
+- 本次部署备份为 `/root/malonetang-site-backups/teamstar-review-20260826152238`；Teamstar 正式站、正式源码和个人站 `/var/www/html/` 均未修改。
+
 ## 2026-07-31 已批准审核版转正式官网
 - 以审核镜像提交 `2a3705438a6a0309f32a4ea512c2a19889ab0ca2` 为批准基线，将较新视频 Home 映射为生产 `/` 与 `/en/`；审核专用 `/home/`、`/en/home/` 双入口未复制到生产。中英文主标语及页脚统一为“因需而制，以准致信。”与“Engineered for Your Needs. Trusted for Precision.”，真实厂区与制造 montage、已验收布局和其他文案保持一致。
 - 正式源码提交 `1340f88fae308fb422ee0921a97ef2fb630d0a08` 已推送；发布号 `20260731114227` 已部署至阿里云 `/www/wwwroot/wordpress`。46 个 sitemap 路由、关键静态文件哈希、双语桌面与移动端、视频/海报、菜单、CTA、RFQ 204、生产索引规则及浏览器控制台均通过公开或源站验证。

@@ -2,9 +2,11 @@
   const root = document.documentElement;
   const isEnglish = root.lang.toLowerCase().startsWith("en");
   root.dataset.siteThemePreview = "e";
+  root.dataset.reviewConcept = "1";
   document.body.classList.add("site-theme-preview-active");
   mountKeyboardNavigationMode();
   mountProductHero();
+  mountPageHeroReveal();
   cleanChineseInterfaceLabels();
   mountLanguageMenu();
 
@@ -35,6 +37,35 @@
     image.alt = "";
     image.decoding = "async";
     image.fetchPriority = "high";
+  }
+
+  function mountPageHeroReveal() {
+    if (document.body.classList.contains("page-home")) return;
+
+    const media = document.querySelector(".page-hero > picture");
+    if (!media) return;
+
+    media.classList.add("c1-page-hero-media-wipe");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const playReveal = () => {
+      media.dataset.c1RevealRuns = String(Number(media.dataset.c1RevealRuns || "0") + 1);
+      if (reducedMotion.matches) {
+        media.classList.add("is-visible");
+        return;
+      }
+
+      root.classList.add("c1-subpage-motion-ready");
+      media.classList.remove("is-visible");
+      void media.offsetWidth;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => media.classList.add("is-visible"));
+      });
+    };
+
+    playReveal();
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) playReveal();
+    });
   }
 
   function cleanChineseInterfaceLabels() {

@@ -6,8 +6,8 @@ import { fileURLToPath } from "node:url";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reviewRoot = path.resolve(process.env.APPROVED_REVIEW_DIR || path.join(projectRoot, "..", "teamstar-website-review-redesign"));
 const outputRoot = path.resolve(process.env.APPROVED_OUT || path.join(projectRoot, "dist-approved"));
-const approvedReviewCommit = "bc61e5e751d89b60a19ea72f62aa5d19c25879f8";
-const releaseVersion = process.env.TEAMSTAR_RELEASE_MARKER || "20260903-1";
+const approvedReviewCommit = "b5d0930750fd6bfc46a8915fa0cccbaecd729fa2";
+const releaseVersion = process.env.TEAMSTAR_RELEASE_MARKER || "20260903-2";
 
 function git(args) {
   return execFileSync("git", ["-C", reviewRoot, ...args], { encoding: "utf8" }).trim();
@@ -45,7 +45,9 @@ const cssRoot = path.join(outputRoot, "assets", "css");
 const jsRoot = path.join(outputRoot, "assets", "js");
 fs.copyFileSync(path.join(reviewRoot, "full-style-preview", "site-theme-preview.css"), path.join(cssRoot, "concept-1-theme.css"));
 fs.copyFileSync(path.join(reviewRoot, "full-style-preview", "full-style-preview.css"), path.join(cssRoot, "concept-1-home.css"));
+fs.copyFileSync(path.join(reviewRoot, "full-style-preview", "concept-1-motion.css"), path.join(cssRoot, "concept-1-motion.css"));
 fs.copyFileSync(path.join(projectRoot, "src", "assets", "js", "concept-1-runtime.js"), path.join(jsRoot, "concept-1-runtime.js"));
+fs.copyFileSync(path.join(reviewRoot, "full-style-preview", "concept-1-motion.js"), path.join(jsRoot, "concept-1-motion.js"));
 
 const heroTarget = path.join(outputRoot, "images", "web", "process-20260901", "home-manufacturing-closeup.mp4");
 fs.mkdirSync(path.dirname(heroTarget), { recursive: true });
@@ -62,9 +64,11 @@ for (const file of walk(outputRoot)) {
     .replaceAll("/teamstar-review/", "/")
     .replaceAll("/en/home/", "/en/")
     .replaceAll("/home/", "/")
-    .replaceAll("/full-style-preview/site-theme-preview.css?v=20260901-concepts-123", `/assets/css/concept-1-theme.css?v=${releaseVersion}`)
-    .replaceAll("/full-style-preview/full-style-preview.css?v=20260901-concepts-123", `/assets/css/concept-1-home.css?v=${releaseVersion}`)
-    .replaceAll("/full-style-preview/site-theme-preview.js?v=20260901-concepts-123", `/assets/js/concept-1-runtime.js?v=${releaseVersion}`)
+    .replaceAll("/full-style-preview/site-theme-preview.css", "/assets/css/concept-1-theme.css")
+    .replaceAll("/full-style-preview/full-style-preview.css", "/assets/css/concept-1-home.css")
+    .replaceAll("/full-style-preview/concept-1-motion.css", "/assets/css/concept-1-motion.css")
+    .replaceAll("/full-style-preview/site-theme-preview.js", "/assets/js/concept-1-runtime.js")
+    .replaceAll("/full-style-preview/concept-1-motion.js", "/assets/js/concept-1-motion.js")
     .replaceAll("/full-style-preview/media/home-manufacturing-closeup-preview-20260828.mp4", "/images/web/process-20260901/home-manufacturing-closeup.mp4")
     .replaceAll("noindex,nofollow,noarchive", "index, follow")
     .replace(/\?v=[A-Za-z0-9._-]+/g, `?v=${releaseVersion}`);
@@ -80,7 +84,7 @@ for (const file of walk(outputRoot)) {
   fs.writeFileSync(file, content);
 }
 
-for (const stylesheet of ["concept-1-theme.css", "concept-1-home.css"]) {
+for (const stylesheet of ["concept-1-theme.css", "concept-1-home.css", "concept-1-motion.css"]) {
   const stylesheetPath = path.join(cssRoot, stylesheet);
   fs.writeFileSync(stylesheetPath, fs.readFileSync(stylesheetPath, "utf8").replace(/^@import url\([^\n]+\);\s*/m, ""));
 }

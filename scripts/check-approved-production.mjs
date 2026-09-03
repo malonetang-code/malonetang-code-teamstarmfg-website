@@ -2,7 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "dist-approved");
+const root = path.resolve(
+  process.env.APPROVED_OUT || path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "dist-approved"),
+);
 const errors = [];
 const files = (directory) => fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
   const target = path.join(directory, entry.name);
@@ -36,11 +38,33 @@ for (const file of files(root).filter((target) => target.endsWith(".html"))) {
 for (const asset of [
   "assets/css/concept-1-theme.css",
   "assets/css/concept-1-home.css",
+  "assets/css/concept-1-motion.css",
   "assets/js/concept-1-runtime.js",
+  "assets/js/concept-1-motion.js",
   "images/web/process-20260901/home-manufacturing-closeup.mp4",
   "images/web/process-20260725/06-surface-inspection-full.jpg",
 ]) {
   if (!fs.existsSync(path.join(root, asset))) errors.push(`release: missing ${asset}`);
+}
+
+for (const [file, heading] of [
+  ["products/index.html", "产品目录"],
+  ["capabilities/index.html", "制造能力"],
+  ["quality/index.html", "质量体系"],
+  ["company/index.html", "公司概况"],
+  ["en/products/index.html", "Products"],
+  ["en/capabilities/index.html", "Manufacturing"],
+  ["en/quality/index.html", "Quality"],
+  ["en/company/index.html", "Company"],
+]) {
+  const html = fs.readFileSync(path.join(root, file), "utf8");
+  if (!html.includes(`<h1>${heading}</h1>`)) errors.push(`${file}: expected banner title ${heading}`);
+}
+
+for (const file of ["index.html", "en/index.html"]) {
+  const html = fs.readFileSync(path.join(root, file), "utf8");
+  if (!html.includes("/assets/css/concept-1-motion.css")) errors.push(`${file}: Home motion stylesheet missing`);
+  if (!html.includes("/assets/js/concept-1-motion.js")) errors.push(`${file}: Home motion runtime missing`);
 }
 
 if (errors.length) {
